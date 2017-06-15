@@ -35,7 +35,7 @@ const {appReady, is} = require('electron-util');
 
 ## Related
 
-- [electron-config](https://github.com/sindresorhus/electron-config) - Simple config handling for your Electron app or module
+- [electron-store](https://github.com/sindresorhus/electron-store) - Save and load data like user preferences, app state, cache, etc
 - [electron-debug](https://github.com/sindresorhus/electron-debug) - Adds useful debug features to your Electron app
 - [electron-context-menu](https://github.com/sindresorhus/electron-context-menu) - Context menu for your Electron app
 - [electron-dl](https://github.com/sindresorhus/electron-dl) - Simplified file downloads for your Electron app
