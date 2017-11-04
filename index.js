@@ -5,7 +5,8 @@ const electron = require('electron');
 // Maybe use Proxy to reduce boilerplate
 const api = {
 	app: electron.app || electron.remote.app,
-	BrowserWindow: electron.BrowserWindow || electron.remote.BrowserWindow
+	BrowserWindow: electron.BrowserWindow || electron.remote.BrowserWindow,
+	dialog: electron.dialog | electron.remote.dialog
 };
 
 exports.api = api;
