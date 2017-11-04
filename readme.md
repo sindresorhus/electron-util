@@ -4,8 +4,6 @@
 
 Just an opinionated collection of things I often need when using Electron.
 
-**Don't use this yet.**
-
 
 ## Install
 
@@ -30,7 +28,7 @@ const {appReady, is} = require('electron-util');
 
 ## API
 
-[Read the code.](index.js)
+[Read the code, for now.](index.js)
 
 
 ## Related
