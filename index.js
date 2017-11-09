@@ -8,7 +8,7 @@ const node = require('./node');
 const api = {
 	app: electron.app || electron.remote.app,
 	BrowserWindow: electron.BrowserWindow || electron.remote.BrowserWindow,
-	dialog: electron.dialog | electron.remote.dialog
+	dialog: electron.dialog || electron.remote.dialog
 };
 
 exports.api = api;
