@@ -14,7 +14,8 @@
 		"test": "xo && ava"
 	},
 	"files": [
-		"index.js"
+		"index.js",
+		"node.js"
 	],
 	"keywords": [
 		"electron",
@@ -27,6 +28,9 @@
 		"utils",
 		"useful"
 	],
+	"dependencies": {
+		"electron-is-dev": "^0.3.0"
+	},
 	"devDependencies": {
 		"ava": "*",
 		"delay": "^2.0.0",

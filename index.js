@@ -1,5 +1,7 @@
 'use strict';
 const electron = require('electron');
+const isDev = require('electron-is-dev');
+const node = require('./node');
 
 // TODO: Implement everything
 // Maybe use Proxy to reduce boilerplate
@@ -12,11 +14,16 @@ const api = {
 exports.api = api;
 
 const is = {
-	main: process.type === 'browser',
-	renderer: process.type === 'renderer',
 	macos: process.platform === 'darwin',
 	linux: process.platform === 'linux',
-	window: process.platform === 'win32'
+	window: process.platform === 'win32',
+	main: process.type === 'browser',
+	renderer: process.type === 'renderer',
+	usingAsar: node.isUsingAsar,
+	development: isDev,
+	macAppStore: process.mas === true,
+	windowsStore: process.windowsStore === true
+
 };
 
 exports.is = is;
@@ -29,13 +36,17 @@ exports.appReady = new Promise(resolve => {
 	}
 });
 
-exports.select = obj => {
+exports.electronVersion = node.electronVersion;
+
+exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
+
+exports.platform = obj => {
 	let platform = process.platform;
 
 	if (platform === 'darwin') {
 		platform = 'macos';
 	} else if (platform === 'win32') {
-		platform = 'window';
+		platform = 'windows';
 	}
 
 	const fn = platform in obj ? obj[platform] : obj.default;
@@ -50,3 +61,5 @@ const activeWindow = () => is.main ?
 exports.activeWindow = activeWindow;
 
 exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScript(code);
+
+exports.fixPathForAsarUnpack = node.fixPathForAsarUnpack;
