@@ -49,8 +49,8 @@ Check for various things:
 - `windows` - Running on Windows
 - `main` - Running on the [main process](https://electron.atom.io/docs/tutorial/quick-start/#main-process)
 - `renderer` - Running on the [renderer process](https://electron.atom.io/docs/tutorial/quick-start/#renderer-process)
-- `usingAsar` - The app is using [ASAR](https://electron.atom.io/docs/tutorial/application-packaging/).
 - `development` - Running in development, not in production
+- `usingAsar` - The app is using [ASAR](https://electron.atom.io/docs/tutorial/application-packaging/)
 - `macAppStore` - The app is an Mac App Store build
 - `windowsStore` - The app is a Windows Store AppX build
 
