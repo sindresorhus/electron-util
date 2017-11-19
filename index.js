@@ -16,7 +16,7 @@ exports.api = api;
 const is = {
 	macos: process.platform === 'darwin',
 	linux: process.platform === 'linux',
-	window: process.platform === 'win32',
+	windows: process.platform === 'win32',
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
 	usingAsar: node.isUsingAsar,
