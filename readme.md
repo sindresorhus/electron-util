@@ -78,7 +78,7 @@ Chrome version in Electron.
 
 Type: `Function`
 
-Accepts an object with the keys as either `macos`, `windows`, `linux`, or `default`, and picks the appropriate key depending on the current platform. If platform key is matched, the `default` key is used if it exists. If the value is a function, it will be executed, and the returned value will be used.
+Accepts an object with the keys as either `macos`, `windows`, `linux`, or `default`, and picks the appropriate key depending on the current platform. If no platform key is matched, the `default` key is used if it exists. If the value is a function, it will be executed, and the returned value will be used.
 
 ```js
 init({
