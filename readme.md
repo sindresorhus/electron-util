@@ -2,7 +2,7 @@
 
 > Useful utilities for developing Electron apps and modules
 
-You can use this module directly in both the [main and renderer process](https://electron.atom.io/docs/tutorial/quick-start/#main-process).
+You can use this module directly in both the [main and renderer process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 
 
 ## Install
@@ -34,9 +34,9 @@ Type: `Object`
 
 Access some Electron APIs in both main and renderer process without having to care about which one you're in:
 
-- [`app`](https://electron.atom.io/docs/api/app/)
-- [`BrowserWindow`](https://electron.atom.io/docs/api/browser-window/)
-- [`dialog`](https://electron.atom.io/docs/api/dialog/)
+- [`app`](https://electronjs.org/docs/api/app/)
+- [`BrowserWindow`](https://electronjs.org/docs/api/browser-window/)
+- [`dialog`](https://electronjs.org/docs/api/dialog/)
 
 ### is
 
@@ -47,10 +47,10 @@ Check for various things:
 - `macos` - Running on macOS
 - `linux` - Running on Linux
 - `windows` - Running on Windows
-- `main` - Running on the [main process](https://electron.atom.io/docs/tutorial/quick-start/#main-process)
-- `renderer` - Running on the [renderer process](https://electron.atom.io/docs/tutorial/quick-start/#renderer-process)
+- `main` - Running on the [main process](https://electronjs.org/docs/tutorial/quick-start/#main-process)
+- `renderer` - Running on the [renderer process](https://electronjs.org/docs/tutorial/quick-start/#renderer-process)
 - `development` - Running in development, not in production
-- `usingAsar` - The app is using [ASAR](https://electron.atom.io/docs/tutorial/application-packaging/)
+- `usingAsar` - The app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/)
 - `macAppStore` - The app is an Mac App Store build
 - `windowsStore` - The app is a Windows Store AppX build
 
@@ -58,7 +58,7 @@ Check for various things:
 
 Type: `Promise`
 
-Resolves when the [app is ready](https://electron.atom.io/docs/api/app/#event-ready).
+Resolves when the [app is ready](https://electronjs.org/docs/api/app/#event-ready).
 
 ### electronVersion
 
@@ -108,7 +108,7 @@ Returns a promise for the result of the executed code or a rejected promise if t
 
 Type: `Function`
 
-ASAR is great, but it has [limitations when it comes to executing binaries](https://electron.atom.io/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive). For example, [`child_process.spawn()` is not automatically handled](https://github.com/electron/electron/issues/9459). So you would have to unpack the binary, for example, with the [`asarUnpack`](https://www.electron.build/configuration/configuration#configuration-asarUnpack) option in `electron-builder`. This creates a problem as the path to the binary changes, but your `path.join(__dirname, 'binary')` is not changed. To make it work you need to fix the path. That's the purpose of this method.
+ASAR is great, but it has [limitations when it comes to executing binaries](https://electronjs.org/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive). For example, [`child_process.spawn()` is not automatically handled](https://github.com/electron/electron/issues/9459). So you would have to unpack the binary, for example, with the [`asarUnpack`](https://www.electron.build/configuration/configuration#configuration-asarUnpack) option in `electron-builder`. This creates a problem as the path to the binary changes, but your `path.join(__dirname, 'binary')` is not changed. To make it work you need to fix the path. That's the purpose of this method.
 
 Before:
 
@@ -154,7 +154,7 @@ Electron version. Returns `0.0.0` when not in an Electron app.
 
 Type: `boolean`
 
-Check if the Electron app you're running in is using [ASAR](https://electron.atom.io/docs/tutorial/application-packaging/).
+Check if the Electron app you're running in is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
 
 ### fixPathForAsarUnpack(path)
 
