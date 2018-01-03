@@ -29,7 +29,8 @@
 		"useful"
 	],
 	"dependencies": {
-		"electron-is-dev": "^0.3.0"
+		"electron-is-dev": "^0.3.0",
+		"pkg-dir": "^2.0.0"
 	},
 	"devDependencies": {
 		"ava": "*",

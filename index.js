@@ -1,7 +1,13 @@
 'use strict';
+const path = require('path');
 const electron = require('electron');
 const isDev = require('electron-is-dev');
+const pkgDir = require('pkg-dir');
 const node = require('./node');
+
+// Prevent caching of this module so module.parent is always accurate
+delete require.cache[__filename];
+const parentDir = path.dirname((module.parent && module.parent.filename) || '.');
 
 // TODO: Implement everything
 // Maybe use Proxy to reduce boilerplate
@@ -36,6 +42,8 @@ exports.appReady = new Promise(resolve => {
 	}
 });
 
+exports.appRoot = pkgDir.sync(parentDir);
+
 exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
@@ -59,6 +67,8 @@ const activeWindow = () => is.main ?
 	electron.remote.getCurrentWindow();
 
 exports.activeWindow = activeWindow;
+
+exports.loadFile = (win, filePath) => win.loadURL(`file://${path.resolve(exports.appRoot, filePath)}`);
 
 exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScript(code);
 

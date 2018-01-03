@@ -60,6 +60,14 @@ Type: `Promise`
 
 Resolves when the [app is ready](https://electronjs.org/docs/api/app/#event-ready).
 
+### appRoot
+
+Type: `string`
+
+Path to the root of the app.
+
+[Read more.](https://github.com/electron/electron/issues/11561)
+
 ### electronVersion
 
 Type: `string`<br>
@@ -95,6 +103,18 @@ init({
 Type: `Function`
 
 Returns the active window.
+
+### loadFile(window, filePath)
+
+Load a file into the given window using a file path relative to the root of the app.
+
+```js
+loadFile(win, 'index.html');
+```
+
+You use this instead of the verbose ```win.loadURL(`file://…`);```
+
+[Read more.](https://github.com/electron/electron/issues/11560)
 
 ### runJS(code, [window])
 
