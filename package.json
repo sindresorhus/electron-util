@@ -1,47 +1,47 @@
 {
-	"name": "electron-util",
-	"version": "0.3.0",
-	"description": "Useful utilities for developing Electron apps and modules",
-	"license": "MIT",
-	"repository": "sindresorhus/electron-util",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
-	},
-	"scripts": {
-		"start": "electron example.js",
-		"test": "xo && ava"
-	},
-	"files": [
-		"index.js",
-		"node.js"
-	],
-	"keywords": [
-		"electron",
-		"app",
-		"dev",
-		"development",
-		"utility",
-		"utilities",
-		"util",
-		"utils",
-		"useful"
-	],
-	"dependencies": {
-		"electron-is-dev": "^0.3.0"
-	},
-	"devDependencies": {
-		"ava": "*",
-		"delay": "^2.0.0",
-		"electron": "^1.7.1",
-		"mock-require": "^2.0.2",
-		"xo": "*"
-	},
-	"xo": {
-		"envs": [
-			"node",
-			"browser"
-		]
-	}
+  "name": "electron-util",
+  "version": "0.4.0",
+  "description": "Useful utilities for developing Electron apps and modules",
+  "license": "MIT",
+  "repository": "sindresorhus/electron-util",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "scripts": {
+    "start": "electron example.js",
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js",
+    "node.js"
+  ],
+  "keywords": [
+    "electron",
+    "app",
+    "dev",
+    "development",
+    "utility",
+    "utilities",
+    "util",
+    "utils",
+    "useful"
+  ],
+  "dependencies": {
+    "electron-is-dev": "^0.3.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "delay": "^2.0.0",
+    "electron": "^1.7.1",
+    "mock-require": "^2.0.2",
+    "xo": "*"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "browser"
+    ]
+  }
 }
