@@ -70,3 +70,48 @@ exports.loadFile = (win, filePath) => win.loadURL(url.format({
 exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScript(code);
 
 exports.fixPathForAsarUnpack = node.fixPathForAsarUnpack;
+
+function isInApplicationsFolder() {
+	const exePath = api.app.getPath('exe');
+	const rootApplicationsPath = '/Applications';
+	const userApplicationsPath = path.join(api.app.getPath('home'), 'Applications');
+	return exePath.startsWith(rootApplicationsPath) || exePath.startsWith(userApplicationsPath);
+}
+
+function legacyEnforceMacOSAppLocation() {
+	if (!isInApplicationsFolder()) {
+		api.dialog.showErrorBox('Move to Applications folder', `Please move ${api.app.getName()} to your Applications folder to ensure it runs correctly.`);
+		api.app.quit();
+	}
+}
+
+exports.enforceMacOSAppLocation = () => {
+	if (is.development || !is.macos) {
+		return;
+	}
+
+	// Solution for pre-Electron 1.8.1 users
+	if (typeof api.app.isInApplicationsFolder !== 'function') {
+		return legacyEnforceMacOSAppLocation();
+	}
+
+	if (api.app.isInApplicationsFolder()) {
+		return;
+	}
+
+	const clickedButtonIndex = api.dialog.showMessageBox({
+		type: 'error',
+		message: 'Move to Applications folder?',
+		detail: `${api.app.getName()} must be live in the Applications folder to be able to run correctly.`,
+		buttons: ['Move to Applications folder', `Quit ${api.app.getName()}`],
+		defaultId: 0,
+		cancelId: 1
+	});
+
+	if (clickedButtonIndex === 1) {
+		api.app.quit();
+		return;
+	}
+
+	api.app.moveToApplicationsFolder();
+};

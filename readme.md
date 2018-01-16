@@ -142,6 +142,24 @@ After:
 /Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpack/node_modules/foo/binary
 ```
 
+### enforceMacOSAppLocation()
+
+Type: `Function`
+
+On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issues/56), if an app is launched outside the Applications folder, it will run in a read-only disk image, which could cause subtle problems for your app. Use this method to ensure the app lives in the Applications folder.
+
+It must not be used until the `app.on('ready')` event has been emitted.
+
+It will be a noop during development and on other systems than macOS.
+
+On Electron 1.8.1, it will offer to automatically move the app for the user:
+
+<img src="https://user-images.githubusercontent.com/170270/34966593-3a0458c8-fa5d-11e7-805b-08bf80237e77.png" width="544">
+
+On older Electron versions, it will just warn the user:
+
+<img src="https://user-images.githubusercontent.com/170270/34966592-39e88dbe-fa5d-11e7-8597-397a98908600.png" width="532">
+
 
 ## Node.js API
 
