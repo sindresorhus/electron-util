@@ -32,11 +32,15 @@ const {appReady, is} = require('electron-util');
 
 Type: `Object`
 
-Access some Electron APIs in both main and renderer process without having to care about which one you're in:
+Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
 
-- [`app`](https://electronjs.org/docs/api/app/)
-- [`BrowserWindow`](https://electronjs.org/docs/api/browser-window/)
-- [`dialog`](https://electronjs.org/docs/api/dialog/)
+For example, in the renderer process:
+
+```js
+api.app.quit();
+```
+
+The `app` API is usually only available in the main process.
 
 ### is
 
