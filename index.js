@@ -5,13 +5,9 @@ const electron = require('electron');
 const isDev = require('electron-is-dev');
 const node = require('./node');
 
-// TODO: Implement everything
-// Maybe use Proxy to reduce boilerplate
-const api = {
-	app: electron.app || electron.remote.app,
-	BrowserWindow: electron.BrowserWindow || electron.remote.BrowserWindow,
-	dialog: electron.dialog || electron.remote.dialog
-};
+const api = new Proxy(electron, {
+	get: (target, prop) => target[prop] || target.remote[prop]
+});
 
 exports.api = api;
 
