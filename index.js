@@ -76,8 +76,13 @@ function isInApplicationsFolder() {
 
 function legacyEnforceMacOSAppLocation() {
 	if (!isInApplicationsFolder()) {
-		api.dialog.showErrorBox('Move to Applications folder', `Please move ${api.app.getName()} to your Applications folder to ensure it runs correctly.`);
-		api.app.quit();
+		setImmediate(() => {
+			api.dialog.showErrorBox('Move to Applications folder', `Please move ${api.app.getName()} to your Applications folder to ensure it runs correctly.`);
+
+			setImmediate(() => {
+				api.app.quit();
+			});
+		});
 	}
 }
 
