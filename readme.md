@@ -146,7 +146,7 @@ After:
 /Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpack/node_modules/foo/binary
 ```
 
-### enforceMacOSAppLocation()
+### enforceMacOSAppLocation() <sup>*macOS*</sup>
 
 Type: `Function`
 
@@ -164,9 +164,82 @@ On older Electron versions, it will just warn the user:
 
 <img src="https://user-images.githubusercontent.com/170270/34966592-39e88dbe-fa5d-11e7-8597-397a98908600.png" width="532">
 
-### menuBarHeight() *macOS*
+### menuBarHeight() <sup>*macOS*</sup>
 
 Returns the height of the menu bar on macOS, or `0` if not macOS.
+
+### getWindowBoundsCentered([options])
+
+Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of a window as if it was centered on the screen.
+
+#### options
+
+Type: `Object`
+
+##### window
+
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Default: Current window
+
+The window to get the bounds of.
+
+##### size
+
+Type: `Object`<br>
+Default: Size of `window`
+
+Set a new window size. Example: `{width: 600, height: 400}`
+
+### setWindowBounds(bounds, [options])
+
+Set the bounds of a window. This is similar to the [`BrowserWindow#setBounds()`](https://electronjs.org/docs/api/browser-window#winsetboundsbounds-animate) method, but it allows setting any of the `x`, `y`, `width`, `height` properties, instead of forcing you to set them all at once. The properties that are not set will just fall back to the current ones.
+
+#### options
+
+Type: `Object`
+
+##### window
+
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Default: Current window
+
+The window to set the bounds of.
+
+##### animated
+
+Type: `boolean`<br>
+Default: `false`
+
+Animate the change.
+
+### centerWindow([options])
+
+Center a window on the screen.
+
+#### options
+
+Type: `Object`
+
+##### window
+
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Default: Current window
+
+The window to center.
+
+##### size
+
+Type: `Object`<br>
+Default: Size of `window`
+
+Set a new window size. Example: `{width: 600, height: 400}`
+
+##### animated
+
+Type: `boolean`<br>
+Default: `false`
+
+Animate the change.
 
 ## Node.js API
 

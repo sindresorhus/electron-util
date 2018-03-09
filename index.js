@@ -118,3 +118,42 @@ exports.enforceMacOSAppLocation = () => {
 };
 
 exports.menuBarHeight = () => is.macos ? api.screen.getPrimaryDisplay().workArea.y : 0;
+
+exports.getWindowBoundsCentered = options => {
+	options = Object.assign({
+		window: activeWindow()
+	}, options);
+
+	const [width, height] = options.window.getSize();
+	const windowSize = options.size || {width, height};
+	const screenSize = api.screen.getDisplayNearestPoint(api.screen.getCursorScreenPoint()).workArea;
+	const x = Math.floor(screenSize.x + ((screenSize.width / 2) - (windowSize.width / 2)));
+	const y = Math.floor(((screenSize.height + screenSize.y) / 2) - (windowSize.height / 2));
+
+	return {
+		x,
+		y,
+		width: windowSize.width,
+		height: windowSize.height
+	};
+};
+
+exports.setWindowBounds = (bounds, options) => {
+	options = Object.assign({
+		window: activeWindow(),
+		animated: false
+	}, options);
+
+	bounds = Object.assign(options.window.getBounds(), bounds);
+	options.window.setBounds(bounds, options.animated);
+};
+
+exports.centerWindow = options => {
+	options = Object.assign({
+		window: activeWindow(),
+		animated: false
+	}, options);
+
+	const bounds = exports.getWindowBoundsCentered(options);
+	exports.setWindowBounds(bounds, options);
+};
