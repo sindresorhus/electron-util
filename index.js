@@ -116,3 +116,5 @@ exports.enforceMacOSAppLocation = () => {
 
 	api.app.moveToApplicationsFolder();
 };
+
+exports.menuBarHeight = () => is.macos ? api.screen.getPrimaryDisplay().workArea.y : 0;

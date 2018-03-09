@@ -164,6 +164,9 @@ On older Electron versions, it will just warn the user:
 
 <img src="https://user-images.githubusercontent.com/170270/34966592-39e88dbe-fa5d-11e7-8597-397a98908600.png" width="532">
 
+### menuBarHeight() *macOS*
+
+Returns the height of the menu bar on macOS, or `0` if not macOS.
 
 ## Node.js API
 
