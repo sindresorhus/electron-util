@@ -157,3 +157,14 @@ exports.centerWindow = options => {
 	const bounds = exports.getWindowBoundsCentered(options);
 	exports.setWindowBounds(bounds, options);
 };
+
+exports.disableZoom = (win = activeWindow()) => {
+	const {webContents} = win;
+	const run = () => {
+		webContents.setZoomFactor(1);
+		webContents.setVisualZoomLevelLimits(1, 1);
+		webContents.setLayoutZoomLevelLimits(0, 0);
+	};
+	webContents.on('did-finish-load', run);
+	run();
+};

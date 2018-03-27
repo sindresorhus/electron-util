@@ -241,6 +241,15 @@ Default: `false`
 
 Animate the change.
 
+### disableZoom([window])
+
+Disable zooming, usually caused by pinching the trackpad on macOS or <kbd>Ctrl</kbd> <kbd>+</kbd> on Windows.
+
+#### window
+
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Default: Current window
+
 ## Node.js API
 
 This is for non-Electron code that might be included in an Electron app. For example, if you want to add special support for Electron in a vanilla Node.js module.
