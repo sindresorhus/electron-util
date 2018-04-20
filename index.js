@@ -103,7 +103,7 @@ exports.enforceMacOSAppLocation = () => {
 	const clickedButtonIndex = api.dialog.showMessageBox({
 		type: 'error',
 		message: 'Move to Applications folder?',
-		detail: `${api.app.getName()} must be live in the Applications folder to be able to run correctly.`,
+		detail: `${api.app.getName()} must live in the Applications folder to be able to run correctly.`,
 		buttons: ['Move to Applications folder', `Quit ${api.app.getName()}`],
 		defaultId: 0,
 		cancelId: 1
