@@ -38,7 +38,7 @@ exports.electronVersion = node.electronVersion;
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
 
 exports.platform = obj => {
-	let platform = process.platform;
+	let {platform} = process;
 
 	if (platform === 'darwin') {
 		platform = 'macos';
@@ -146,3 +146,17 @@ exports.disableZoom = (win = activeWindow()) => {
 };
 
 exports.appLaunchTimestamp = Date.now();
+
+if (is.main) {
+	exports.isFirstAppLaunch = () => {
+		const fs = require('fs');
+		const checkFile = path.join(api.app.getPath('userData'), '.electron-util--has-app-launched');
+
+		if (fs.existsSync(checkFile)) {
+			return false;
+		}
+
+		fs.writeFileSync(checkFile, '');
+		return true;
+	};
+}

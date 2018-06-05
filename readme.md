@@ -254,6 +254,12 @@ Type: `number`
 
 A timestamp (`Date.now()`) of when your app launched.
 
+### isFirstAppLaunch()
+
+Returns a `boolean` of whether it's the first time your app is launched.
+
+It works by writing a file to `app.getPath('userData')` if it doesn't exist and checks that. That means it will return true the first time you add this check to your app.
+
 ## Node.js API
 
 This is for non-Electron code that might be included in an Electron app. For example, if you want to add special support for Electron in a vanilla Node.js module.
