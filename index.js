@@ -168,3 +168,5 @@ exports.disableZoom = (win = activeWindow()) => {
 	webContents.on('did-finish-load', run);
 	run();
 };
+
+exports.appLaunchTimestamp = Date.now();
