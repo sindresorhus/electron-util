@@ -11,6 +11,8 @@ You can use this module directly in both the [main and renderer process](https:/
 $ npm install electron-util
 ```
 
+*Requires Electron 2.0.0 or later.*
+
 
 ## Usage
 
@@ -156,13 +158,9 @@ It must not be used until the `app.on('ready')` event has been emitted.
 
 It will be a noop during development and on other systems than macOS.
 
-On Electron 1.8.1, it will offer to automatically move the app for the user:
+It will offer to automatically move the app for the user:
 
 <img src="https://user-images.githubusercontent.com/170270/34966593-3a0458c8-fa5d-11e7-805b-08bf80237e77.png" width="544">
-
-On older Electron versions, it will just warn the user:
-
-<img src="https://user-images.githubusercontent.com/170270/34966592-39e88dbe-fa5d-11e7-8597-397a98908600.png" width="532">
 
 ### menuBarHeight() <sup>*macOS*</sup>
 
@@ -251,6 +249,8 @@ Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
 Default: Current window
 
 ### appLaunchTimestamp
+
+Type: `number`
 
 A timestamp (`Date.now()`) of when your app launched.
 

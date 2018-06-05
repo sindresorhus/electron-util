@@ -67,33 +67,9 @@ exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScrip
 
 exports.fixPathForAsarUnpack = node.fixPathForAsarUnpack;
 
-function isInApplicationsFolder() {
-	const exePath = api.app.getPath('exe');
-	const rootApplicationsPath = '/Applications';
-	const userApplicationsPath = path.join(api.app.getPath('home'), 'Applications');
-	return exePath.startsWith(rootApplicationsPath) || exePath.startsWith(userApplicationsPath);
-}
-
-function legacyEnforceMacOSAppLocation() {
-	if (!isInApplicationsFolder()) {
-		setImmediate(() => {
-			api.dialog.showErrorBox('Move to Applications folder', `Please move ${api.app.getName()} to your Applications folder to ensure it runs correctly.`);
-
-			setImmediate(() => {
-				api.app.quit();
-			});
-		});
-	}
-}
-
 exports.enforceMacOSAppLocation = () => {
 	if (is.development || !is.macos) {
 		return;
-	}
-
-	// Solution for pre-Electron 1.8.1 users
-	if (typeof api.app.isInApplicationsFolder !== 'function') {
-		return legacyEnforceMacOSAppLocation();
 	}
 
 	if (api.app.isInApplicationsFolder()) {
