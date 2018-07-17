@@ -66,14 +66,6 @@ Type: `Promise`
 
 Resolves when the [app is ready](https://electronjs.org/docs/api/app/#event-ready).
 
-### appRoot
-
-Type: `string`
-
-Path to the root of the app.
-
-[Read more.](https://github.com/electron/electron/issues/11561)
-
 ### electronVersion
 
 Type: `string`<br>
