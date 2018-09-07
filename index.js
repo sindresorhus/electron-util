@@ -160,7 +160,7 @@ if (is.main) {
 			fs.writeFileSync(checkFile, '');
 		} catch (error) {
 			if (error.code === 'ENOENT') {
-				fs.mkdir(path.join(api.app.getPath('userData')));
+				fs.mkdirSync(api.app.getPath('userData'));
 				return isFirstAppLaunch();
 			}
 		}
