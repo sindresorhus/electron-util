@@ -164,6 +164,7 @@ if (is.main) {
 				return isFirstAppLaunch();
 			}
 		}
+
 		return true;
 	};
 
