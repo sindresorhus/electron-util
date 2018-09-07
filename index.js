@@ -148,7 +148,7 @@ exports.disableZoom = (win = activeWindow()) => {
 exports.appLaunchTimestamp = Date.now();
 
 if (is.main) {
-	exports.isFirstAppLaunch = () => {
+	const isFirstAppLaunch = () => {
 		const fs = require('fs');
 		const checkFile = path.join(api.app.getPath('userData'), '.electron-util--has-app-launched');
 
@@ -156,7 +156,17 @@ if (is.main) {
 			return false;
 		}
 
-		fs.writeFileSync(checkFile, '');
+		try {
+			fs.writeFileSync(checkFile, '');
+		} catch (error) {
+			if (error.code === 'ENOENT') {
+				fs.mkdirSync(api.app.getPath('userData'));
+				return isFirstAppLaunch();
+			}
+		}
+
 		return true;
 	};
+
+	exports.isFirstAppLaunch = isFirstAppLaunch;
 }
