@@ -17,14 +17,10 @@ $ npm install electron-util
 ## Usage
 
 ```js
-const {appReady, is} = require('electron-util');
+const {is} = require('electron-util');
 
-(async () => {
-	await appReady;
-
-	console.log(is.macos && is.main);
-	//=> true
-})();
+console.log(is.macos && is.main);
+//=> true
 ```
 
 
@@ -59,12 +55,6 @@ Check for various things:
 - `usingAsar` - The app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/)
 - `macAppStore` - The app is an Mac App Store build
 - `windowsStore` - The app is a Windows Store AppX build
-
-### appReady
-
-Type: `Promise`
-
-Resolves when the [app is ready](https://electronjs.org/docs/api/app/#event-ready).
 
 ### electronVersion
 

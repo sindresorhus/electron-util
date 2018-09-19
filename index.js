@@ -25,14 +25,6 @@ const is = {
 
 exports.is = is;
 
-exports.appReady = new Promise(resolve => {
-	if (api.app.isReady()) {
-		resolve();
-	} else {
-		api.app.on('ready', resolve);
-	}
-});
-
 exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');

@@ -5,7 +5,7 @@ const delay = require('delay');
 const util = require('.');
 
 (async () => {
-	await util.appReady;
+	await electron.app.whenReady();
 
 	const win = new electron.BrowserWindow();
 	win.loadURL('about:blank');
