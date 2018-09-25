@@ -1,6 +1,5 @@
 'use strict';
 const path = require('path');
-const url = require('url');
 const electron = require('electron');
 const isDev = require('electron-is-dev');
 const node = require('./node');
@@ -49,11 +48,7 @@ const activeWindow = () => is.main ?
 
 exports.activeWindow = activeWindow;
 
-exports.loadFile = (win, filePath) => win.loadURL(url.format({
-	protocol: 'file',
-	slashes: true,
-	pathname: path.resolve(electron.app.getAppPath(), filePath)
-}));
+exports.loadFile = (win, filePath, options = {}) => win.loadFile(filePath, options);
 
 exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScript(code);
 
