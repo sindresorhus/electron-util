@@ -1,6 +1,5 @@
 'use strict';
 const path = require('path');
-const url = require('url');
 const electron = require('electron');
 const isDev = require('electron-is-dev');
 const node = require('./node');
