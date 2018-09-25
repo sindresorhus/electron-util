@@ -49,11 +49,7 @@ const activeWindow = () => is.main ?
 
 exports.activeWindow = activeWindow;
 
-exports.loadFile = (win, filePath) => win.loadURL(url.format({
-	protocol: 'file',
-	slashes: true,
-	pathname: path.resolve(electron.app.getAppPath(), filePath)
-}));
+exports.loadFile = (win, filePath, options = {}) => win.loadFile(filePath, options);
 
 exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScript(code);
 
