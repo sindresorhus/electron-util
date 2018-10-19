@@ -161,3 +161,27 @@ if (is.main) {
 
 	exports.isFirstAppLaunch = isFirstAppLaunch;
 }
+
+exports.darkMode = {
+	get isEnabled() {
+		if (!is.macos) {
+			return false;
+		}
+
+		return api.systemPreferences.isDarkMode();
+	},
+
+	onChange(callback) {
+		if (!is.macos) {
+			return () => {};
+		}
+
+		const id = api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
+			callback();
+		});
+
+		return () => {
+			api.systemPreferences.unsubscribeNotification(id);
+		};
+	}
+};

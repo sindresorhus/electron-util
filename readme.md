@@ -230,6 +230,39 @@ Returns a `boolean` of whether it's the first time your app is launched.
 
 It works by writing a file to `app.getPath('userData')` if it doesn't exist and checks that. That means it will return true the first time you add this check to your app.
 
+### darkMode
+
+Type: `Object`
+
+```js
+const {darkMode} = require('electron-util');
+
+console.log(darkMode.isEnabled);
+//=> false
+
+darkMode.onChange(() => {
+	console.log(darkMode.isEnabled);
+	//=> true
+});
+```
+
+#### isEnabled
+
+Type: `boolean`
+
+Whether the macOS dark mode is enabled.
+
+On Windows and Linux, it's `false`.
+
+#### onChange(callback)
+
+The `callback` function is called when the macOS dark mode is toggled.
+
+Returns a function, that when called, unsubscribes the listener.
+
+Calling it on Window and Linux works, but it just returns a noop function.
+
+
 ## Node.js API
 
 This is for non-Electron code that might be included in an Electron app. For example, if you want to add special support for Electron in a vanilla Node.js module.
