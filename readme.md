@@ -262,6 +262,45 @@ Returns a function, that when called, unsubscribes the listener.
 
 Calling it on Window and Linux works, but it just returns a noop function.
 
+### setContentSecurityPolicy(policy, [options])
+
+Set a [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp/) for your app.
+
+Don't forget to [validate the policy](https://csp-evaluator.withgoogle.com) after changes.
+
+```js
+const {setContentSecuriyPolicy} = require('electron-util');
+
+setContentSecuriyPolicy(`
+	default-src 'none';
+	script-src 'self';
+	img-src 'self' data:;
+	style-src 'self';
+	font-src 'self';
+	connect-src 'self' https://api.example.com;
+	base-uri 'none';
+	form-action 'none';
+	frame-ancestors 'none';
+`);
+```
+
+#### policy
+
+Type: `string`
+
+You can put rules on separate lines, but lines must end in a semicolon.
+
+#### options
+
+Type: `Object`
+
+##### session
+
+Type: [`Session`](https://electronjs.org/docs/api/session)<br>
+Default: [`electron.session.defaultSession`](https://electronjs.org/docs/api/session#sessiondefaultsession)
+
+The session to apply the policy to.
+
 
 ## Node.js API
 
