@@ -1,6 +1,6 @@
 {
 	"name": "electron-util",
-	"version": "0.9.1",
+	"version": "0.10.0",
 	"description": "Useful utilities for developing Electron apps and modules",
 	"license": "MIT",
 	"repository": "sindresorhus/electron-util",
