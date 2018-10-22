@@ -186,7 +186,7 @@ exports.darkMode = {
 	}
 };
 
-exports.setContentSecuriyPolicy = async (policy, options) => {
+exports.setContentSecurityPolicy = async (policy, options) => {
 	await api.app.whenReady();
 
 	if (!policy.split('\n').filter(line => line.trim()).every(line => line.endsWith(';'))) {
