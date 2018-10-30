@@ -11,7 +11,7 @@ You can use this module directly in both the [main and renderer process](https:/
 $ npm install electron-util
 ```
 
-*Requires Electron 3.0.0 or later.*
+*Requires Electron 3 or later.*
 
 
 ## Usage
