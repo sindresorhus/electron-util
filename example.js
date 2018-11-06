@@ -7,7 +7,7 @@ const util = require('.');
 const createMenu = () => {
 	const items = [
 		{
-			label: 'Open GitHub Issue…',
+			label: 'openNewGitHubIssue() test',
 			click() {
 				util.openNewGitHubIssue({
 					user: 'sindresorhus',
@@ -15,7 +15,14 @@ const createMenu = () => {
 					body: 'Test 🦄'
 				});
 			}
-		}
+		},
+		util.openUrlMenuItem({
+			label: 'openUrlMenuItem() test',
+			url: 'https://sindresorhus.com',
+			onClick() {
+				console.log('Executed before opening the URL');
+			}
+		})
 	];
 
 	const menu = electron.Menu.buildFromTemplate([
@@ -43,6 +50,7 @@ const createMenu = () => {
 
 	const win = new electron.BrowserWindow();
 	win.loadURL('about:blank');
+	win.webContents.openDevTools('undocked');
 
 	await delay(200);
 

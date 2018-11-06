@@ -315,6 +315,47 @@ openNewGitHubIssue({
 });
 ```
 
+### openUrlMenuItem(options)
+
+Accepts the same options as [`new MenuItem()`](https://electronjs.org/docs/api/menu-item) in addition to a `url` option.
+
+If you specify the `click` option, its handler will be called before the URL is opened.
+
+Returns a `MenuItem` that, when clicked, opens the given URL in the browser.
+
+```js
+const {app, Menu} = require('electron');
+const {openUrlMenuItem} = require('electron-util');
+
+const appMenu = Menu.buildFromTemplate([
+	{
+		label: app.getName(),
+		submenu: [
+			{
+				role: 'quit'
+			}
+		]
+	},
+	{
+		label: 'Help',
+		submenu: [
+			openUrlMenuItem({
+				label: 'Website',
+				url: 'https://sindresorhus.com'
+			}),
+			{
+				label: 'Something',
+				click() {
+					// …
+				}
+			}
+		]
+	}
+]);
+
+Menu.setApplicationMenu(appMenu);
+```
+
 
 ## Node.js API
 

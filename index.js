@@ -215,3 +215,25 @@ exports.openNewGitHubIssue = options => {
 	const url = newGithubIssueUrl(options);
 	api.shell.openExternal(url);
 };
+
+exports.openUrlMenuItem = (options = {}) => {
+	if (!options.url) {
+		throw new Error('The `url` option is required');
+	}
+
+	const {url} = options;
+	delete options.url;
+
+	const click = (...args) => {
+		if (options.click) {
+			options.click(...args);
+		}
+
+		api.shell.openExternal(url);
+	};
+
+	return new api.MenuItem({
+		...options,
+		click
+	});
+};
