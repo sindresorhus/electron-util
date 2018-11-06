@@ -324,31 +324,92 @@ If you specify the `click` option, its handler will be called before the URL is 
 Returns a `MenuItem` that, when clicked, opens the given URL in the browser.
 
 ```js
-const {app, Menu} = require('electron');
+const {Menu} = require('electron');
 const {openUrlMenuItem} = require('electron-util');
 
 const appMenu = Menu.buildFromTemplate([
-	{
-		label: app.getName(),
-		submenu: [
-			{
-				role: 'quit'
-			}
-		]
-	},
 	{
 		label: 'Help',
 		submenu: [
 			openUrlMenuItem({
 				label: 'Website',
 				url: 'https://sindresorhus.com'
-			}),
-			{
-				label: 'Something',
-				click() {
-					// …
-				}
-			}
+			})
+		]
+	}
+]);
+
+Menu.setApplicationMenu(appMenu);
+```
+
+### showAboutWindow(options) <sup>*Linux*</sup> <sup>*Windows*</sup>
+
+Shows a simple 'About' window. This is only meant for Linux and Window. macOS already has a [native 'About' window](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L384-L386).
+
+*It will show `Electron` as the app name until you build your app for production.*
+
+<img src="media/screenshot-about-window-linux.png" width="405" height="289" alt="The about window on Ubuntu">
+
+```js
+const {showAboutWindow} = require('electron-util');
+
+showAboutWindow({
+	icon: path.join(__dirname, 'static/Icon.png'),
+	copyright: 'Copyright © Sindre Sorhus',
+	text: 'Some more info.'
+});
+```
+
+#### options
+
+Type: `Object`
+
+##### icon
+
+Type: `string`
+
+An absolute path to the app icon.
+
+##### copyright
+
+Type: `string`
+
+The copyright text.
+
+##### text
+
+Type: `string`
+
+Some additional text if needed.
+
+##### title
+
+Type: `string`<br>
+Default: `About`
+
+Customizable for localization. Used in the menu item label and window title.
+
+The app name is automatically appended at runtime.
+
+### aboutMenuItem(options) <sup>*Linux*</sup> <sup>*Windows*</sup>
+
+Accepts the same options as `.showAboutWindow()`.
+
+Returns a `MenuItem` that, when clicked, shows the about dialog.
+
+```js
+const {Menu} = require('electron');
+const {aboutMenuItem} = require('electron-util');
+
+const appMenu = Menu.buildFromTemplate([
+	{
+		label: 'Help',
+		submenu: [
+			aboutMenuItem({
+				icon: path.join(__dirname, 'static/Icon.png'),
+				copyright: 'Copyright © Sindre Sorhus',
+				text: 'Some more info.'
+			})
 		]
 	}
 ]);

@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 const assert = require('assert');
 const electron = require('electron');
 const delay = require('delay');
@@ -22,6 +23,21 @@ const createMenu = () => {
 			onClick() {
 				console.log('Executed before opening the URL');
 			}
+		}),
+		{
+			label: 'showAboutWindow() test',
+			click() {
+				util.showAboutWindow({
+					icon: path.join(__dirname, 'fixtures/Icon.png'),
+					copyright: 'Copyright © Sindre Sorhus',
+					text: 'Some more info.'
+				});
+			}
+		},
+		util.aboutMenuItem({
+			icon: path.join(__dirname, 'fixtures/Icon.png'),
+			copyright: 'Copyright © Sindre Sorhus',
+			text: 'Some more info.'
 		})
 	];
 

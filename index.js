@@ -237,3 +237,46 @@ exports.openUrlMenuItem = (options = {}) => {
 		click
 	});
 };
+
+exports.showAboutWindow = options => {
+	// TODO: When x is implemented, show the default macOS About dialog when on macOS.
+
+	options = {
+		title: 'About',
+		...options
+	};
+
+	const appName = api.app.getName();
+
+	const text = options.text ? `${options.copyright ? '\n\n' : ''}${options.text}` : '';
+
+	api.dialog.showMessageBox({
+		title: `${options.title} ${appName}`,
+		message: `Version ${api.app.getVersion()}`,
+		detail: (options.copyright || '') + text,
+		icon: options.icon,
+
+		// This is needed for Linux, since at least Ubuntu does not show a close button
+		buttons: [
+			'OK'
+		]
+	});
+};
+
+exports.aboutMenuItem = (options = {}) => {
+	options = {
+		title: 'About',
+		...options
+	};
+
+	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
+	// handle the macOS case here, so the user doesn't need a conditional
+	// when used in a cross-platform app
+
+	return new api.MenuItem({
+		label: `${options.title} ${api.app.getName()}`,
+		click() {
+			exports.showAboutWindow(options);
+		}
+	});
+};
