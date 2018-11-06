@@ -32,7 +32,8 @@
 		"useful"
 	],
 	"dependencies": {
-		"electron-is-dev": "^1.0.0"
+		"electron-is-dev": "^1.0.0",
+		"new-github-issue-url": "^0.1.2"
 	},
 	"devDependencies": {
 		"ava": "^0.25.0",

@@ -2,6 +2,7 @@
 const path = require('path');
 const electron = require('electron');
 const isDev = require('electron-is-dev');
+const newGithubIssueUrl = require('new-github-issue-url');
 const node = require('./node');
 
 const api = new Proxy(electron, {
@@ -208,4 +209,9 @@ exports.setContentSecurityPolicy = async (policy, options) => {
 			}
 		});
 	});
+};
+
+exports.openNewGitHubIssue = options => {
+	const url = newGithubIssueUrl(options);
+	api.shell.openExternal(url);
 };

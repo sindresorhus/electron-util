@@ -301,6 +301,20 @@ Default: [`electron.session.defaultSession`](https://electronjs.org/docs/api/ses
 
 The session to apply the policy to.
 
+### openNewGitHubIssue(options)
+
+Opens the new issue view on the given GitHub repo in the browser. Optionally, with some fields like title and body prefilled. The options are passed to the [`new-github-issue-url`](https://github.com/sindresorhus/new-github-issue-url#options) package.
+
+```js
+const {openNewGitHubIssue} = require('electron-util');
+
+openNewGitHubIssue({
+	user: 'sindresorhus',
+	repo: 'playground',
+	body: 'Hello'
+});
+```
+
 
 ## Node.js API
 
