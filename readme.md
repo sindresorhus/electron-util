@@ -26,6 +26,34 @@ console.log(is.macos && is.main);
 
 ## API
 
+###### Contents
+
+- [`api`](#api-1)
+- [`is`](#is)
+- [`electronVersion`](#electronversion)
+- [`chromeVersion`](#chromeversion)
+- [`platform()`](#platformchoices)
+- [`activeWindow()`](#activewindow)
+- [`runJS()`](#runjscode-window)
+- [`fixPathForAsarUnpack()`](#fixpathforasarunpackpath)
+- [`enforceMacOSAppLocation()`](#enforcemacosapplocation-macos)
+- [`menuBarHeight()`](#menubarheight-macos)
+- [`getWindowBoundsCentered()`](#getwindowboundscenteredoptions)
+- [`setWindowBounds()`](#setwindowboundsbounds-options)
+- [`centerWindow()`](#centerwindowoptions)
+- [`disableZoom()`](#disablezoomwindow)
+- [`appLaunchTimestamp`](#applaunchtimestamp)
+- [`isFirstAppLaunch()`](#isfirstapplaunch)
+- [`darkMode`](#darkmode)
+- [`setContentSecurityPolicy`](#setcontentsecuritypolicypolicy-options)
+- [`openNewGitHubIssue()`](#opennewgithubissueoptions)
+- [`openUrlMenuItem()`](#openurlmenuitemoptions)
+- [`showAboutWindow()`](#showaboutwindowoptions-linux-windows)
+- [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
+- [`debugInfo()`](#debuginfo)
+- [`appMenu()`](#appmenumenuitems-macos)
+
+
 ### api
 
 Type: `Object`
