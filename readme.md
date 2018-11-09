@@ -417,6 +417,24 @@ const appMenu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(appMenu);
 ```
 
+### debugInfo()
+
+Returns a string with debug info suitable for inclusion in bug reports.
+
+For example, use this in the `body` option of the `.openNewGitHubIssue()` method.
+
+```js
+const {debugInfo} = require('electron-util');
+
+console.log(debugInfo());
+/*
+AppName 2.21.0
+Electron 3.0.6
+darwin 18.2.0
+Locale: en-US
+*/
+```
+
 
 ## Node.js API
 

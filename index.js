@@ -1,4 +1,5 @@
 'use strict';
+const os = require('os');
 const path = require('path');
 const electron = require('electron');
 const isDev = require('electron-is-dev');
@@ -280,3 +281,10 @@ exports.aboutMenuItem = (options = {}) => {
 		}
 	});
 };
+
+exports.debugInfo = () => `
+${api.app.getName()} ${api.app.getVersion()}
+Electron ${exports.electronVersion}
+${process.platform} ${os.release()}
+Locale: ${api.app.getLocale()}
+`.trim();

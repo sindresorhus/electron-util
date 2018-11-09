@@ -38,7 +38,13 @@ const createMenu = () => {
 			icon: path.join(__dirname, 'fixtures/Icon.png'),
 			copyright: 'Copyright © Sindre Sorhus',
 			text: 'Some more info.'
-		})
+		}),
+		{
+			label: 'debugInfo() test',
+			click() {
+				electron.dialog.showErrorBox('', util.debugInfo());
+			}
+		}
 	];
 
 	const menu = electron.Menu.buildFromTemplate([
