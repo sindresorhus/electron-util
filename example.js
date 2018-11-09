@@ -48,14 +48,12 @@ const createMenu = () => {
 	];
 
 	const menu = electron.Menu.buildFromTemplate([
-		{
-			label: electron.app.getName(),
-			submenu: [
-				{
-					role: 'quit'
-				}
-			]
-		},
+		util.appMenu([
+			{
+				label: 'Extra item',
+				enabled: false
+			}
+		]),
 		{
 			label: 'Test',
 			submenu: items

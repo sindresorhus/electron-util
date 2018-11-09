@@ -288,3 +288,48 @@ Electron ${exports.electronVersion}
 ${process.platform} ${os.release()}
 Locale: ${api.app.getLocale()}
 `.trim();
+
+exports.appMenu = (menuItems = []) => {
+	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
+	// handle the macOS case here, so the user doesn't need a conditional
+	// when used in a cross-platform app
+
+	return {
+		label: api.app.getName(),
+		submenu: [
+			{
+				role: 'about'
+			},
+			{
+				type: 'separator'
+			},
+			...menuItems,
+			{
+				type: 'separator'
+			},
+			{
+				role: 'services',
+				// TODO: Remove this when https://github.com/electron/electron/issues/15653 is fixed
+				submenu: []
+			},
+			{
+				type: 'separator'
+			},
+			{
+				role: 'hide'
+			},
+			{
+				role: 'hideothers'
+			},
+			{
+				role: 'unhide'
+			},
+			{
+				type: 'separator'
+			},
+			{
+				role: 'quit'
+			}
+		].filter(Boolean)
+	};
+};

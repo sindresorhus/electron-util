@@ -327,7 +327,7 @@ Returns a `MenuItem` that, when clicked, opens the given URL in the browser.
 const {Menu} = require('electron');
 const {openUrlMenuItem} = require('electron-util');
 
-const appMenu = Menu.buildFromTemplate([
+const menu = Menu.buildFromTemplate([
 	{
 		label: 'Help',
 		submenu: [
@@ -339,7 +339,7 @@ const appMenu = Menu.buildFromTemplate([
 	}
 ]);
 
-Menu.setApplicationMenu(appMenu);
+Menu.setApplicationMenu(menu);
 ```
 
 ### showAboutWindow(options) <sup>*Linux*</sup> <sup>*Windows*</sup>
@@ -401,7 +401,7 @@ Returns a `MenuItem` that, when clicked, shows the about dialog.
 const {Menu} = require('electron');
 const {aboutMenuItem} = require('electron-util');
 
-const appMenu = Menu.buildFromTemplate([
+const menu = Menu.buildFromTemplate([
 	{
 		label: 'Help',
 		submenu: [
@@ -414,7 +414,7 @@ const appMenu = Menu.buildFromTemplate([
 	}
 ]);
 
-Menu.setApplicationMenu(appMenu);
+Menu.setApplicationMenu(menu);
 ```
 
 ### debugInfo()
@@ -433,6 +433,35 @@ Electron 3.0.6
 darwin 18.2.0
 Locale: en-US
 */
+```
+
+### appMenu([menuItems]) <sup>*macOS*</sup>
+
+Creating the [app menu](https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-bar-menus/) (the first menu) on macOS requires [a lot of boilerplate](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L381-L431). This method includes the default boilerplate and lets you add additional menu items in the correct place.
+
+#### menuItems
+
+Type: [`MenuItem[]`](https://electronjs.org/docs/api/menu-item)
+
+Menu items to add below the `About App Nem` menu item.
+
+Usually, you would add at least a `Preferences…` menu item:
+
+```js
+const {Menu} = require('electron');
+const {appMenu} = require('electron-util');
+
+const menu = Menu.buildFromTemplate([
+	appMenu([
+		{
+			label: 'Preferences…',
+			accelerator: 'Command+,',
+			click() {}
+		}
+	])
+]);
+
+Menu.setApplicationMenu(menu);
 ```
 
 
