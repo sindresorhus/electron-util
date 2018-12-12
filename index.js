@@ -308,9 +308,7 @@ exports.appMenu = (menuItems = []) => {
 				type: 'separator'
 			},
 			{
-				role: 'services',
-				// TODO: Remove this when https://github.com/electron/electron/issues/15653 is fixed
-				submenu: []
+				role: 'services'
 			},
 			{
 				type: 'separator'

@@ -32,13 +32,13 @@
 		"useful"
 	],
 	"dependencies": {
-		"electron-is-dev": "^1.0.0",
+		"electron-is-dev": "^1.0.1",
 		"new-github-issue-url": "^0.1.2"
 	},
 	"devDependencies": {
 		"ava": "^0.25.0",
-		"delay": "^4.0.1",
-		"electron": "^3.0.0",
+		"delay": "^4.1.0",
+		"electron": "^3.0.11",
 		"mock-require": "^3.0.2",
 		"xo": "^0.23.0"
 	},
