@@ -110,7 +110,7 @@ exports.setWindowBounds = (bounds, options) => {
 	};
 
 	bounds = {
-		...options.window.getBounds(),
+		...options.window.getNormalBounds(),
 		...bounds
 	};
 
@@ -240,7 +240,15 @@ exports.openUrlMenuItem = (options = {}) => {
 };
 
 exports.showAboutWindow = options => {
-	// TODO: When x is implemented, show the default macOS About dialog when on macOS.
+	if (is.macos) {
+		if (options.copyright) {
+			api.app.setAboutPanelOptions({copyright: options.copyright});
+		}
+
+		api.app.showAboutPanel();
+
+		return;
+	}
 
 	options = {
 		title: 'About',

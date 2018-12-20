@@ -11,7 +11,7 @@ You can use this module directly in both the [main and renderer process](https:/
 $ npm install electron-util
 ```
 
-*Requires Electron 3 or later.*
+*Requires Electron 4 or later.*
 
 
 ## Usage
@@ -370,9 +370,11 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 ```
 
-### showAboutWindow(options) <sup>*Linux*</sup> <sup>*Windows*</sup>
+### showAboutWindow(options)
 
-Shows a simple 'About' window. This is only meant for Linux and Window. macOS already has a [native 'About' window](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L384-L386).
+Shows an 'About' window. On macOS, the native 'About' window is shown, and on Linux and Windows, a simple custom dialog is shown.
+
+On macOS, the `icon`, `text`, and `title` options are ignored.
 
 *It will show `Electron` as the app name until you build your app for production.*
 
