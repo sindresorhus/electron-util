@@ -1,4 +1,5 @@
 import {AllElectron, Remote, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions, MenuItem} from 'electron';
+import {Options as NewGithubIssueUrlOptions} from 'new-github-issue-url';
 
 /**
  * Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
@@ -365,8 +366,7 @@ export function setContentSecurityPolicy(policy: string, options?: SetContentSec
  * 	body: 'Hello'
  * });
  */
-// TODO options type?
-export function openNewGitHubIssue(options: unknown): void;
+export function openNewGitHubIssue(options: NewGithubIssueUrlOptions): void;
 
 export interface OpenUrlMenuItemOptions extends Readonly<MenuItemConstructorOptions> {
 	/**
