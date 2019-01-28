@@ -82,14 +82,14 @@ type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
 		[K in Keys]-?: Required<Pick<T, K>>
 	}[Keys]
 
-interface _Choices<M, W, L, D> {
-	macos?: M | (() => M);
-	windows?: W | (() => W);
-	linux?: L | (() => L);
-	default?: D | (() => D);
+interface _Choices<Macos, Windows, Linux, Default> {
+	macos?: Macos | (() => Macos);
+	windows?: Windows | (() => Windows);
+	linux?: Linux | (() => Linux);
+	default?: Default | (() => Default);
 }
 
-export type Choices<M, W, L, D> = RequireAtLeastOne<_Choices<M, W, L, D>, 'macos' | 'windows' | 'linux'>
+export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<_Choices<Macos, Windows, Linux, Default>, 'macos' | 'windows' | 'linux'>
 
 /**
  * Accepts an object with the keys as either `macos`, `windows`, `linux`, or `default`, and picks the appropriate key depending on the current platform.
@@ -108,7 +108,7 @@ export type Choices<M, W, L, D> = RequireAtLeastOne<_Choices<M, W, L, D>, 'macos
  * 	})
  * });
  */
-export function platform<M = never, W = never, L = never, D = undefined>(choices: Choices<M, W, L, D>): M | W | L | D;
+export function platform<Macos = never, Windows = never, Linux = never, Default = undefined>(choices: Choices<Macos, Windows, Linux, Default>): Macos | Windows | Linux | Default;
 
 /**
  * Returns the active window.
