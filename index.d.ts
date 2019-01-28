@@ -293,10 +293,10 @@ export interface DarkMode {
 
 	/**
 	 * The `callback` function is called when the macOS dark mode is toggled.
-	 * Returns a function, that when called, unsubscribes the listener.
-	 * Calling it on Window and Linux works, but it just returns a no-op function.
+	 *
+	 * @returns A function, that when called, unsubscribes the listener. Calling it on Window and Linux works, but it just returns a no-op function.
 	 */
-	onChange: (callback: () => void) => void;
+	onChange: (callback: () => void) => () => void;
 }
 
 /**
