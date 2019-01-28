@@ -495,7 +495,7 @@ export function debugInfo(): string;
  * Creating the [app menu](https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-bar-menus/) (the first menu) on macOS requires [a lot of boilerplate](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L381-L431).
  * This method includes the default boilerplate and lets you add additional menu items in the correct place.
  *
- * @param [menuItems] - Menu items to add below the `About App Nem` menu item. Usually, you would add at least a `Preferences…` menu item
+ * @param [menuItems] - Menu items to add below the `About App Name` menu item. Usually, you would add at least a `Preferences…` menu item.
  * @returns TODO
  *
  * @example

@@ -473,7 +473,7 @@ Creating the [app menu](https://developer.apple.com/design/human-interface-guide
 
 Type: [`MenuItem[]`](https://electronjs.org/docs/api/menu-item)
 
-Menu items to add below the `About App Nem` menu item.
+Menu items to add below the `About App Name` menu item.
 
 Usually, you would add at least a `Preferences…` menu item:
 
