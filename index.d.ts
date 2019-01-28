@@ -85,10 +85,10 @@ type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
 	}[Keys]
 
 interface _Choices<Macos, Windows, Linux, Default> {
-	macos?: Macos | (() => Macos);
-	windows?: Windows | (() => Windows);
-	linux?: Linux | (() => Linux);
-	default?: Default | (() => Default);
+	readonly macos?: Macos | (() => Macos);
+	readonly windows?: Windows | (() => Windows);
+	readonly linux?: Linux | (() => Linux);
+	readonly default?: Default | (() => Default);
 }
 
 export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<_Choices<Macos, Windows, Linux, Default>, 'macos' | 'windows' | 'linux'>
@@ -110,7 +110,7 @@ export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<_Choices
  * 	})
  * });
  */
-export function platform<Macos = never, Windows = never, Linux = never, Default = undefined>(choices: Readonly<Choices<Macos, Windows, Linux, Default>>): Macos | Windows | Linux | Default;
+export function platform<Macos = never, Windows = never, Linux = never, Default = undefined>(choices: Choices<Macos, Windows, Linux, Default>): Macos | Windows | Linux | Default;
 
 /**
  * Returns the active window.
@@ -167,7 +167,7 @@ export interface GetWindowBoundsCenteredOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: BrowserWindow;
+	readonly window?: BrowserWindow;
 
 	/**
 	 * Set a new window size.
@@ -178,7 +178,7 @@ export interface GetWindowBoundsCenteredOptions {
 	 *
 	 * {width: 600, height: 400}
 	 */
-	size?: Size;
+	readonly size?: Size;
 }
 
 /**
@@ -186,28 +186,28 @@ export interface GetWindowBoundsCenteredOptions {
  *
  * @returns TODO
  */
-export function getWindowBoundsCentered(options?: Readonly<GetWindowBoundsCenteredOptions>): Rectangle;
+export function getWindowBoundsCentered(options?: GetWindowBoundsCenteredOptions): Rectangle;
 
 export interface OptionalRectangle {
 	/**
 	 * The height of the rectangle (must be an integer).
 	 */
-	height?: number;
+	readonly height?: number;
 
 	/**
 	 * The width of the rectangle (must be an integer).
 	 */
-	width?: number;
+	readonly width?: number;
 
 	/**
 	 * The x coordinate of the origin of the rectangle (must be an integer).
 	 */
-	x?: number;
+	readonly x?: number;
 
 	/**
 	 * The y coordinate of the origin of the rectangle (must be an integer).
 	 */
-	y?: number;
+	readonly y?: number;
 }
 
 export interface SetWindowBoundsOptions {
@@ -216,14 +216,14 @@ export interface SetWindowBoundsOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: BrowserWindow;
+	readonly window?: BrowserWindow;
 
 	/**
 	 * Animate the change.
 	 *
 	 * @default false
 	 */
-	animated?: boolean;
+	readonly animated?: boolean;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface SetWindowBoundsOptions {
  *
  * @param bounds - TODO
  */
-export function setWindowBounds(bounds: Readonly<OptionalRectangle>, options?: Readonly<SetWindowBoundsOptions>): void;
+export function setWindowBounds(bounds: OptionalRectangle, options?: SetWindowBoundsOptions): void;
 
 export interface CenterWindowOptions {
 	/**
@@ -240,7 +240,7 @@ export interface CenterWindowOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: BrowserWindow;
+	readonly window?: BrowserWindow;
 
 	/**
 	 * Set a new window size.
@@ -251,20 +251,20 @@ export interface CenterWindowOptions {
 	 *
 	 * {width: 600, height: 400}
 	 */
-	size?: Size;
+	readonly size?: Size;
 
 	/**
 	 * Animate the change.
 	 *
 	 * @default false
 	 */
-	animated?: boolean;
+	readonly animated?: boolean;
 }
 
 /**
  * Center a window on the screen.
  */
-export function centerWindow(options?: Readonly<CenterWindowOptions>): void;
+export function centerWindow(options?: CenterWindowOptions): void;
 
 /**
  * Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Windows.
@@ -291,14 +291,14 @@ export interface DarkMode {
 	 * Whether the macOS dark mode is enabled.
 	 * On Windows and Linux, it's `false`.
 	 */
-	isEnabled: boolean;
+	readonly isEnabled: boolean;
 
 	/**
 	 * The `callback` function is called when the macOS dark mode is toggled.
 	 *
 	 * @returns A function, that when called, unsubscribes the listener. Calling it on Window and Linux works, but it just returns a no-op function.
 	 */
-	onChange: (callback: () => void) => () => void;
+	readonly onChange: (callback: () => void) => () => void;
 }
 
 /**
@@ -314,7 +314,7 @@ export interface DarkMode {
  * 	//=> true
  * });
  */
-export const darkMode: Readonly<DarkMode>;
+export const darkMode: DarkMode;
 
 export interface SetContentSecurityPolicyOptions {
 	/**
@@ -322,7 +322,7 @@ export interface SetContentSecurityPolicyOptions {
 	 *
 	 * Default: [`electron.session.defaultSession`](https://electronjs.org/docs/api/session#sessiondefaultsession)
 	 */
-	session?: Session;
+	readonly session?: Session;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface SetContentSecurityPolicyOptions {
  * 	frame-ancestors 'none';
  * `);
  */
-export function setContentSecurityPolicy(policy: string, options?: Readonly<SetContentSecurityPolicyOptions>): void;
+export function setContentSecurityPolicy(policy: string, options?: SetContentSecurityPolicyOptions): void;
 
 /**
  * Opens the new issue view on the given GitHub repo in the browser.
@@ -368,11 +368,11 @@ export function setContentSecurityPolicy(policy: string, options?: Readonly<SetC
 // TODO options type?
 export function openNewGitHubIssue(options: unknown): void;
 
-export interface OpenUrlMenuItemOptions extends MenuItemConstructorOptions {
+export interface OpenUrlMenuItemOptions extends Readonly<MenuItemConstructorOptions> {
 	/**
 	 * TODO
 	 */
-	url: string;
+	readonly url: string;
 }
 
 /**
@@ -400,23 +400,23 @@ export interface OpenUrlMenuItemOptions extends MenuItemConstructorOptions {
  *
  * Menu.setApplicationMenu(menu);
  */
-export function openUrlMenuItem(options?: Readonly<OpenUrlMenuItemOptions>): MenuItem;
+export function openUrlMenuItem(options?: OpenUrlMenuItemOptions): MenuItem;
 
 export interface ShowAboutWindowOptions {
 	/**
 	 * An absolute path to the app icon.
 	 */
-	icon?: string;
+	readonly icon?: string;
 
 	/**
 	 * The copyright text.
 	 */
-	copyright?: string;
+	readonly copyright?: string;
 
 	/**
 	 * Some additional text if needed.
 	 */
-	text?: string;
+	readonly text?: string;
 
 	/**
 	 * Customizable for localization. Used in the menu item label and window title.
@@ -424,7 +424,7 @@ export interface ShowAboutWindowOptions {
 	 *
 	 * @default 'about'
 	 */
-	title?: string;
+	readonly title?: string;
 }
 
 /**
@@ -445,7 +445,7 @@ export interface ShowAboutWindowOptions {
  * 	text: 'Some more info.'
  * });
  */
-export function showAboutWindow(options: Readonly<ShowAboutWindowOptions>): void;
+export function showAboutWindow(options: ShowAboutWindowOptions): void;
 
 export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
 
@@ -474,7 +474,7 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
  *
  * Menu.setApplicationMenu(menu);
  */
-export function aboutMenuItem(options?: Readonly<AboutMenuItemOptions>): MenuItem;
+export function aboutMenuItem(options?: AboutMenuItemOptions): MenuItem;
 
 /**
  * For example, use this in the `body` option of the `.openNewGitHubIssue()` method.
