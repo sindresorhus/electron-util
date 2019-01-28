@@ -182,7 +182,6 @@ export interface GetWindowBoundsCenteredOptions {
 /**
  * Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of a window as if it was centered on the screen.
  *
- * @param options
  * @returns TODO
  */
 export function getWindowBoundsCentered(options?: Readonly<GetWindowBoundsCenteredOptions>): Electron.Rectangle;
@@ -230,7 +229,6 @@ export interface SetWindowBoundsOptions {
  * The properties that are not set will just fall back to the current ones.
  *
  * @param bounds - TODO
- * @param options
  */
 export function setWindowBounds(bounds: Readonly<OptionalRectangle>, options?: Readonly<SetWindowBoundsOptions>): void;
 
@@ -263,8 +261,6 @@ export interface CenterWindowOptions {
 
 /**
  * Center a window on the screen.
- *
- * @param options
  */
 export function centerWindow(options?: Readonly<CenterWindowOptions>): void;
 
@@ -332,7 +328,6 @@ export interface SetContentSecurityPolicyOptions {
  * Don't forget to [validate the policy](https://csp-evaluator.withgoogle.com) after changes.
  *
  * @param policy - You can put rules on separate lines, but lines must end in a semicolon.
- * @param options
  *
  * @example
  *
@@ -382,7 +377,6 @@ export interface OpenUrlMenuItemOptions extends Electron.MenuItemConstructorOpti
  * Accepts the same options as [`new MenuItem()`](https://electronjs.org/docs/api/menu-item) in addition to a `url` option.
  * If you specify the `click` option, its handler will be called before the URL is opened.
  *
- * @param options
  * @returns A `MenuItem` that, when clicked, opens the given URL in the browser.
  *
  * @example
@@ -456,7 +450,6 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
 /**
  * Accepts the same options as `.showAboutWindow()`.
  *
- * @param options
  * @returns A `MenuItem` that, when clicked, shows the about dialog.
  *
  * @example
