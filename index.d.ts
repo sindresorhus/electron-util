@@ -148,7 +148,7 @@ export function fixPathForAsarUnpack(path: string): string;
  *
  * It must not be used until the `app.on('ready')` event has been emitted.
  *
- * It will be a noop during development and on other systems than macOS.
+ * It will be a no-op during development and on other systems than macOS.
  *
  * It will offer to automatically move the app for the user.
  */
@@ -294,7 +294,7 @@ export interface DarkMode {
 	/**
 	 * The `callback` function is called when the macOS dark mode is toggled.
 	 * Returns a function, that when called, unsubscribes the listener.
-	 * Calling it on Window and Linux works, but it just returns a noop function.
+	 * Calling it on Window and Linux works, but it just returns a no-op function.
 	 */
 	onChange: (callback: () => void) => void;
 }
