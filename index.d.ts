@@ -15,47 +15,47 @@ export const is: {
 	/**
 	 * Running on macOS.
 	 */
-	macos: boolean,
+	readonly macos: boolean,
 
 	/**
 	 * Running on Linux.
 	 */
-	linux: boolean,
+	readonly linux: boolean,
 
 	/**
 	 * Running on Windows.
 	 */
-	windows: boolean,
+	readonly windows: boolean,
 
 	/**
 	 * Running on the [main process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 	 */
-	main: boolean,
+	readonly main: boolean,
 
 	/**
 	 * Running on the [renderer process](https://electronjs.org/docs/tutorial/quick-start/#renderer-process).
 	 */
-	renderer: boolean,
+	readonly renderer: boolean,
 
 	/**
 	 * The app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
 	 */
-	usingAsar: boolean,
+	readonly usingAsar: boolean,
 
 	/**
 	 * Running in development, not in production.
 	 */
-	development: boolean,
+	readonly development: boolean,
 
 	/**
 	 * The app is an Mac App Store build.
 	 */
-	macAppStore: boolean,
+	readonly macAppStore: boolean,
 
 	/**
 	 * The app is a Windows Store AppX build.
 	 */
-	windowsStore: boolean
+	readonly windowsStore: boolean
 };
 
 /**
@@ -108,7 +108,7 @@ export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<_Choices
  * 	})
  * });
  */
-export function platform<Macos = never, Windows = never, Linux = never, Default = undefined>(choices: Choices<Macos, Windows, Linux, Default>): Macos | Windows | Linux | Default;
+export function platform<Macos = never, Windows = never, Linux = never, Default = undefined>(choices: Readonly<Choices<Macos, Windows, Linux, Default>>): Macos | Windows | Linux | Default;
 
 /**
  * Returns the active window.
@@ -185,7 +185,7 @@ export interface GetWindowBoundsCenteredOptions {
  * @param options
  * @returns TODO
  */
-export function getWindowBoundsCentered(options?: GetWindowBoundsCenteredOptions): Electron.Rectangle;
+export function getWindowBoundsCentered(options?: Readonly<GetWindowBoundsCenteredOptions>): Electron.Rectangle;
 
 export interface OptionalRectangle {
 	/**
@@ -232,7 +232,7 @@ export interface SetWindowBoundsOptions {
  * @param bounds - TODO
  * @param options
  */
-export function setWindowBounds(bounds: OptionalRectangle, options?: SetWindowBoundsOptions): void;
+export function setWindowBounds(bounds: Readonly<OptionalRectangle>, options?: Readonly<SetWindowBoundsOptions>): void;
 
 export interface CenterWindowOptions {
 	/**
@@ -266,7 +266,7 @@ export interface CenterWindowOptions {
  *
  * @param options
  */
-export function centerWindow(options?: CenterWindowOptions): void;
+export function centerWindow(options?: Readonly<CenterWindowOptions>): void;
 
 /**
  * Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Windows.
@@ -316,7 +316,7 @@ export interface DarkMode {
  * 	//=> true
  * });
  */
-export const darkMode: DarkMode;
+export const darkMode: Readonly<DarkMode>;
 
 export interface SetContentSecurityPolicyOptions {
 	/**
@@ -350,7 +350,7 @@ export interface SetContentSecurityPolicyOptions {
  * 	frame-ancestors 'none';
  * `);
  */
-export function setContentSecurityPolicy(policy: string, options?: SetContentSecurityPolicyOptions): void;
+export function setContentSecurityPolicy(policy: string, options?: Readonly<SetContentSecurityPolicyOptions>): void;
 
 /**
  * Opens the new issue view on the given GitHub repo in the browser.
@@ -404,7 +404,7 @@ export interface OpenUrlMenuItemOptions extends Electron.MenuItemConstructorOpti
  *
  * Menu.setApplicationMenu(menu);
  */
-export function openUrlMenuItem(options?: OpenUrlMenuItemOptions): Electron.MenuItem;
+export function openUrlMenuItem(options?: Readonly<OpenUrlMenuItemOptions>): Electron.MenuItem;
 
 export interface ShowAboutWindowOptions {
 	/**
@@ -449,7 +449,7 @@ export interface ShowAboutWindowOptions {
  * 	text: 'Some more info.'
  * });
  */
-export function showAboutWindow(options: ShowAboutWindowOptions): void;
+export function showAboutWindow(options: Readonly<ShowAboutWindowOptions>): void;
 
 export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
 
@@ -479,7 +479,7 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
  *
  * Menu.setApplicationMenu(menu);
  */
-export function aboutMenuItem(options?: AboutMenuItemOptions): Electron.MenuItem;
+export function aboutMenuItem(options?: Readonly<AboutMenuItemOptions>): Electron.MenuItem;
 
 /**
  * For example, use this in the `body` option of the `.openNewGitHubIssue()` method.
@@ -522,4 +522,4 @@ export function debugInfo(): string;
  *
  * Menu.setApplicationMenu(menu);
  */
-export function appMenu(menuItems?: Electron.MenuItemConstructorOptions[]): Electron.MenuItemConstructorOptions;
+export function appMenu(menuItems?: Readonly<Electron.MenuItemConstructorOptions[]>): Electron.MenuItemConstructorOptions;
