@@ -1,3 +1,5 @@
+import {AllElectron, Remote, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions, MenuItem} from 'electron';
+
 /**
  * Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
  *
@@ -6,7 +8,7 @@
  * // In the renderer process:
  * api.app.quit(); // The `app` API is usually only available in the main process.
  */
-export const api: Electron.AllElectron | Electron.Remote;
+export const api: AllElectron | Remote;
 
 /**
  * Check for various things.
@@ -113,7 +115,7 @@ export function platform<Macos = never, Windows = never, Linux = never, Default 
 /**
  * Returns the active window.
  */
-export function activeWindow(): Electron.BrowserWindow;
+export function activeWindow(): BrowserWindow;
 
 /**
  * Run some JavaScript in the active or given window.
@@ -122,7 +124,7 @@ export function activeWindow(): Electron.BrowserWindow;
  * @param [window] - Default: Current window
  * @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
  */
-export function runJS(code: string, window?: Electron.BrowserWindow): Promise<unknown>;
+export function runJS(code: string, window?: BrowserWindow): Promise<unknown>;
 
 /**
  * ASAR is great, but it has [limitations when it comes to executing binaries](https://electronjs.org/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive).
@@ -165,7 +167,7 @@ export interface GetWindowBoundsCenteredOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: Electron.BrowserWindow;
+	window?: BrowserWindow;
 
 	/**
 	 * Set a new window size.
@@ -176,7 +178,7 @@ export interface GetWindowBoundsCenteredOptions {
 	 *
 	 * {width: 600, height: 400}
 	 */
-	size?: Electron.Size;
+	size?: Size;
 }
 
 /**
@@ -184,7 +186,7 @@ export interface GetWindowBoundsCenteredOptions {
  *
  * @returns TODO
  */
-export function getWindowBoundsCentered(options?: Readonly<GetWindowBoundsCenteredOptions>): Electron.Rectangle;
+export function getWindowBoundsCentered(options?: Readonly<GetWindowBoundsCenteredOptions>): Rectangle;
 
 export interface OptionalRectangle {
 	/**
@@ -214,7 +216,7 @@ export interface SetWindowBoundsOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: Electron.BrowserWindow;
+	window?: BrowserWindow;
 
 	/**
 	 * Animate the change.
@@ -238,7 +240,7 @@ export interface CenterWindowOptions {
 	 *
 	 * Default: Current window
 	 */
-	window?: Electron.BrowserWindow;
+	window?: BrowserWindow;
 
 	/**
 	 * Set a new window size.
@@ -249,7 +251,7 @@ export interface CenterWindowOptions {
 	 *
 	 * {width: 600, height: 400}
 	 */
-	size?: Electron.Size;
+	size?: Size;
 
 	/**
 	 * Animate the change.
@@ -269,7 +271,7 @@ export function centerWindow(options?: Readonly<CenterWindowOptions>): void;
  *
  * @param [window] - Default: Current window
  */
-export function disableZoom(window?: Electron.BrowserWindow): void;
+export function disableZoom(window?: BrowserWindow): void;
 
 /**
  * A timestamp (`Date.now()`) of when your app launched.
@@ -320,7 +322,7 @@ export interface SetContentSecurityPolicyOptions {
 	 *
 	 * Default: [`electron.session.defaultSession`](https://electronjs.org/docs/api/session#sessiondefaultsession)
 	 */
-	session?: Electron.Session;
+	session?: Session;
 }
 
 /**
@@ -366,7 +368,7 @@ export function setContentSecurityPolicy(policy: string, options?: Readonly<SetC
 // TODO options type?
 export function openNewGitHubIssue(options: unknown): void;
 
-export interface OpenUrlMenuItemOptions extends Electron.MenuItemConstructorOptions {
+export interface OpenUrlMenuItemOptions extends MenuItemConstructorOptions {
 	/**
 	 * TODO
 	 */
@@ -398,7 +400,7 @@ export interface OpenUrlMenuItemOptions extends Electron.MenuItemConstructorOpti
  *
  * Menu.setApplicationMenu(menu);
  */
-export function openUrlMenuItem(options?: Readonly<OpenUrlMenuItemOptions>): Electron.MenuItem;
+export function openUrlMenuItem(options?: Readonly<OpenUrlMenuItemOptions>): MenuItem;
 
 export interface ShowAboutWindowOptions {
 	/**
@@ -472,7 +474,7 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
  *
  * Menu.setApplicationMenu(menu);
  */
-export function aboutMenuItem(options?: Readonly<AboutMenuItemOptions>): Electron.MenuItem;
+export function aboutMenuItem(options?: Readonly<AboutMenuItemOptions>): MenuItem;
 
 /**
  * For example, use this in the `body` option of the `.openNewGitHubIssue()` method.
@@ -515,4 +517,4 @@ export function debugInfo(): string;
  *
  * Menu.setApplicationMenu(menu);
  */
-export function appMenu(menuItems?: Readonly<Electron.MenuItemConstructorOptions[]>): Electron.MenuItemConstructorOptions;
+export function appMenu(menuItems?: Readonly<MenuItemConstructorOptions[]>): MenuItemConstructorOptions;
