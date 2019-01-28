@@ -14,10 +14,11 @@
 	},
 	"scripts": {
 		"start": "electron example.js",
-		"test": "xo && ava"
+		"test": "xo && ava && tsd-check"
 	},
 	"files": [
 		"index.js",
+		"index.d.ts",
 		"node.js"
 	],
 	"keywords": [
@@ -40,6 +41,7 @@
 		"delay": "^4.1.0",
 		"electron": "^4.0.0",
 		"mock-require": "^3.0.2",
+		"tsd-check": "^0.3.0",
 		"xo": "^0.23.0"
 	},
 	"xo": {

@@ -297,9 +297,9 @@ Set a [Content Security Policy](https://developers.google.com/web/fundamentals/s
 Don't forget to [validate the policy](https://csp-evaluator.withgoogle.com) after changes.
 
 ```js
-const {setContentSecuriyPolicy} = require('electron-util');
+const {setContentSecurityPolicy} = require('electron-util');
 
-setContentSecuriyPolicy(`
+setContentSecurityPolicy(`
 	default-src 'none';
 	script-src 'self';
 	img-src 'self' data:;
