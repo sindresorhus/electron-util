@@ -121,7 +121,7 @@ export function activeWindow(): BrowserWindow;
  * Run some JavaScript in the active or given window.
  *
  * @param code - TODO
- * @param [window] - Default: Current window
+ * @param window - Default: Current window
  * @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
  */
 export function runJS(code: string, window?: BrowserWindow): Promise<unknown>;
@@ -269,7 +269,7 @@ export function centerWindow(options?: CenterWindowOptions): void;
 /**
  * Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Windows.
  *
- * @param [window] - Default: Current window
+ * @param window - Default: Current window
  */
 export function disableZoom(window?: BrowserWindow): void;
 
@@ -497,7 +497,7 @@ export function debugInfo(): string;
  * Creating the [app menu](https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-bar-menus/) (the first menu) on macOS requires [a lot of boilerplate](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L381-L431).
  * This method includes the default boilerplate and lets you add additional menu items in the correct place.
  *
- * @param [menuItems] - Menu items to add below the `About App Name` menu item. Usually, you would add at least a `Preferences…` menu item.
+ * @param menuItems - Menu items to add below the `About App Name` menu item. Usually, you would add at least a `Preferences…` menu item.
  * @returns TODO
  *
  * @example
