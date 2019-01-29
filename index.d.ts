@@ -99,8 +99,6 @@ export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<_Choices
  * If no platform key is matched, the `default` key is used if it exists.
  * If the value is a function, it will be executed, and the returned value will be used.
  *
- * @param choices - TODO
- *
  * @example
  *
  * init({
@@ -121,7 +119,7 @@ export function activeWindow(): BrowserWindow;
 /**
  * Run some JavaScript in the active or given window.
  *
- * @param code - TODO
+ * @param code - JavaScript code to be executed.
  * @param window - Default: Current window
  * @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
  */
@@ -140,8 +138,8 @@ export function runJS(code: string, window?: BrowserWindow): Promise<unknown>;
  * After:
  * /Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpack/node_modules/foo/binary
  *
- * @param path - TODO
- * @returns TODO
+ * @param path - A path in your app.
+ * @returns The fixed path.
  */
 export function fixPathForAsarUnpack(path: string): string;
 
@@ -185,7 +183,7 @@ export interface GetWindowBoundsCenteredOptions {
 /**
  * Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of a window as if it was centered on the screen.
  *
- * @returns TODO
+ * @returns Bounds of a window.
  */
 export function getWindowBoundsCentered(options?: GetWindowBoundsCenteredOptions): Rectangle;
 
@@ -231,7 +229,7 @@ export interface SetWindowBoundsOptions {
  * Set the bounds of a window. This is similar to the [`BrowserWindow#setBounds()`](https://electronjs.org/docs/api/browser-window#winsetboundsbounds-animate) method, but it allows setting any of the `x`, `y`, `width`, `height` properties, instead of forcing you to set them all at once.
  * The properties that are not set will just fall back to the current ones.
  *
- * @param bounds - TODO
+ * @param bounds - New window bounds.
  */
 export function setWindowBounds(bounds: OptionalRectangle, options?: SetWindowBoundsOptions): void;
 
@@ -370,7 +368,7 @@ export function openNewGitHubIssue(options: NewGithubIssueUrlOptions): void;
 
 export interface OpenUrlMenuItemOptions extends Readonly<MenuItemConstructorOptions> {
 	/**
-	 * TODO
+	 * URL to be opened when the menu item is clicked.
 	 */
 	readonly url: string;
 }
@@ -498,7 +496,7 @@ export function debugInfo(): string;
  * This method includes the default boilerplate and lets you add additional menu items in the correct place.
  *
  * @param menuItems - Menu items to add below the `About App Name` menu item. Usually, you would add at least a `Preferences…` menu item.
- * @returns TODO
+ * @returns All menu items for the app menu.
  *
  * @example
  *
