@@ -349,7 +349,7 @@ Accepts the same options as [`new MenuItem()`](https://electronjs.org/docs/api/m
 
 If you specify the `click` option, its handler will be called before the URL is opened.
 
-Returns a `MenuItem` that, when clicked, opens the given URL in the browser.
+Returns a `MenuItemConstructorOptions` that creates a menu item, which opens the given URL in the browser when clicked.
 
 ```js
 const {Menu} = require('electron');
@@ -425,7 +425,7 @@ The app name is automatically appended at runtime.
 
 Accepts the same options as `.showAboutWindow()`.
 
-Returns a `MenuItem` that, when clicked, shows the about dialog.
+Returns a `MenuItemConstructorOptions` that creates a menu item, which shows the about dialog when clicked.
 
 ```js
 const {Menu} = require('electron');

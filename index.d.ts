@@ -377,7 +377,7 @@ export interface OpenUrlMenuItemOptions extends Readonly<MenuItemConstructorOpti
  * Accepts the same options as [`new MenuItem()`](https://electronjs.org/docs/api/menu-item) in addition to a `url` option.
  * If you specify the `click` option, its handler will be called before the URL is opened.
  *
- * @returns A `MenuItem` that, when clicked, opens the given URL in the browser.
+ * @returns A `MenuItemConstructorOptions` that creates a menu item, which opens the given URL in the browser when clicked.
  *
  * @example
  *
@@ -398,7 +398,7 @@ export interface OpenUrlMenuItemOptions extends Readonly<MenuItemConstructorOpti
  *
  * Menu.setApplicationMenu(menu);
  */
-export function openUrlMenuItem(options?: OpenUrlMenuItemOptions): MenuItem;
+export function openUrlMenuItem(options?: OpenUrlMenuItemOptions): MenuItemConstructorOptions;
 
 export interface ShowAboutWindowOptions {
 	/**
@@ -450,7 +450,7 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
 /**
  * Accepts the same options as `.showAboutWindow()`.
  *
- * @returns A `MenuItem` that, when clicked, shows the about dialog.
+ * @returns A `MenuItemConstructorOptions` that creates a menu item, which shows the about dialog when clicked.
  *
  * @example
  *
@@ -472,7 +472,7 @@ export interface AboutMenuItemOptions extends ShowAboutWindowOptions {}
  *
  * Menu.setApplicationMenu(menu);
  */
-export function aboutMenuItem(options?: AboutMenuItemOptions): MenuItem;
+export function aboutMenuItem(options?: AboutMenuItemOptions): MenuItemConstructorOptions;
 
 /**
  * For example, use this in the `body` option of the `.openNewGitHubIssue()` method.
