@@ -233,10 +233,10 @@ exports.openUrlMenuItem = (options = {}) => {
 		api.shell.openExternal(url);
 	};
 
-	return new api.MenuItem({
+	return {
 		...options,
 		click
-	});
+	};
 };
 
 exports.showAboutWindow = options => {
@@ -282,12 +282,12 @@ exports.aboutMenuItem = (options = {}) => {
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
 
-	return new api.MenuItem({
+	return {
 		label: `${options.title} ${api.app.getName()}`,
 		click() {
 			exports.showAboutWindow(options);
 		}
-	});
+	};
 };
 
 exports.debugInfo = () => `

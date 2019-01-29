@@ -14,10 +14,11 @@
 	},
 	"scripts": {
 		"start": "electron example.js",
-		"test": "xo && ava"
+		"test": "xo && ava && tsd-check"
 	},
 	"files": [
 		"index.js",
+		"index.d.ts",
 		"node.js"
 	],
 	"keywords": [
@@ -33,13 +34,14 @@
 	],
 	"dependencies": {
 		"electron-is-dev": "^1.0.1",
-		"new-github-issue-url": "^0.1.2"
+		"new-github-issue-url": "^0.2.0"
 	},
 	"devDependencies": {
 		"ava": "^1.0.1",
 		"delay": "^4.1.0",
 		"electron": "^4.0.0",
 		"mock-require": "^3.0.2",
+		"tsd-check": "^0.3.0",
 		"xo": "^0.23.0"
 	},
 	"xo": {

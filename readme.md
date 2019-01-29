@@ -154,7 +154,7 @@ On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issue
 
 It must not be used until the `app.on('ready')` event has been emitted.
 
-It will be a noop during development and on other systems than macOS.
+It will be a no-op during development and on other systems than macOS.
 
 It will offer to automatically move the app for the user:
 
@@ -288,7 +288,7 @@ The `callback` function is called when the macOS dark mode is toggled.
 
 Returns a function, that when called, unsubscribes the listener.
 
-Calling it on Window and Linux works, but it just returns a noop function.
+Calling it on Window and Linux works, but it just returns a no-op function.
 
 ### setContentSecurityPolicy(policy, [options])
 
@@ -297,9 +297,9 @@ Set a [Content Security Policy](https://developers.google.com/web/fundamentals/s
 Don't forget to [validate the policy](https://csp-evaluator.withgoogle.com) after changes.
 
 ```js
-const {setContentSecuriyPolicy} = require('electron-util');
+const {setContentSecurityPolicy} = require('electron-util');
 
-setContentSecuriyPolicy(`
+setContentSecurityPolicy(`
 	default-src 'none';
 	script-src 'self';
 	img-src 'self' data:;
@@ -349,7 +349,7 @@ Accepts the same options as [`new MenuItem()`](https://electronjs.org/docs/api/m
 
 If you specify the `click` option, its handler will be called before the URL is opened.
 
-Returns a `MenuItem` that, when clicked, opens the given URL in the browser.
+Returns a `MenuItemConstructorOptions` that creates a menu item, which opens the given URL in the browser when clicked.
 
 ```js
 const {Menu} = require('electron');
@@ -425,7 +425,7 @@ The app name is automatically appended at runtime.
 
 Accepts the same options as `.showAboutWindow()`.
 
-Returns a `MenuItem` that, when clicked, shows the about dialog.
+Returns a `MenuItemConstructorOptions` that creates a menu item, which shows the about dialog when clicked.
 
 ```js
 const {Menu} = require('electron');
@@ -473,7 +473,7 @@ Creating the [app menu](https://developer.apple.com/design/human-interface-guide
 
 Type: [`MenuItem[]`](https://electronjs.org/docs/api/menu-item)
 
-Menu items to add below the `About App Nem` menu item.
+Menu items to add below the `About App Name` menu item.
 
 Usually, you would add at least a `Preferences…` menu item:
 
