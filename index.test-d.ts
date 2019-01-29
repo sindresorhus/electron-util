@@ -59,9 +59,9 @@ expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
 expectType<void>(openNewGitHubIssue({user: 'sindresorhus', repo: 'electron-util'}));
-expectType<Electron.MenuItem>(openUrlMenuItem());
+expectType<Electron.MenuItemConstructorOptions>(openUrlMenuItem());
 expectType<void>(showAboutWindow({title: 'App name'}));
-expectType<Electron.MenuItem>(aboutMenuItem());
+expectType<Electron.MenuItemConstructorOptions>(aboutMenuItem());
 expectType<string>(debugInfo());
 expectType<Electron.MenuItemConstructorOptions>(appMenu([
 	{
