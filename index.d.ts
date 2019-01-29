@@ -79,8 +79,10 @@ export const electronVersion: string;
  */
 export const chromeVersion: string;
 
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
 type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
-	Pick<T, Exclude<keyof T, Keys>>
+	Omit<T, Keys>
 	& {
 		[K in Keys]-?: Required<Pick<T, K>>
 	}[Keys]
