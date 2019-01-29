@@ -1,4 +1,4 @@
-import {BrowserWindow} from 'electron';
+import {AllElectron, Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
 import {expectType} from 'tsd-check';
 import {
 	api,
@@ -27,7 +27,7 @@ import {
 	appMenu
 } from '.';
 
-expectType<Electron.AllElectron | Electron.Remote>(api);
+expectType<AllElectron | Remote>(api);
 expectType<boolean>(api.app.isPackaged);
 expectType<boolean>(is.macos);
 expectType<string>(electronVersion);
@@ -45,12 +45,12 @@ expectType<number | string>(platform({
 // 	default: 1
 // });
 
-expectType<Electron.BrowserWindow>(activeWindow());
+expectType<BrowserWindow>(activeWindow());
 expectType<Promise<any>>(runJS('a=1'));
 expectType<string>(fixPathForAsarUnpack('/path'));
 expectType<void>(enforceMacOSAppLocation());
 expectType<number>(menuBarHeight());
-expectType<Electron.Rectangle>(getWindowBoundsCentered());
+expectType<Rectangle>(getWindowBoundsCentered());
 expectType<void>(setWindowBounds({width: 1920, height: 1080}));
 expectType<void>(centerWindow({}));
 expectType<void>(disableZoom());
@@ -59,11 +59,11 @@ expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
 expectType<void>(openNewGitHubIssue({user: 'sindresorhus', repo: 'electron-util'}));
-expectType<Electron.MenuItemConstructorOptions>(openUrlMenuItem());
+expectType<MenuItemConstructorOptions>(openUrlMenuItem());
 expectType<void>(showAboutWindow({title: 'App name'}));
-expectType<Electron.MenuItemConstructorOptions>(aboutMenuItem());
+expectType<MenuItemConstructorOptions>(aboutMenuItem());
 expectType<string>(debugInfo());
-expectType<Electron.MenuItemConstructorOptions>(appMenu([
+expectType<MenuItemConstructorOptions>(appMenu([
 	{
 		label: 'Preferences…',
 		accelerator: 'Command+,',
