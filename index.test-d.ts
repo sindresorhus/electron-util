@@ -1,5 +1,5 @@
 import {AllElectron, Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
-import {expectType} from 'tsd-check';
+import {expectType, expectError} from 'tsd-check';
 import {
 	api,
 	is,
@@ -38,12 +38,8 @@ expectType<number | string>(platform({
 	default: () => 'test'
 }));
 
-// These should fail:
-// platform({});
-//
-// platform({
-// 	default: 1
-// });
+expectError(platform({}));
+expectError(platform({default: 1}));
 
 expectType<BrowserWindow>(activeWindow());
 expectType<Promise<any>>(runJS('a=1'));
