@@ -28,7 +28,7 @@ import {
 } from '.';
 
 expectType<AllElectron | Remote>(api);
-expectType<boolean>(api.app.isPackaged);
+expectType<boolean | undefined>(api.app.isPackaged);
 expectType<boolean>(is.macos);
 expectType<string>(electronVersion);
 expectType<string>(chromeVersion);
