@@ -1,5 +1,6 @@
 import {AllElectron, Remote, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions, MenuItem} from 'electron';
 import {Options as NewGithubIssueUrlOptions} from 'new-github-issue-url';
+import {RequireAtLeastOne} from 'type-fest';
 
 /**
  * Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
@@ -78,14 +79,6 @@ export const electronVersion: string;
  * '62.0.3202'
  */
 export const chromeVersion: string;
-
-type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
-
-type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
-	Omit<T, Keys>
-	& {
-		[K in Keys]-?: Required<Pick<T, K>>
-	}[Keys]
 
 interface _Choices<Macos, Windows, Linux, Default> {
 	readonly macos?: Macos | (() => Macos);
