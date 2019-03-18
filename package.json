@@ -42,6 +42,7 @@
 		"electron": "^4.0.0",
 		"mock-require": "^3.0.2",
 		"tsd-check": "^0.3.0",
+		"type-fest": "^0.3.0",
 		"xo": "^0.23.0"
 	},
 	"xo": {
