@@ -56,7 +56,7 @@ console.log(is.macos && is.main);
 
 ### api
 
-Type: `Object`
+Type: `object`
 
 Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
 
@@ -70,7 +70,7 @@ The `app` API is usually only available in the main process.
 
 ### is
 
-Type: `Object`
+Type: `object`
 
 Check for various things:
 
@@ -152,7 +152,7 @@ Type: `Function`
 
 On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issues/56), if an app is launched outside the Applications folder, it will run in a read-only disk image, which could cause subtle problems for your app. Use this method to ensure the app lives in the Applications folder.
 
-It must not be used until the `app.on('ready')` event has been emitted.
+It must not be used until the `app.whenReady()` promise is resolved.
 
 It will be a no-op during development and on other systems than macOS.
 
@@ -170,7 +170,7 @@ Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### window
 
@@ -181,7 +181,7 @@ The window to get the bounds of.
 
 ##### size
 
-Type: `Object`<br>
+Type: `object`<br>
 Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
@@ -192,7 +192,7 @@ Set the bounds of a window. This is similar to the [`BrowserWindow#setBounds()`]
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### window
 
@@ -214,7 +214,7 @@ Center a window on the screen.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### window
 
@@ -225,7 +225,7 @@ The window to center.
 
 ##### size
 
-Type: `Object`<br>
+Type: `object`<br>
 Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
@@ -260,7 +260,7 @@ It works by writing a file to `app.getPath('userData')` if it doesn't exist and 
 
 ### darkMode
 
-Type: `Object`
+Type: `object`
 
 ```js
 const {darkMode} = require('electron-util');
@@ -320,7 +320,7 @@ You can put rules on separate lines, but lines must end in a semicolon.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### session
 
@@ -392,7 +392,7 @@ showAboutWindow({
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### icon
 

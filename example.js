@@ -2,7 +2,6 @@
 const path = require('path');
 const assert = require('assert');
 const electron = require('electron');
-const delay = require('delay');
 const util = require('.');
 
 const createMenu = () => {
@@ -69,10 +68,8 @@ const createMenu = () => {
 	createMenu();
 
 	const win = new electron.BrowserWindow();
-	win.loadURL('about:blank');
+	await win.loadURL('about:blank');
 	win.webContents.openDevTools('undocked');
-
-	await delay(200);
 
 	assert.strictEqual(await util.runJS('2 + 2'), 4);
 })();

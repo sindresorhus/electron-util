@@ -130,10 +130,12 @@ exports.centerWindow = options => {
 
 exports.disableZoom = (win = activeWindow()) => {
 	const {webContents} = win;
+
 	const run = () => {
 		webContents.setZoomFactor(1);
 		webContents.setLayoutZoomLevelLimits(0, 0);
 	};
+
 	webContents.on('did-finish-load', run);
 	run();
 };

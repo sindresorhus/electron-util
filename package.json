@@ -14,7 +14,7 @@
 	},
 	"scripts": {
 		"start": "electron example.js",
-		"test": "xo && ava && tsd-check"
+		"test": "xo && ava && tsd"
 	},
 	"files": [
 		"index.js",
@@ -33,17 +33,16 @@
 		"useful"
 	],
 	"dependencies": {
-		"electron-is-dev": "^1.0.1",
-		"new-github-issue-url": "^0.2.0"
+		"electron-is-dev": "^1.1.0",
+		"new-github-issue-url": "^0.2.1"
 	},
 	"devDependencies": {
-		"ava": "^1.0.1",
-		"delay": "^4.1.0",
-		"electron": "^4.0.0",
-		"mock-require": "^3.0.2",
-		"tsd-check": "^0.5.0",
-		"type-fest": "^0.3.0",
-		"xo": "^0.23.0"
+		"ava": "^1.4.1",
+		"electron": "^5.0.0",
+		"mock-require": "^3.0.3",
+		"tsd": "^0.7.2",
+		"type-fest": "^0.4.1",
+		"xo": "^0.24.0"
 	},
 	"xo": {
 		"envs": [

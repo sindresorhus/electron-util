@@ -1,5 +1,5 @@
 import {AllElectron, Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
-import {expectType, expectError} from 'tsd-check';
+import {expectType, expectError} from 'tsd';
 import {
 	api,
 	is,
