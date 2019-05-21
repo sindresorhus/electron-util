@@ -38,10 +38,10 @@
 	},
 	"devDependencies": {
 		"ava": "^1.4.1",
-		"electron": "^5.0.0",
+		"electron": "^5.0.1",
 		"mock-require": "^3.0.3",
-		"tsd": "^0.7.2",
-		"type-fest": "^0.4.1",
+		"tsd": "^0.7.3",
+		"type-fest": "^0.5.1",
 		"xo": "^0.24.0"
 	},
 	"xo": {

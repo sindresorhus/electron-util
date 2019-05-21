@@ -1,22 +1,30 @@
 'use strict';
 const path = require('path');
 const assert = require('assert');
-const electron = require('electron');
-const util = require('.');
+const {app, BrowserWindow, Menu, dialog} = require('electron');
+const {
+	openNewGitHubIssue,
+	openUrlMenuItem,
+	showAboutWindow,
+	aboutMenuItem,
+	debugInfo,
+	appMenu,
+	runJS
+} = require('.');
 
 const createMenu = () => {
 	const items = [
 		{
 			label: 'openNewGitHubIssue() test',
 			click() {
-				util.openNewGitHubIssue({
+				openNewGitHubIssue({
 					user: 'sindresorhus',
 					repo: 'playground',
 					body: 'Test 🦄'
 				});
 			}
 		},
-		util.openUrlMenuItem({
+		openUrlMenuItem({
 			label: 'openUrlMenuItem() test',
 			url: 'https://sindresorhus.com',
 			onClick() {
@@ -26,14 +34,14 @@ const createMenu = () => {
 		{
 			label: 'showAboutWindow() test',
 			click() {
-				util.showAboutWindow({
+				showAboutWindow({
 					icon: path.join(__dirname, 'fixtures/Icon.png'),
 					copyright: 'Copyright © Sindre Sorhus',
 					text: 'Some more info.'
 				});
 			}
 		},
-		util.aboutMenuItem({
+		aboutMenuItem({
 			icon: path.join(__dirname, 'fixtures/Icon.png'),
 			copyright: 'Copyright © Sindre Sorhus',
 			text: 'Some more info.'
@@ -41,13 +49,13 @@ const createMenu = () => {
 		{
 			label: 'debugInfo() test',
 			click() {
-				electron.dialog.showErrorBox('', util.debugInfo());
+				dialog.showErrorBox('', debugInfo());
 			}
 		}
 	];
 
-	const menu = electron.Menu.buildFromTemplate([
-		util.appMenu([
+	const menu = Menu.buildFromTemplate([
+		appMenu([
 			{
 				label: 'Extra item',
 				enabled: false
@@ -59,17 +67,20 @@ const createMenu = () => {
 		}
 	]);
 
-	electron.Menu.setApplicationMenu(menu);
+	Menu.setApplicationMenu(menu);
 };
 
+let mainWindow;
+
 (async () => {
-	await electron.app.whenReady();
+	await app.whenReady();
 
 	createMenu();
 
-	const win = new electron.BrowserWindow();
-	await win.loadURL('about:blank');
-	win.webContents.openDevTools('undocked');
+	mainWindow = new BrowserWindow();
+	await mainWindow.loadURL('about:blank');
 
-	assert.strictEqual(await util.runJS('2 + 2'), 4);
+	mainWindow.webContents.openDevTools('undocked');
+
+	assert.strictEqual(await runJS('2 + 2'), 4);
 })();

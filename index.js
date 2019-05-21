@@ -109,11 +109,6 @@ exports.setWindowBounds = (bounds, options) => {
 		...options
 	};
 
-	bounds = {
-		...options.window.getNormalBounds(),
-		...bounds
-	};
-
 	options.window.setBounds(bounds, options.animated);
 };
 

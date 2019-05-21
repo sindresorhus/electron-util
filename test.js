@@ -10,27 +10,27 @@ mockRequire('electron', {
 	remote: {}
 });
 
-const m = require('.');
+const {platform} = require('.');
 
 test('util.platform()', t => {
-	t.is(m.platform({
+	t.is(platform({
 		linux: 1,
 		macos: 2,
 		default: 3
 	}), 2);
 
-	t.is(m.platform({
+	t.is(platform({
 		linux: 1,
 		macos: () => 2,
 		default: 3
 	}), 2);
 
-	t.is(m.platform({
+	t.is(platform({
 		linux: 1,
 		default: 3
 	}), 3);
 
-	t.is(m.platform({
+	t.is(platform({
 		linux: 1
 	}), undefined);
 });
