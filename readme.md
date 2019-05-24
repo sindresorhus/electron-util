@@ -1,6 +1,6 @@
 # electron-util [![Build Status](https://travis-ci.org/sindresorhus/electron-util.svg?branch=master)](https://travis-ci.org/sindresorhus/electron-util)
 
-> Useful utilities for developing Electron apps and modules
+> Useful utilities for Electron apps and modules
 
 You can use this module directly in both the [main and renderer process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 

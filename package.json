@@ -1,16 +1,13 @@
 {
 	"name": "electron-util",
 	"version": "0.11.0",
-	"description": "Useful utilities for developing Electron apps and modules",
+	"description": "Useful utilities for Electron apps and modules",
 	"license": "MIT",
 	"repository": "sindresorhus/electron-util",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
 		"url": "sindresorhus.com"
-	},
-	"engines": {
-		"node": ">=10"
 	},
 	"scripts": {
 		"start": "electron example.js",
