@@ -39,7 +39,6 @@ console.log(is.macos && is.main);
 - [`enforceMacOSAppLocation()`](#enforcemacosapplocation-macos)
 - [`menuBarHeight()`](#menubarheight-macos)
 - [`getWindowBoundsCentered()`](#getwindowboundscenteredoptions)
-- [`setWindowBounds()`](#setwindowboundsbounds-options)
 - [`centerWindow()`](#centerwindowoptions)
 - [`disableZoom()`](#disablezoomwindow)
 - [`appLaunchTimestamp`](#applaunchtimestamp)
@@ -185,10 +184,6 @@ Type: `object`<br>
 Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
-
-### setWindowBounds(bounds, [options])
-
-Set the bounds of a window. This is similar to the [`BrowserWindow#setBounds()`](https://electronjs.org/docs/api/browser-window#winsetboundsbounds-animate) method, but it allows setting any of the `x`, `y`, `width`, `height` properties, instead of forcing you to set them all at once. The properties that are not set will just fall back to the current ones.
 
 #### options
 
