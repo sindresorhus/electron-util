@@ -237,7 +237,7 @@ exports.openUrlMenuItem = (options = {}) => {
 };
 
 exports.showAboutWindow = options => {
-	if (is.macos) {
+	if (!is.windows) {
 		if (options.copyright) {
 			api.app.setAboutPanelOptions({copyright: options.copyright});
 		}
