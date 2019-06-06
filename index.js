@@ -102,16 +102,6 @@ exports.getWindowBoundsCentered = options => {
 	};
 };
 
-exports.setWindowBounds = (bounds, options) => {
-	options = {
-		window: activeWindow(),
-		animated: false,
-		...options
-	};
-
-	options.window.setBounds(bounds, options.animated);
-};
-
 exports.centerWindow = options => {
 	options = {
 		window: activeWindow(),
