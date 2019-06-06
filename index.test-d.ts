@@ -12,7 +12,6 @@ import {
 	enforceMacOSAppLocation,
 	menuBarHeight,
 	getWindowBoundsCentered,
-	setWindowBounds,
 	centerWindow,
 	disableZoom,
 	appLaunchTimestamp,
@@ -47,7 +46,6 @@ expectType<string>(fixPathForAsarUnpack('/path'));
 expectType<void>(enforceMacOSAppLocation());
 expectType<number>(menuBarHeight());
 expectType<Rectangle>(getWindowBoundsCentered());
-expectType<void>(setWindowBounds({width: 1920, height: 1080}));
 expectType<void>(centerWindow({}));
 expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);

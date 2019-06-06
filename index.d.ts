@@ -212,30 +212,6 @@ export interface OptionalRectangle {
 	readonly y?: number;
 }
 
-export interface SetWindowBoundsOptions {
-	/**
-	The window to set the bounds of.
-
-	Default: Current window
-	*/
-	readonly window?: BrowserWindow;
-
-	/**
-	Animate the change.
-
-	@default false
-	*/
-	readonly animated?: boolean;
-}
-
-/**
-Set the bounds of a window. This is similar to the [`BrowserWindow#setBounds()`](https://electronjs.org/docs/api/browser-window#winsetboundsbounds-animate) method, but it allows setting any of the `x`, `y`, `width`, `height` properties, instead of forcing you to set them all at once.
-The properties that are not set will just fall back to the current ones.
-
-@param bounds - New window bounds.
-*/
-export function setWindowBounds(bounds: OptionalRectangle, options?: SetWindowBoundsOptions): void;
-
 export interface CenterWindowOptions {
 	/**
 	The window to center.

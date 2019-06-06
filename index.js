@@ -110,7 +110,7 @@ exports.centerWindow = options => {
 	};
 
 	const bounds = exports.getWindowBoundsCentered(options);
-	exports.setWindowBounds(bounds, options);
+	options.window.setBounds(bounds, options.animated);
 };
 
 exports.disableZoom = (win = activeWindow()) => {
