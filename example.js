@@ -11,6 +11,7 @@ const {
 	appMenu,
 	runJS
 } = require('.');
+/// const enforceMacosAppLocation = require('./source/enforce-macos-app-location');
 
 const createMenu = () => {
 	const items = [
@@ -74,6 +75,8 @@ let mainWindow;
 
 (async () => {
 	await app.whenReady();
+
+	/// enforceMacosAppLocation();
 
 	createMenu();
 

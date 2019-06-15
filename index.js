@@ -2,27 +2,14 @@
 const os = require('os');
 const path = require('path');
 const electron = require('electron');
-const isDev = require('electron-is-dev');
 const newGithubIssueUrl = require('new-github-issue-url');
 const node = require('./node');
 
-const api = new Proxy(electron, {
-	get: (target, prop) => target[prop] || target.remote[prop]
-});
+const api = require('./source/api');
 
 exports.api = api;
 
-const is = {
-	macos: process.platform === 'darwin',
-	linux: process.platform === 'linux',
-	windows: process.platform === 'win32',
-	main: process.type === 'browser',
-	renderer: process.type === 'renderer',
-	usingAsar: node.isUsingAsar,
-	development: isDev,
-	macAppStore: process.mas === true,
-	windowsStore: process.windowsStore === true
-};
+const is = require('./source/is');
 
 exports.is = is;
 
@@ -30,7 +17,7 @@ exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
 
-exports.platform = obj => {
+exports.platform = object => {
 	let {platform} = process;
 
 	if (platform === 'darwin') {
@@ -39,7 +26,7 @@ exports.platform = obj => {
 		platform = 'windows';
 	}
 
-	const fn = platform in obj ? obj[platform] : obj.default;
+	const fn = platform in object ? object[platform] : object.default;
 
 	return typeof fn === 'function' ? fn() : fn;
 };
@@ -54,31 +41,7 @@ exports.runJS = (code, win = activeWindow()) => win.webContents.executeJavaScrip
 
 exports.fixPathForAsarUnpack = node.fixPathForAsarUnpack;
 
-exports.enforceMacOSAppLocation = () => {
-	if (is.development || !is.macos) {
-		return;
-	}
-
-	if (api.app.isInApplicationsFolder()) {
-		return;
-	}
-
-	const clickedButtonIndex = api.dialog.showMessageBox({
-		type: 'error',
-		message: 'Move to Applications folder?',
-		detail: `${api.app.getName()} must live in the Applications folder to be able to run correctly.`,
-		buttons: ['Move to Applications folder', `Quit ${api.app.getName()}`],
-		defaultId: 0,
-		cancelId: 1
-	});
-
-	if (clickedButtonIndex === 1) {
-		api.app.quit();
-		return;
-	}
-
-	api.app.moveToApplicationsFolder();
-};
+exports.enforceMacOSAppLocation = require('./source/enforce-macos-app-location');
 
 exports.menuBarHeight = () => is.macos ? api.screen.getPrimaryDisplay().workArea.y : 0;
 

@@ -14,6 +14,7 @@
 		"test": "xo && ava && tsd"
 	},
 	"files": [
+		"source",
 		"index.js",
 		"index.d.ts",
 		"node.js"
