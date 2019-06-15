@@ -289,3 +289,5 @@ exports.appMenu = (menuItems = []) => {
 		].filter(Boolean)
 	};
 };
+
+// TODO: Move more of the larger methods here into separate files.

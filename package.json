@@ -35,11 +35,11 @@
 		"new-github-issue-url": "^0.2.1"
 	},
 	"devDependencies": {
-		"ava": "^1.4.1",
-		"electron": "^5.0.1",
+		"ava": "^2.1.0",
+		"electron": "^5.0.4",
 		"mock-require": "^3.0.3",
 		"tsd": "^0.7.3",
-		"type-fest": "^0.5.1",
+		"type-fest": "^0.5.2",
 		"xo": "^0.24.0"
 	},
 	"xo": {

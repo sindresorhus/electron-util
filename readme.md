@@ -119,7 +119,7 @@ Type: `Function`
 
 Returns the active window.
 
-### runJS(code, [window])
+### runJS(code, window?)
 
 Type: `Function`
 
@@ -163,7 +163,7 @@ It will offer to automatically move the app for the user:
 
 Returns the height of the menu bar on macOS, or `0` if not macOS.
 
-### getWindowBoundsCentered([options])
+### getWindowBoundsCentered(options?)
 
 Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of a window as if it was centered on the screen.
 
@@ -203,7 +203,7 @@ Default: `false`
 
 Animate the change.
 
-### centerWindow([options])
+### centerWindow(options?)
 
 Center a window on the screen.
 
@@ -285,7 +285,7 @@ Returns a function, that when called, unsubscribes the listener.
 
 Calling it on Window and Linux works, but it just returns a no-op function.
 
-### setContentSecurityPolicy(policy, [options])
+### setContentSecurityPolicy(policy, options?)
 
 Set a [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp/) for your app.
 
@@ -535,8 +535,3 @@ Same as the above Electron version.
 - [electron-context-menu](https://github.com/sindresorhus/electron-context-menu) - Context menu for your Electron app
 - [electron-dl](https://github.com/sindresorhus/electron-dl) - Simplified file downloads for your Electron app
 - [electron-unhandled](https://github.com/sindresorhus/electron-unhandled) - Catch unhandled errors and promise rejections in your Electron app
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
