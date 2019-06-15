@@ -367,7 +367,7 @@ Menu.setApplicationMenu(menu);
 
 ### showAboutWindow(options)
 
-Shows an 'About' window. On macOS, the native 'About' window is shown, and on Linux and Windows, a simple custom dialog is shown.
+Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
 
 On macOS, the `icon`, `text`, and `title` options are ignored.
 

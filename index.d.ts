@@ -407,7 +407,7 @@ export interface ShowAboutWindowOptions {
 }
 
 /**
-Shows an 'About' window. On macOS, the native 'About' window is shown, and on Linux and Windows, a simple custom dialog is shown.
+Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
 On macOS, the `icon`, `text`, and `title` options are ignored.
 
 _It will show `Electron` as the app name until you build your app for production._
