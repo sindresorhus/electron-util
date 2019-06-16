@@ -369,7 +369,7 @@ Menu.setApplicationMenu(menu);
 
 Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
 
-On macOS, the `icon`, `text`, and `title` options are ignored.
+On macOS, the `icon`, `text`, `title`, and `website` options are ignored.
 
 *It will show `Electron` as the app name until you build your app for production.*
 
@@ -400,6 +400,12 @@ An absolute path to the app icon.
 Type: `string`
 
 The copyright text.
+
+##### website *(Linux)*
+
+Type: `string`
+
+The URL to the app's website.
 
 ##### text
 

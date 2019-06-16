@@ -189,10 +189,23 @@ exports.openUrlMenuItem = (options = {}) => {
 	};
 };
 
-exports.showAboutWindow = options => {
+exports.showAboutWindow = (options = {}) => {
 	if (!is.windows) {
-		if (options.copyright) {
-			api.app.setAboutPanelOptions({copyright: options.copyright});
+		if (
+			options.copyright ||
+			(is.linux && options.icon) ||
+			(is.linux && options.website)
+		) {
+			const aboutPanelOptions = {
+				copyright: options.copyright
+			};
+
+			if (is.linux && options.icon) {
+				aboutPanelOptions.iconPath = options.icon;
+				delete aboutPanelOptions.icon;
+			}
+
+			api.app.setAboutPanelOptions(aboutPanelOptions);
 		}
 
 		api.app.showAboutPanel();

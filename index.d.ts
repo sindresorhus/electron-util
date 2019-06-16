@@ -393,6 +393,13 @@ export interface ShowAboutWindowOptions {
 	readonly copyright?: string;
 
 	/**
+	The URL to the app's website.
+
+	For Linux only.
+	*/
+	readonly website?: string;
+
+	/**
 	Some additional text if needed.
 	*/
 	readonly text?: string;
@@ -408,7 +415,7 @@ export interface ShowAboutWindowOptions {
 
 /**
 Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
-On macOS, the `icon`, `text`, and `title` options are ignored.
+On macOS, the `icon`, `text`, `title`, and `website` options are ignored.
 
 _It will show `Electron` as the app name until you build your app for production._
 
