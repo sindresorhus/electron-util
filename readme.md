@@ -47,7 +47,7 @@ console.log(is.macos && is.main);
 - [`setContentSecurityPolicy`](#setcontentsecuritypolicypolicy-options)
 - [`openNewGitHubIssue()`](#opennewgithubissueoptions)
 - [`openUrlMenuItem()`](#openurlmenuitemoptions)
-- [`showAboutWindow()`](#showaboutwindowoptions-linux-windows)
+- [`showAboutWindow()`](#showaboutwindowoptions)
 - [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
@@ -369,7 +369,9 @@ Menu.setApplicationMenu(menu);
 
 Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
 
-On macOS, the `icon`, `text`, `title`, and `website` options are ignored.
+On macOS, the `icon`, `text`, `title`, and `website` options are ignored. For `icon`, it already defaults to the app icon. For `title`, you don't need it as the native about window doesn't have a title.
+
+On Linux, the `text` option is ignored.
 
 *It will show `Electron` as the app name until you build your app for production.*
 
@@ -389,7 +391,7 @@ showAboutWindow({
 
 Type: `object`
 
-##### icon
+##### icon <sup>*Linux*</sup> <sup>*Windows*</sup>
 
 Type: `string`
 
@@ -401,24 +403,24 @@ Type: `string`
 
 The copyright text.
 
-##### website *(Linux)*
+##### website <sup>*Linux*</sup>
 
 Type: `string`
 
 The URL to the app's website.
 
-##### text
+##### text <sup>*Windows*</sup>
 
 Type: `string`
 
 Some additional text if needed.
 
-##### title
+##### title <sup>*Linux*</sup> <sup>*Windows*</sup>
 
 Type: `string`<br>
 Default: `About`
 
-Customizable for localization. Used in the menu item label and window title.
+Customizable for localization. Used in the menu item label and window title (Windows-only).
 
 The app name is automatically appended at runtime.
 

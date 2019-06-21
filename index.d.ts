@@ -384,6 +384,8 @@ export function openUrlMenuItem(options?: OpenUrlMenuItemOptions): MenuItemConst
 export interface ShowAboutWindowOptions {
 	/**
 	An absolute path to the app icon.
+
+	Only used on Linux and Windows.
 	*/
 	readonly icon?: string;
 
@@ -395,20 +397,25 @@ export interface ShowAboutWindowOptions {
 	/**
 	The URL to the app's website.
 
-	For Linux only.
+	Only used on Linux.
 	*/
 	readonly website?: string;
 
 	/**
 	Some additional text if needed.
+
+	Only used on Windows.
 	*/
 	readonly text?: string;
 
 	/**
-	Customizable for localization. Used in the menu item label and window title.
+	Customizable for localization. Used in the menu item label and window title (Windows-only).
+
 	The app name is automatically appended at runtime.
 
-	@default 'about'
+	Only used on Linux and Windows.
+
+	@default 'About'
 	*/
 	readonly title?: string;
 }
