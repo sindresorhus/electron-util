@@ -23,7 +23,8 @@ import {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
-	appMenu
+	appMenu,
+	openSystemPreferences
 } from '.';
 
 expectType<AllElectron | Remote>(api);
@@ -50,6 +51,7 @@ expectType<void>(centerWindow({}));
 expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);
 expectType<boolean>(isFirstAppLaunch());
+expectType<Promise<void>>(openSystemPreferences());
 expectType<boolean>(darkMode.isEnabled);
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
 expectType<void>(openNewGitHubIssue({user: 'sindresorhus', repo: 'electron-util'}));
