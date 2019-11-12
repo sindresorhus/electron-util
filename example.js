@@ -29,7 +29,7 @@ const createMenu = () => {
 		{
 			label: 'openSystemPreferences() test',
 			click() {
-				openSystemPreferences('security', 'Firewall');
+				openSystemPreferences();
 			}
 		},
 		openUrlMenuItem({

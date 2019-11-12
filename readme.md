@@ -502,14 +502,15 @@ Menu.setApplicationMenu(menu);
 
 Type: `Function`
 
-On macOS, opens the System Preferences on a specific pane and section. Not all system preferences are accessible using this method. Available combinations can be found [here](https://macosxautomation.com/system-prefs-links.html)
+On macOS, opens the System Preferences.
+
+Optionally open on a specific pane and section. Not all system preferences are accessible using this method. Available combinations can be found [here](https://macosxautomation.com/system-prefs-links.html)
 
 #### pane
 
 Type: `string`
-Default: `security`
 
-Which panel of the System Preferences to open.
+Which pane of the System Preferences to open.
 
 #### path
 
@@ -522,7 +523,6 @@ const {openSystemPreferences} = require('electron-util');
 
 openSystemPreferences('security', 'Firewall');
 ```
-
 
 ## Node.js API
 
