@@ -51,6 +51,7 @@ console.log(is.macos && is.main);
 - [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
+- [`openSystemPreferences()`](#opensystempreferences-macos)
 
 
 ### api
@@ -495,6 +496,31 @@ const menu = Menu.buildFromTemplate([
 ]);
 
 Menu.setApplicationMenu(menu);
+```
+
+### openSystemPreferences(panel, path): Promise<void> <sup>*macOS*</sup>
+
+Type: `Function`
+
+On macOS, opens the System Preferences on a specific pane and section. Not all system preferences are accessible using this method. Available combinations can be found [here](https://macosxautomation.com/system-prefs-links.html)
+
+#### pane
+
+Type: `string`
+Default: `security`
+
+Which panel of the System Preferences to open.
+
+#### path
+
+Type: `string`
+
+Optional additional path within the pane
+
+```js
+const {openSystemPreferences} = require('electron-util');
+
+openSystemPreferences('security', 'Firewall');
 ```
 
 

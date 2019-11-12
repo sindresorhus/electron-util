@@ -17,6 +17,14 @@ exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
 
+exports.openSystemPreferences = (pane = 'security', path) => {
+	if (!is.macos) {
+		return;
+	}
+
+	return electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${path ? `?${path}` : ''}`);
+}
+
 exports.platform = object => {
 	let {platform} = process;
 
