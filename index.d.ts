@@ -19,19 +19,24 @@ export const api: AllElectron | Remote;
 /**
 Open the System Preferences on macOS.
 
-Optionally provide a pane and a path to navigate to a specific section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
+Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
 
 @example
 ```
+import {openSystemPreferences} from 'electron-util';
+
 openSystemPreferences();
+
+// or
+
 openSystemPreferences('security', 'Firewall');
 ```
 
-@param pane - A pane to open
-@param path - A section within that pane
-@returns A Promise that resolves when the preferences window is open
- */
-export const openSystemPreferences: (pane?: string, path?: string) => Promise<void>
+@param pane - The pane to open.
+@param section - The section within that pane.
+@returns A Promise that resolves when the preferences window is opened.
+*/
+export const openSystemPreferences: (pane?: string, section?: string) => Promise<void>
 
 /**
 Check for various things.
