@@ -27,7 +27,7 @@ import {
 } from '.';
 
 expectType<AllElectron | Remote>(api);
-expectType<boolean | undefined>(api.app.isPackaged);
+expectType<boolean>(api.app.isPackaged);
 expectType<boolean>(is.macos);
 expectType<string>(electronVersion);
 expectType<string>(chromeVersion);
@@ -41,7 +41,7 @@ expectError(platform({}));
 expectError(platform({default: 1}));
 
 expectType<BrowserWindow>(activeWindow());
-expectType<Promise<any>>(runJS('a=1'));
+expectType<Promise<unknown>>(runJS('a=1'));
 expectType<string>(fixPathForAsarUnpack('/path'));
 expectType<void>(enforceMacOSAppLocation());
 expectType<number>(menuBarHeight());

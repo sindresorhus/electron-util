@@ -218,8 +218,7 @@ exports.showAboutWindow = (options = {}) => {
 		...options
 	};
 
-	const appName = api.app.getName();
-
+	const appName = 'name' in api.app ? api.app.name : api.app.getName();
 	const text = options.text ? `${options.copyright ? '\n\n' : ''}${options.text}` : '';
 
 	api.dialog.showMessageBox({

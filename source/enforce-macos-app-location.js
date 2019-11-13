@@ -11,13 +11,15 @@ module.exports = () => {
 		return;
 	}
 
+	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+
 	const clickedButtonIndex = api.dialog.showMessageBox({
 		type: 'error',
 		message: 'Move to Applications folder?',
-		detail: `${api.app.getName()} must live in the Applications folder to be able to run correctly.`,
+		detail: `${appName} must live in the Applications folder to be able to run correctly.`,
 		buttons: [
 			'Move to Applications folder',
-			`Quit ${api.app.getName()}`
+			`Quit ${appName}`
 		],
 		defaultId: 0,
 		cancelId: 1
