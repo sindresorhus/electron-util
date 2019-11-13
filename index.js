@@ -17,12 +17,12 @@ exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
 
-exports.openSystemPreferences = (pane, path) => {
+exports.openSystemPreferences = async (pane, section) => {
 	if (!is.macos) {
 		return;
 	}
 
-	return electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${path ? `?${path}` : ''}`);
+	await electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${section ? `?${section}` : ''}`);
 };
 
 exports.platform = object => {
