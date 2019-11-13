@@ -498,7 +498,7 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 ```
 
-### openSystemPreferences(panel, section): Promise<void> <sup>*macOS*</sup>
+### openSystemPreferences(panel?, section?): Promise<void> <sup>*macOS*</sup>
 
 Type: `Function`
 
