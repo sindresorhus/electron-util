@@ -17,30 +17,6 @@ api.app.quit(); // The `app` API is usually only available in the main process.
 export const api: AllElectron | Remote;
 
 /**
-Open the System Preferences on macOS.
-
-This method does nothing on other systems.
-
-Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
-
-@example
-```
-import {openSystemPreferences} from 'electron-util';
-
-openSystemPreferences();
-
-// or
-
-openSystemPreferences('security', 'Firewall');
-```
-
-@param pane - The pane to open.
-@param section - The section within that pane.
-@returns A Promise that resolves when the preferences window is opened.
-*/
-export const openSystemPreferences: (pane?: string, section?: string) => Promise<void>
-
-/**
 Check for various things.
 */
 export const is: {
@@ -535,3 +511,27 @@ Menu.setApplicationMenu(menu);
 ```
 */
 export function appMenu(menuItems?: readonly MenuItemConstructorOptions[]): MenuItemConstructorOptions;
+
+/**
+Open the System Preferences on macOS.
+
+This method does nothing on other systems.
+
+Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
+
+@example
+```
+import {openSystemPreferences} from 'electron-util';
+
+openSystemPreferences();
+
+// or
+
+openSystemPreferences('security', 'Firewall');
+```
+
+@param pane - The pane to open.
+@param section - The section within that pane.
+@returns A Promise that resolves when the preferences window is opened.
+*/
+export const openSystemPreferences: (pane?: string, section?: string) => Promise<void>;
