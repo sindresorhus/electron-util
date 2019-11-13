@@ -498,13 +498,15 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 ```
 
-### openSystemPreferences(panel, path): Promise<void> <sup>*macOS*</sup>
+### openSystemPreferences(panel, section): Promise<void> <sup>*macOS*</sup>
 
 Type: `Function`
 
-On macOS, opens the System Preferences.
+Open the System Preferences on macOS.
 
-Optionally open on a specific pane and section. Not all system preferences are accessible using this method. Available combinations can be found [here](https://macosxautomation.com/system-prefs-links.html)
+This function does nothing on other systems.
+
+Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
 
 #### pane
 
@@ -512,17 +514,24 @@ Type: `string`
 
 Which pane of the System Preferences to open.
 
-#### path
+```js
+const {openSystemPreferences} = require('electron-util');
+
+openSystemPreferences('security');
+```
+
+#### section
 
 Type: `string`
 
-Optional additional path within the pane
+Optional section within the pane.
 
 ```js
 const {openSystemPreferences} = require('electron-util');
 
 openSystemPreferences('security', 'Firewall');
 ```
+
 
 ## Node.js API
 
