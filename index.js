@@ -17,14 +17,6 @@ exports.electronVersion = node.electronVersion;
 
 exports.chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
 
-exports.openSystemPreferences = async (pane, section) => {
-	if (!is.macos) {
-		return;
-	}
-
-	await electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${section ? `?${section}` : ''}`);
-};
-
 exports.platform = object => {
 	let {platform} = process;
 
@@ -309,6 +301,15 @@ exports.appMenu = (menuItems = []) => {
 			}
 		].filter(Boolean)
 	};
+};
+
+
+exports.openSystemPreferences = async (pane, section) => {
+	if (!is.macos) {
+		return;
+	}
+
+	await electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${section ? `?${section}` : ''}`);
 };
 
 // TODO: Move more of the larger methods here into separate files.
