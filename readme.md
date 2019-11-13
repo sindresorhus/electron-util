@@ -51,7 +51,7 @@ console.log(is.macos && is.main);
 - [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
-- [`openSystemPreferences()`](#opensystempreferences-macos)
+- [`openSystemPreferences()`](#opensystempreferencespanel-section-promise-macos)
 
 
 ### api
