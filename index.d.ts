@@ -19,6 +19,8 @@ export const api: AllElectron | Remote;
 /**
 Open the System Preferences on macOS.
 
+This method does nothing on other systems.
+
 Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
 
 @example
