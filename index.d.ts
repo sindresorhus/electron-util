@@ -512,6 +512,13 @@ Menu.setApplicationMenu(menu);
 */
 export function appMenu(menuItems?: readonly MenuItemConstructorOptions[]): MenuItemConstructorOptions;
 
+export interface Sections {
+	universalaccess: 'Seeing_Display' | 'Seeing_Zoom' | 'Seeing_VoiceOver' | 'Media_Descriptions' | 'Captioning' | 'Hearing' | 'Keyboard' | 'Mouse' | 'Switch' | 'SpeakableItems';
+	security: 'General' | 'FDE' | 'Firewall' | 'Advanced' | 'Privacy' | 'Privacy_Microphone' | 'Privacy_ScreenCapture' | 'Privacy_Accessibility' | 'Privacy_Assistice' | 'Privacy_LocationServices' | 'Privacy_Contacts' | 'Privacy_Diagnostics' | 'Privacy_Calendars' | 'Privacy_Reminders';
+	speech: 'Dictation' | 'TTS';
+	sharing: 'Services_ScreenSharing' | 'Services_PersonalFileSHaring' | 'Services_PrinterSharing' | 'Services_RemoteLogin' | 'Services_ARDService' | 'Services_RemoteAppleEvent' | 'Internet' | 'Services_BluetoothSharing';
+}
+
 /**
 Open the System Preferences on macOS.
 
@@ -534,4 +541,4 @@ openSystemPreferences('security', 'Firewall');
 @param section - The section within that pane.
 @returns A Promise that resolves when the preferences window is opened.
 */
-export const openSystemPreferences: (pane?: string, section?: string) => Promise<void>;
+export const openSystemPreferences: <T extends keyof Sections>(pane?: T, section?: Sections[T]) => Promise<void>;
