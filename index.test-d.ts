@@ -40,6 +40,7 @@ expectType<number | string>(platform({
 
 expectError(platform({}));
 expectError(platform({default: 1}));
+expectError(openSystemPreferences('security', 'Bad_Section'));
 
 expectType<BrowserWindow>(activeWindow());
 expectType<Promise<any>>(runJS('a=1'));
@@ -52,6 +53,8 @@ expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);
 expectType<boolean>(isFirstAppLaunch());
 expectType<Promise<void>>(openSystemPreferences());
+expectType<Promise<void>>(openSystemPreferences());
+expectType<Promise<void>>(openSystemPreferences('security', 'Privacy_Microphone'));
 expectType<boolean>(darkMode.isEnabled);
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
 expectType<void>(openNewGitHubIssue({user: 'sindresorhus', repo: 'electron-util'}));
