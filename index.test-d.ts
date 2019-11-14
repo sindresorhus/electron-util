@@ -23,7 +23,8 @@ import {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
-	appMenu
+	appMenu,
+	openSystemPreferences
 } from '.';
 
 expectType<AllElectron | Remote>(api);
@@ -64,3 +65,7 @@ expectType<MenuItemConstructorOptions>(appMenu([
 		click() {}
 	}
 ]));
+
+expectType<Promise<void>>(openSystemPreferences());
+expectType<Promise<void>>(openSystemPreferences('security', 'Privacy_Microphone'));
+expectError(openSystemPreferences('security', 'Bad_Section'));

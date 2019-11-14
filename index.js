@@ -302,4 +302,6 @@ exports.appMenu = (menuItems = []) => {
 	};
 };
 
+exports.openSystemPreferences = require('./source/open-system-preferences');
+
 // TODO: Move more of the larger methods here into separate files.

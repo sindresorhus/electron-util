@@ -51,6 +51,7 @@ console.log(is.macos && is.main);
 - [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
+- [`openSystemPreferences()`](#opensystempreferencespanel-section-promise-macos)
 
 
 ### api
@@ -495,6 +496,40 @@ const menu = Menu.buildFromTemplate([
 ]);
 
 Menu.setApplicationMenu(menu);
+```
+
+### openSystemPreferences(panel?, section?): Promise<void> <sup>*macOS*</sup>
+
+Type: `Function`
+
+Open the System Preferences on macOS.
+
+This method does nothing on other systems.
+
+Optionally provide a pane and section. A list of available options can be found [here](https://github.com/sindresorhus/electron-util/blob/5979ee0238cf0f9dcb9778d4bba66ec6fa7ba53d/index.d.ts#L515-L554).
+
+#### pane
+
+Type: `string`
+
+Which pane of the System Preferences to open.
+
+```js
+const {openSystemPreferences} = require('electron-util');
+
+openSystemPreferences('security');
+```
+
+#### section
+
+Type: `string`
+
+Optional section within the pane.
+
+```js
+const {openSystemPreferences} = require('electron-util');
+
+openSystemPreferences('security', 'Firewall');
 ```
 
 

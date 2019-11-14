@@ -9,6 +9,7 @@ const {
 	aboutMenuItem,
 	debugInfo,
 	appMenu,
+	openSystemPreferences,
 	runJS
 } = require('.');
 /// const enforceMacosAppLocation = require('./source/enforce-macos-app-location');
@@ -23,6 +24,12 @@ const createMenu = () => {
 					repo: 'playground',
 					body: 'Test 🦄'
 				});
+			}
+		},
+		{
+			label: 'openSystemPreferences() test',
+			click() {
+				openSystemPreferences();
 			}
 		},
 		openUrlMenuItem({
