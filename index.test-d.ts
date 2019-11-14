@@ -53,7 +53,6 @@ expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);
 expectType<boolean>(isFirstAppLaunch());
 expectType<Promise<void>>(openSystemPreferences());
-expectType<Promise<void>>(openSystemPreferences());
 expectType<Promise<void>>(openSystemPreferences('security', 'Privacy_Microphone'));
 expectType<boolean>(darkMode.isEnabled);
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
