@@ -512,11 +512,45 @@ Menu.setApplicationMenu(menu);
 */
 export function appMenu(menuItems?: readonly MenuItemConstructorOptions[]): MenuItemConstructorOptions;
 
-export interface Sections {
-	universalaccess: 'Seeing_Display' | 'Seeing_Zoom' | 'Seeing_VoiceOver' | 'Media_Descriptions' | 'Captioning' | 'Hearing' | 'Keyboard' | 'Mouse' | 'Switch' | 'SpeakableItems';
-	security: 'General' | 'FDE' | 'Firewall' | 'Advanced' | 'Privacy' | 'Privacy_Microphone' | 'Privacy_ScreenCapture' | 'Privacy_Accessibility' | 'Privacy_Assistice' | 'Privacy_LocationServices' | 'Privacy_Contacts' | 'Privacy_Diagnostics' | 'Privacy_Calendars' | 'Privacy_Reminders';
-	speech: 'Dictation' | 'TTS';
-	sharing: 'Services_ScreenSharing' | 'Services_PersonalFileSHaring' | 'Services_PrinterSharing' | 'Services_RemoteLogin' | 'Services_ARDService' | 'Services_RemoteAppleEvent' | 'Internet' | 'Services_BluetoothSharing';
+export interface SystemPreferencesPanes {
+	universalaccess:
+		| 'Captioning'
+		| 'Hearing'
+		| 'Keyboard'
+		| 'Media_Descriptions'
+		| 'Mouse'
+		| 'Seeing_Display'
+		| 'Seeing_VoiceOver'
+		| 'Seeing_Zoom'
+		| 'SpeakableItems'
+		| 'Switch';
+	security:
+		| 'Advanced'
+		| 'FDE'
+		| 'Firewall'
+		| 'General'
+		| 'Privacy'
+		| 'Privacy_Accessibility'
+		| 'Privacy_Assistice'
+		| 'Privacy_Calendars'
+		| 'Privacy_Contacts'
+		| 'Privacy_Diagnostics'
+		| 'Privacy_LocationServices'
+		| 'Privacy_Microphone'
+		| 'Privacy_Reminders'
+		| 'Privacy_ScreenCapture';
+	speech:
+		| 'Dictation'
+		| 'TTS';
+	sharing:
+		| 'Internet'
+		| 'Services_ARDService'
+		| 'Services_BluetoothSharing'
+		| 'Services_PersonalFileSHaring'
+		| 'Services_PrinterSharing'
+		| 'Services_RemoteAppleEvent'
+		| 'Services_RemoteLogin'
+		| 'Services_ScreenSharing';
 }
 
 /**
@@ -524,7 +558,7 @@ Open the System Preferences on macOS.
 
 This method does nothing on other systems.
 
-Optionally provide a pane and section. A list of available options can be found [here](https://macosxautomation.com/system-prefs-links.html).
+Optionally provide a pane and section.
 
 @example
 ```
@@ -541,4 +575,4 @@ openSystemPreferences('security', 'Firewall');
 @param section - The section within that pane.
 @returns A Promise that resolves when the preferences window is opened.
 */
-export const openSystemPreferences: <T extends keyof Sections>(pane?: T, section?: Sections[T]) => Promise<void>;
+export const openSystemPreferences: <T extends keyof SystemPreferencesPanes>(pane?: T, section?: SystemPreferencesPanes[T]) => Promise<void>;
