@@ -120,7 +120,7 @@ exports.darkMode = {
 			return false;
 		}
 
-		return api.systemPreferences.isDarkMode();
+		return api.nativeTheme.shouldUseDarkColors;
 	},
 
 	onChange(callback) {
@@ -128,12 +128,14 @@ exports.darkMode = {
 			return () => {};
 		}
 
-		const id = api.systemPreferences.subscribeNotification('AppleInterfaceThemeChangedNotification', () => {
+		const handler = () => {
 			callback();
-		});
+		};
+
+		api.nativeTheme.on('updated', handler);
 
 		return () => {
-			api.systemPreferences.unsubscribeNotification(id);
+			api.nativeTheme.off(handler);
 		};
 	}
 };
@@ -218,7 +220,9 @@ exports.showAboutWindow = (options = {}) => {
 		...options
 	};
 
+	// TODO: Make this just `api.app.name` when targeting Electron 7.
 	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+
 	const text = options.text ? `${options.copyright ? '\n\n' : ''}${options.text}` : '';
 
 	api.dialog.showMessageBox({
@@ -244,8 +248,10 @@ exports.aboutMenuItem = (options = {}) => {
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
 
+	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+
 	return {
-		label: `${options.title} ${api.app.getName()}`,
+		label: `${options.title} ${appName}`,
 		click() {
 			exports.showAboutWindow(options);
 		}
@@ -253,7 +259,7 @@ exports.aboutMenuItem = (options = {}) => {
 };
 
 exports.debugInfo = () => `
-${api.app.getName()} ${api.app.getVersion()}
+${'name' in api.app ? api.app.name : api.app.getName()} ${api.app.getVersion()}
 Electron ${exports.electronVersion}
 ${process.platform} ${os.release()}
 Locale: ${api.app.getLocale()}
@@ -264,8 +270,10 @@ exports.appMenu = (menuItems = []) => {
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
 
+	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+
 	return {
-		label: api.app.getName(),
+		label: appName,
 		submenu: [
 			{
 				role: 'about'
