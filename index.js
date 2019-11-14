@@ -303,13 +303,6 @@ exports.appMenu = (menuItems = []) => {
 	};
 };
 
-
-exports.openSystemPreferences = async (pane, section) => {
-	if (!is.macos) {
-		return;
-	}
-
-	await electron.shell.openExternal(`x-apple.systempreferences:com.apple.preference.${pane}${section ? `?${section}` : ''}`);
-};
+exports.openSystemPreferences = require('./source/open-system-preferences');
 
 // TODO: Move more of the larger methods here into separate files.
