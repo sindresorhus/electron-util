@@ -256,6 +256,8 @@ It works by writing a file to `app.getPath('userData')` if it doesn't exist and 
 
 ### darkMode
 
+*Requires Electron 7*
+
 Type: `object`
 
 ```js
