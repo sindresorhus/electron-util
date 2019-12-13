@@ -540,7 +540,7 @@ export interface SystemPreferencesPanes {
 		| 'Privacy_Microphone'
 		| 'Privacy_Reminders'
 		| 'Privacy_ScreenCapture';
-                | 'Privacy_AllFiles';
+		| 'Privacy_AllFiles';
 		| 'Privacy_DesktopFolder';
 		| 'Privacy_DocumentsFolder';
 		| 'Privacy_DownloadsFolder';
