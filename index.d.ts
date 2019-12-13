@@ -39,7 +39,7 @@ export const is: {
 	Running on the [main process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 	*/
 	readonly main: boolean,
-	
+
 	/**
 	Running on the [renderer process](https://electronjs.org/docs/tutorial/quick-start/#renderer-process).
 	*/
