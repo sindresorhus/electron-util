@@ -40,7 +40,6 @@ export const is: {
 	*/
 	readonly main: boolean,
 	
-
 	/**
 	Running on the [renderer process](https://electronjs.org/docs/tutorial/quick-start/#renderer-process).
 	*/
