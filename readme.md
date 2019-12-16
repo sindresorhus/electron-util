@@ -508,7 +508,7 @@ Open the System Preferences on macOS.
 
 This method does nothing on other systems.
 
-Optionally provide a pane and section. A list of available options can be found [here](https://github.com/sindresorhus/electron-util/blob/5979ee0238cf0f9dcb9778d4bba66ec6fa7ba53d/index.d.ts#L515-L554).
+Optionally provide a pane and section. A list of available options can be found [here](https://github.com/sindresorhus/electron-util/blob/4215b51e741b7ea50a0637abe919e2e7d61b34ac/index.d.ts#L515-L561).
 
 #### pane
 

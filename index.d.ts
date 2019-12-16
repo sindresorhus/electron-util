@@ -538,7 +538,14 @@ export interface SystemPreferencesPanes {
 		| 'Privacy_LocationServices'
 		| 'Privacy_Microphone'
 		| 'Privacy_Reminders'
-		| 'Privacy_ScreenCapture';
+		| 'Privacy_ScreenCapture'
+		| 'Privacy_DesktopFolder'
+		| 'Privacy_DocumentsFolder'
+		| 'Privacy_DownloadsFolder'
+		/**
+		Full Disk Access
+		*/
+		| 'Privacy_AllFiles';
 	speech:
 		| 'Dictation'
 		| 'TTS';
