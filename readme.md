@@ -4,7 +4,6 @@
 
 You can use this module directly in both the [main and renderer process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 
-
 ## Install
 
 ```
@@ -12,7 +11,6 @@ $ npm install electron-util
 ```
 
 *Requires Electron 5 or later.*
-
 
 ## Usage
 
@@ -22,7 +20,6 @@ const {is} = require('electron-util');
 console.log(is.macos && is.main);
 //=> true
 ```
-
 
 ## API
 
@@ -52,7 +49,6 @@ console.log(is.macos && is.main);
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
 - [`openSystemPreferences()`](#opensystempreferencespanel-section-promise-macos)
-
 
 ### api
 
@@ -86,15 +82,15 @@ Check for various things:
 
 ### electronVersion
 
-Type: `string`<br>
-Example: `1.7.9`
+Type: `string`\
+Example: `'1.7.9'`
 
 Electron version.
 
 ### chromeVersion
 
-Type: `string`<br>
-Example: `62.0.3202`
+Type: `string`\
+Example: `'62.0.3202'`
 
 Chrome version in Electron.
 
@@ -174,14 +170,14 @@ Type: `object`
 
 ##### window
 
-Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)\
 Default: Current window
 
 The window to get the bounds of.
 
 ##### size
 
-Type: `object`<br>
+Type: `object`\
 Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
@@ -192,14 +188,14 @@ Type: `object`
 
 ##### window
 
-Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)\
 Default: Current window
 
 The window to set the bounds of.
 
 ##### animated
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `false`
 
 Animate the change.
@@ -214,21 +210,21 @@ Type: `object`
 
 ##### window
 
-Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)\
 Default: Current window
 
 The window to center.
 
 ##### size
 
-Type: `object`<br>
+Type: `object`\
 Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
 
 ##### animated
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `false`
 
 Animate the change.
@@ -239,7 +235,7 @@ Disable zooming, usually caused by pinching the trackpad on macOS or <kbd>Ctrl</
 
 #### window
 
-Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)<br>
+Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)\
 Default: Current window
 
 ### appLaunchTimestamp
@@ -322,7 +318,7 @@ Type: `object`
 
 ##### session
 
-Type: [`Session`](https://electronjs.org/docs/api/session)<br>
+Type: [`Session`](https://electronjs.org/docs/api/session)\
 Default: [`electron.session.defaultSession`](https://electronjs.org/docs/api/session#sessiondefaultsession)
 
 The session to apply the policy to.
@@ -420,8 +416,8 @@ Some additional text if needed.
 
 ##### title <sup>*Linux*</sup> <sup>*Windows*</sup>
 
-Type: `string`<br>
-Default: `About`
+Type: `string`\
+Default: `'About'`
 
 Customizable for localization. Used in the menu item label and window title (Windows-only).
 
@@ -534,7 +530,6 @@ const {openSystemPreferences} = require('electron-util');
 openSystemPreferences('security', 'Firewall');
 ```
 
-
 ## Node.js API
 
 This is for non-Electron code that might be included in an Electron app. For example, if you want to add special support for Electron in a vanilla Node.js module.
@@ -557,8 +552,8 @@ Check if you're running in an Electron app.
 
 ### electronVersion
 
-Type: `string`<br>
-Example: `1.7.9`
+Type: `string`\
+Example: `'1.7.9'`
 
 Electron version. Returns `0.0.0` when not in an Electron app.
 
@@ -571,7 +566,6 @@ Check if the Electron app you're running in is using [ASAR](https://electronjs.o
 ### fixPathForAsarUnpack(path)
 
 Same as the above Electron version.
-
 
 ## Related
 
