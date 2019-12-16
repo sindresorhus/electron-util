@@ -538,10 +538,10 @@ export interface SystemPreferencesPanes {
 		| 'Privacy_LocationServices'
 		| 'Privacy_Microphone'
 		| 'Privacy_Reminders'
-		| 'Privacy_ScreenCapture';
-		| 'Privacy_DesktopFolder';
-		| 'Privacy_DocumentsFolder';
-		| 'Privacy_DownloadsFolder';
+		| 'Privacy_ScreenCapture'
+		| 'Privacy_DesktopFolder'
+		| 'Privacy_DocumentsFolder'
+		| 'Privacy_DownloadsFolder'
 		/**
 		Full Disk Access
 		*/
