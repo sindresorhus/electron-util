@@ -31,16 +31,17 @@ module.exports = () => {
 	}
 
 	api.app.moveToApplicationsFolder({
-    conflictHandler: conflict => {
-      if (conflict === 'existsAndRunning') { // Can't replace the active version of the app
-        api.dialog.showMessageBoxSync({
-          type: 'error',
-          message: `Another version of ${appName} is currently running, quit it and retry.`,
-          buttons: [`Quit ${appName}`]
-        });
-        app.quit();
-      }
-      return true;
-    }
+		conflictHandler: conflict => {
+			if (conflict === 'existsAndRunning') { // Can't replace the active version of the app
+				api.dialog.showMessageBoxSync({
+					type: 'error',
+					message: `Another version of ${appName} is currently running, quit it and retry.`,
+					buttons: [`Quit ${appName}`]
+				});
+				api.app.quit();
+			}
+
+			return true;
+		}
 	});
 };
