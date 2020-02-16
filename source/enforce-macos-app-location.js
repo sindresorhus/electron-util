@@ -35,9 +35,12 @@ module.exports = () => {
 			if (conflict === 'existsAndRunning') { // Can't replace the active version of the app
 				api.dialog.showMessageBoxSync({
 					type: 'error',
-					message: `Another version of ${app.getName ()} is currently running. Quit it, then launch this version of the app again.`,
-					buttons: ['OK']
+					message: `Another version of ${app.getName()} is currently running. Quit it, then launch this version of the app again.`,
+					buttons: [
+						'OK'
+					]
 				});
+
 				api.app.quit();
 			}
 
