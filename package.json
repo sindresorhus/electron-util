@@ -8,11 +8,12 @@
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"scripts": {
 		"start": "electron example.js",
-		"test": "xo && ava && tsd"
+		"test": "xo && ava",
+		"//test": "xo && ava && tsd"
 	},
 	"files": [
 		"source",
@@ -37,11 +38,11 @@
 	},
 	"devDependencies": {
 		"ava": "^2.1.0",
-		"electron": "^7.1.1",
+		"electron": "^8.0.1",
 		"mock-require": "^3.0.3",
 		"tsd": "^0.11.0",
-		"type-fest": "^0.8.1",
-		"xo": "^0.25.3"
+		"type-fest": "^0.10.0",
+		"xo": "^0.26.1"
 	},
 	"xo": {
 		"envs": [
