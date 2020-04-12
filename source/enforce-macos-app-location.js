@@ -23,7 +23,7 @@ module.exports = () => {
 		],
 		defaultId: 0,
 		cancelId: 1
-	}).response;
+	});
 
 	if (clickedButtonIndex === 1) {
 		api.app.quit();
