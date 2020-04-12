@@ -13,7 +13,7 @@ module.exports = () => {
 
 	const appName = 'name' in api.app ? api.app.name : api.app.getName();
 
-	const clickedButtonIndex = api.dialog.showMessageBoxSync({
+	const {response: clickedButtonIndex} = api.dialog.showMessageBoxSync({
 		type: 'error',
 		message: 'Move to Applications folder?',
 		detail: `${appName} must live in the Applications folder to be able to run correctly.`,
