@@ -531,21 +531,25 @@ export interface SystemPreferencesPanes {
 		| 'General'
 		| 'Privacy'
 		| 'Privacy_Accessibility'
-		| 'Privacy_Assistice'
+		| 'Privacy_Advertising'
+		/**
+		Full Disk Access.
+		*/
+		| 'Privacy_AllFiles'
+		| 'Privacy_Assistive'
+		| 'Privacy_Automation'
 		| 'Privacy_Calendars'
+		| 'Privacy_Camera'
 		| 'Privacy_Contacts'
-		| 'Privacy_Diagnostics'
-		| 'Privacy_LocationServices'
-		| 'Privacy_Microphone'
-		| 'Privacy_Reminders'
-		| 'Privacy_ScreenCapture'
 		| 'Privacy_DesktopFolder'
+		| 'Privacy_Diagnostics'
 		| 'Privacy_DocumentsFolder'
 		| 'Privacy_DownloadsFolder'
-		/**
-		Full Disk Access
-		*/
-		| 'Privacy_AllFiles';
+		| 'Privacy_LocationServices'
+		| 'Privacy_Microphone'
+		| 'Privacy_Photos'
+		| 'Privacy_Reminders'
+		| 'Privacy_ScreenCapture';
 	speech:
 		| 'Dictation'
 		| 'TTS';
@@ -553,7 +557,7 @@ export interface SystemPreferencesPanes {
 		| 'Internet'
 		| 'Services_ARDService'
 		| 'Services_BluetoothSharing'
-		| 'Services_PersonalFileSHaring'
+		| 'Services_PersonalFileSharing'
 		| 'Services_PrinterSharing'
 		| 'Services_RemoteAppleEvent'
 		| 'Services_RemoteLogin'
