@@ -139,7 +139,7 @@ Before:
 After:
 
 ```
-/Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpack/node_modules/foo/binary
+/Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpacked/node_modules/foo/binary
 ```
 
 ### enforceMacOSAppLocation() <sup>*macOS*</sup>
