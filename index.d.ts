@@ -138,7 +138,7 @@ Before:
 /Users/sindresorhus/Kap.app/Contents/Resources/app.asar/node_modules/foo/binary
 
 After:
-/Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpack/node_modules/foo/binary
+/Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpacked/node_modules/foo/binary
 
 @param path - A path in your app.
 @returns The fixed path.
