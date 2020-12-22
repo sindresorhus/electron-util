@@ -1,7 +1,7 @@
 /// <reference lib="dom"/>
 /// <reference types="electron"/>
 /// <reference types="node"/>
-import {AllElectron, Remote, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions, MenuItem} from 'electron';
+import {RemoteMainInterface, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions, MenuItem} from 'electron';
 import {Options as NewGithubIssueUrlOptions} from 'new-github-issue-url';
 import {RequireAtLeastOne} from 'type-fest';
 
@@ -14,7 +14,13 @@ Access the Electron APIs in both the main and renderer process without having to
 api.app.quit(); // The `app` API is usually only available in the main process.
 ```
 */
-export const api: AllElectron | Remote;
+export const api: RemoteMainInterface;
+
+/**
+Initialize the [`remote`](https://github.com/electron/remote) module to be able to use `api` and other functionalities in the render process.
+This must be called from the main process and requires to set the `enableRemoteModule` to `true` in the webPreferences of the BrowserWindow.
+*/
+export function initializeRemote(): void;
 
 /**
 Check for various things.
