@@ -1,4 +1,4 @@
-# electron-util [![Build Status](https://travis-ci.org/sindresorhus/electron-util.svg?branch=master)](https://travis-ci.org/sindresorhus/electron-util)
+# electron-util
 
 > Useful utilities for Electron apps and modules
 
