@@ -223,7 +223,7 @@ Animate the change.
 Type: `boolean`\
 Default: `false`
 
-Use the full display size when calculating the position. By default only the workable screen area is used, which excludes the Windows taskbar and MacOS dock.
+Use the full display size when calculating the position. By default, only the workable screen area is used, which excludes the Windows taskbar and macOS dock.
 
 ### disableZoom([window])
 
