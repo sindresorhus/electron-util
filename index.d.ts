@@ -181,6 +181,14 @@ export interface GetWindowBoundsCenteredOptions {
 	```
 	*/
 	readonly size?: Size;
+
+	/**
+	Use the full display size when calculating the position, rather than just the workable area.
+
+	Default: `false`
+	```
+	*/
+	readonly useFullBounds?: boolean;
 }
 
 /**
@@ -238,6 +246,14 @@ export interface CenterWindowOptions {
 	@default false
 	*/
 	readonly animated?: boolean;
+
+	/**
+	Use the full display size when calculating the position, rather than just the workable area.
+
+	Default: `false`
+	```
+	*/
+	readonly useFullBounds?: boolean;
 }
 
 /**

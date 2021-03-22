@@ -182,7 +182,7 @@ Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
 
-##### includeFullDisplayBounds
+##### useFullBounds
 
 Type: `boolean`\
 Default: `false`
@@ -218,7 +218,7 @@ Default: `false`
 
 Animate the change.
 
-##### includeFullDisplayBounds
+##### useFullBounds
 
 Type: `boolean`\
 Default: `false`
