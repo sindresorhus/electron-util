@@ -185,7 +185,7 @@ export interface GetWindowBoundsCenteredOptions {
 	/**
 	Use the full display size when calculating the position, rather than just the workable area.
 
-	Default: `false`
+	@default false
 	```
 	*/
 	readonly useFullBounds?: boolean;
