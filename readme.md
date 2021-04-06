@@ -182,23 +182,12 @@ Default: Size of `window`
 
 Set a new window size. Example: `{width: 600, height: 400}`
 
-#### options
-
-Type: `object`
-
-##### window
-
-Type: [`BrowserWindow`](https://electronjs.org/docs/api/browser-window)\
-Default: Current window
-
-The window to set the bounds of.
-
-##### animated
+##### useFullBounds
 
 Type: `boolean`\
 Default: `false`
 
-Animate the change.
+Use the full display size when calculating the position. By default, only the workable screen area is used, which excludes the Windows taskbar and macOS dock.
 
 ### centerWindow(options?)
 
@@ -228,6 +217,13 @@ Type: `boolean`\
 Default: `false`
 
 Animate the change.
+
+##### useFullBounds
+
+Type: `boolean`\
+Default: `false`
+
+Use the full display size when calculating the position. By default, only the workable screen area is used, which excludes the Windows taskbar and macOS dock.
 
 ### disableZoom([window])
 

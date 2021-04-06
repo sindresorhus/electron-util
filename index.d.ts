@@ -181,6 +181,14 @@ export interface GetWindowBoundsCenteredOptions {
 	```
 	*/
 	readonly size?: Size;
+
+	/**
+	Use the full display size when calculating the position.
+	By default, only the workable screen area is used, which excludes the Windows taskbar and macOS dock.
+
+	@default false
+	*/
+	readonly useFullBounds?: boolean;
 }
 
 /**
@@ -238,6 +246,14 @@ export interface CenterWindowOptions {
 	@default false
 	*/
 	readonly animated?: boolean;
+
+	/**
+	Use the full display size when calculating the position.
+	By default, only the workable screen area is used, which excludes the Windows taskbar and macOS dock.
+
+	@default false
+	*/
+	readonly useFullBounds?: boolean;
 }
 
 /**

@@ -51,9 +51,12 @@ exports.getWindowBoundsCentered = options => {
 		...options
 	};
 
+	const currentDisplay = api.screen.getDisplayNearestPoint(api.screen.getCursorScreenPoint());
 	const [width, height] = options.window.getSize();
 	const windowSize = options.size || {width, height};
-	const screenSize = api.screen.getDisplayNearestPoint(api.screen.getCursorScreenPoint()).workArea;
+	const screenSize = options.useFullBounds ?
+		currentDisplay.bounds :
+		currentDisplay.workArea;
 	const x = Math.floor(screenSize.x + ((screenSize.width / 2) - (windowSize.width / 2)));
 	const y = Math.floor(((screenSize.height + screenSize.y) / 2) - (windowSize.height / 2));
 
