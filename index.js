@@ -228,17 +228,20 @@ exports.showAboutWindow = (options = {}) => {
 
 	const text = options.text ? `${options.copyright ? '\n\n' : ''}${options.text}` : '';
 
-	api.dialog.showMessageBox({
-		title: `${options.title} ${appName}`,
-		message: `Version ${api.app.getVersion()}`,
-		detail: (options.copyright || '') + text,
-		icon: options.icon,
+	api.dialog.showMessageBox(
+		activeWindow(),
+		{
+			title: `${options.title} ${appName}`,
+			message: `Version ${api.app.getVersion()}`,
+			detail: (options.copyright || '') + text,
+			icon: options.icon,
 
-		// This is needed for Linux, since at least Ubuntu does not show a close button
-		buttons: [
-			'OK'
-		]
-	});
+			// This is needed for Linux, since at least Ubuntu does not show a close button
+			buttons: [
+				'OK'
+			]
+		}
+	);
 };
 
 exports.aboutMenuItem = (options = {}) => {
