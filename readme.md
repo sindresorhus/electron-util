@@ -48,7 +48,7 @@ console.log(is.macos && is.main);
 - [`aboutMenuItem()`](#aboutmenuitemoptions-linux-windows)
 - [`debugInfo()`](#debuginfo)
 - [`appMenu()`](#appmenumenuitems-macos)
-- [`openSystemPreferences()`](#opensystempreferences)
+- [`openSystemPreferences()`](#opensystempreferencespane-section-promise-macos-windows)
 
 ### api
 
@@ -496,7 +496,7 @@ Menu.setApplicationMenu(menu);
 
 Type: `Function`
 
-Open the System Preferences on macOS and Windows.
+Open the System Preferences on macOS and Windows 10.
 
 This method does nothing on Linux.
 
