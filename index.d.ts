@@ -582,8 +582,8 @@ export interface SystemPreferencesMacOsPanes {
 
 export type SystemPreferencesWindowsPane =
 	/**
-	 * System
-	 */
+	System
+	*/
 	'display'
 	| 'sound' // Build 17063+
 	| 'notifications'
@@ -599,8 +599,8 @@ export type SystemPreferencesWindowsPane =
 	| 'remotedesktop'
 	| 'about'
 	/**
-	 * Devices
-	 */
+	Devices
+	*/
 	| 'bluetooth'
 	| 'connecteddevices'
 	| 'printers'
@@ -613,8 +613,8 @@ export type SystemPreferencesWindowsPane =
 	| 'usb'
 	| 'mobile-devices' // Build 16251+
 	/**
-	 * Network & Internet
-	 */
+	Network & Internet
+	*/
 	| 'network'
 	| 'network-status'
 	| 'network-cellular'
@@ -629,8 +629,8 @@ export type SystemPreferencesWindowsPane =
 	| 'datausage'
 	| 'network-proxy'
 	/**
-	 * Personalization
-	 */
+	Personalization
+	*/
 	| 'personalization'
 	| 'personalization-background'
 	| 'personalization-colors'
@@ -640,8 +640,8 @@ export type SystemPreferencesWindowsPane =
 	| 'personalization-start'
 	| 'taskbar'
 	/**
-	 * Apps
-	 */
+	Apps
+	*/
 	| 'appsfeatures'
 	| 'optionalfeatures'
 	| 'defaultapps'
@@ -650,8 +650,8 @@ export type SystemPreferencesWindowsPane =
 	| 'videoplayback' // Build 16215+
 	| 'startupapps' // Build 17017+
 	/**
-	 * Accounts
-	 */
+	Accounts
+	*/
 	| 'yourinfo'
 	| 'emailandaccounts'
 	| 'signinoptions'
@@ -659,23 +659,23 @@ export type SystemPreferencesWindowsPane =
 	| 'otherusers'
 	| 'sync'
 	/**
-	 * Time & language
-	 */
+	Time & language
+	*/
 	| 'dateandtime'
 	| 'regionformatting'
 	| 'regionlanguage'
 	| 'speech'
 	/**
-	 * Gaming
-	 */
+	Gaming
+	*/
 	| 'gaming-gamebar'
 	| 'gaming-gamedvr'
 	| 'gaming-broadcasting'
 	| 'gaming-gamemode'
 	| 'gaming-xboxnetworking' // Build 16226+
 	/**
-	 * Ease of Access
-	 */
+	Ease of Access
+	*/
 	| 'easeofaccess-display' // Build 17025+
 	| 'easeofaccess-cursorandpointersize' // Build 17040+
 	| 'easeofaccess-cursor'
@@ -690,16 +690,16 @@ export type SystemPreferencesWindowsPane =
 	| 'easeofaccess-mouse'
 	| 'easeofaccess-eyecontrol' // Build 17035+
 	/**
-	 * Search & Cortana
-	 */
+	Search & Cortana
+	*/
 	| 'search-permissions' // Version 1903+
 	| 'cortana-windowssearch' // Version 1903+
 	| 'cortana' // Build 16188+
 	| 'cortana-talktocortana' // Build 16188+
 	| 'cortana-permissions' // Build 16188+
 	/**
-	 * Privacy
-	 */
+	Privacy
+	*/
 	| 'privacy'
 	| 'privacy-speech'
 	| 'privacy-speechtyping'
@@ -729,8 +729,8 @@ export type SystemPreferencesWindowsPane =
 	| 'privacy-videos'
 	| 'privacy-broadfilesystemaccess'
 	/**
-	 * Update & security
-	 */
+	Update & security
+	*/
 	| 'windowsupdate'
 	| 'delivery-optimization'
 	| 'windowsdefender'
@@ -743,7 +743,7 @@ export type SystemPreferencesWindowsPane =
 	| 'windowsinsider';
 
 /**
-Open the System Preferences on macOS.
+Open the System Preferences on macOS and Windows 10.
 
 This method does nothing on other systems.
 

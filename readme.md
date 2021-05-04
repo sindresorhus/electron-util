@@ -500,7 +500,9 @@ Open the System Preferences on macOS and Windows 10.
 
 This method does nothing on Linux.
 
-Optionally provide a pane and section<sup>*macOS*</sup>. A list of available options can be found [here](https://github.com/sindresorhus/electron-util/blob/b1deb86cf1cba9a89869b277f8dfbdc7b0ddc888/index.d.ts#L531-L743).
+A list of available options can be found [here](https://github.com/sindresorhus/electron-util/blob/b1deb86cf1cba9a89869b277f8dfbdc7b0ddc888/index.d.ts#L531-L743).
+
+On macOS, optionally provide a pane and section.
 
 #### pane
 
