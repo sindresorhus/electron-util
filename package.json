@@ -14,11 +14,15 @@
 		"start": "electron example.js",
 		"test": "xo && ava && tsd"
 	},
+	"types": "index.d.ts",
 	"files": [
-		"source",
-		"index.js",
-		"index.d.ts",
-		"node.js"
+		"main",
+		"main.js",
+		"main.d.ts",
+		"shared",
+		"shared.js",
+		"shared.d.ts",
+		"index.d.ts"
 	],
 	"keywords": [
 		"electron",
@@ -37,16 +41,19 @@
 	},
 	"devDependencies": {
 		"ava": "^2.1.0",
-		"electron": "^8.0.1",
+		"electron": "^10.0.0",
 		"mock-require": "^3.0.3",
 		"tsd": "^0.17.0",
 		"type-fest": "^0.10.0",
-		"xo": "^0.26.1"
+		"xo": "^0.39.1"
 	},
 	"xo": {
 		"envs": [
 			"node",
 			"browser"
-		]
+		],
+		"rules": {
+			"import/extensions": ["error", "never"]
+		}
 	}
 }

@@ -1,19 +1,20 @@
 'use strict';
-const api = require('./api');
-const is = require('./is');
+
+const {app, dialog} = require('electron');
+const is = require('../shared/is');
 
 module.exports = () => {
 	if (is.development || !is.macos) {
 		return;
 	}
 
-	if (api.app.isInApplicationsFolder()) {
+	if (app.isInApplicationsFolder()) {
 		return;
 	}
 
-	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+	const appName = 'name' in app ? app.name : app.getName();
 
-	const clickedButtonIndex = api.dialog.showMessageBoxSync({
+	const clickedButtonIndex = dialog.showMessageBoxSync({
 		type: 'error',
 		message: 'Move to Applications folder?',
 		detail: `${appName} must live in the Applications folder to be able to run correctly.`,
@@ -26,22 +27,22 @@ module.exports = () => {
 	});
 
 	if (clickedButtonIndex === 1) {
-		api.app.quit();
+		app.quit();
 		return;
 	}
 
-	api.app.moveToApplicationsFolder({
+	app.moveToApplicationsFolder({
 		conflictHandler: conflict => {
 			if (conflict === 'existsAndRunning') { // Can't replace the active version of the app
-				api.dialog.showMessageBoxSync({
+				dialog.showMessageBoxSync({
 					type: 'error',
-					message: `Another version of ${api.app.getName()} is currently running. Quit it, then launch this version of the app again.`,
+					message: `Another version of ${appName} is currently running. Quit it, then launch this version of the app again.`,
 					buttons: [
 						'OK'
 					]
 				});
 
-				api.app.quit();
+				app.quit();
 			}
 
 			return true;

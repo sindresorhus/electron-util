@@ -5,14 +5,15 @@ const {app, BrowserWindow, Menu, dialog} = require('electron');
 const {
 	openNewGitHubIssue,
 	openUrlMenuItem,
+	openSystemPreferences,
+	runJS
+} = require('./shared');
+const {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
-	appMenu,
-	openSystemPreferences,
-	runJS
-} = require('.');
-/// const enforceMacosAppLocation = require('./source/enforce-macos-app-location');
+	appMenu
+} = require('./main');
 
 const createMenu = () => {
 	const items = [
@@ -82,8 +83,6 @@ let mainWindow;
 
 (async () => {
 	await app.whenReady();
-
-	/// enforceMacosAppLocation();
 
 	createMenu();
 

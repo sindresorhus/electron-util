@@ -10,7 +10,7 @@ mockRequire('electron', {
 	remote: {}
 });
 
-const {platform} = require('.');
+const {platform} = require('./shared');
 
 test('util.platform()', t => {
 	t.is(platform({
