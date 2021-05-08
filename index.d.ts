@@ -766,4 +766,5 @@ openSystemPreferences('security', 'Firewall');
 @param section - The section within that pane.
 @returns A Promise that resolves when the preferences window is opened.
 */
-export const openSystemPreferences: <T extends keyof SystemPreferencesMacOsPanes>(pane?: T|SystemPreferencesWindowsPane, section?: SystemPreferencesMacOsPanes[T]) => Promise<void>;
+export function openSystemPreferences(pane?: SystemPreferencesWindowsPane): Promise<void>;
+export function openSystemPreferences<T extends keyof SystemPreferencesMacOsPanes>(pane?: T, section?: SystemPreferencesMacOsPanes[T]): Promise<void>;
