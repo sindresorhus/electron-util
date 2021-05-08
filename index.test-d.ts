@@ -69,4 +69,5 @@ expectType<MenuItemConstructorOptions>(appMenu([
 
 expectType<Promise<void>>(openSystemPreferences());
 expectType<Promise<void>>(openSystemPreferences('security', 'Privacy_Microphone'));
+expectType<Promise<void>>(openSystemPreferences('windowsupdate'));
 expectError(openSystemPreferences('security', 'Bad_Section'));
