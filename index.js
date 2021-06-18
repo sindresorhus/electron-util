@@ -195,53 +195,28 @@ exports.openUrlMenuItem = (options = {}) => {
 };
 
 exports.showAboutWindow = (options = {}) => {
-	if (!is.windows) {
-		if (
-			options.copyright ||
-			(is.linux && options.icon) ||
-			(is.linux && options.website)
-		) {
-			const aboutPanelOptions = {
-				copyright: options.copyright
-			};
+	const appName = api.app.getName();
+	const appVersion = api.app.getVersion();
 
-			if (is.linux && options.icon) {
-				aboutPanelOptions.iconPath = options.icon;
-				delete aboutPanelOptions.icon;
-			}
-
-			api.app.setAboutPanelOptions(aboutPanelOptions);
-		}
-
-		api.app.showAboutPanel();
-
-		return;
-	}
-
-	options = {
-		title: 'About',
-		...options
+	const aboutPanelOptions = {
+		applicationName: appName,
+		applicationVersion: appVersion
 	};
 
-	// TODO: Make this just `api.app.name` when targeting Electron 7.
-	const appName = 'name' in api.app ? api.app.name : api.app.getName();
+	if (options.icon) {
+		aboutPanelOptions.iconPath = options.icon;
+	}
 
-	const text = options.text ? `${options.copyright ? '\n\n' : ''}${options.text}` : '';
+	if (options.copyright) {
+		aboutPanelOptions.copyright = options.copyright;
+	}
 
-	api.dialog.showMessageBox(
-		activeWindow(),
-		{
-			title: `${options.title} ${appName}`,
-			message: `Version ${api.app.getVersion()}`,
-			detail: (options.copyright || '') + text,
-			icon: options.icon,
+	if (options.website) {
+		aboutPanelOptions.website = options.website;
+	}
 
-			// This is needed for Linux, since at least Ubuntu does not show a close button
-			buttons: [
-				'OK'
-			]
-		}
-	);
+	api.app.setAboutPanelOptions(aboutPanelOptions);
+	api.app.showAboutPanel();
 };
 
 exports.aboutMenuItem = (options = {}) => {
