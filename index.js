@@ -211,6 +211,10 @@ exports.showAboutWindow = (options = {}) => {
 		aboutPanelOptions.copyright = options.copyright;
 	}
 
+	if (options.text) {
+		aboutPanelOptions.copyright = (options.copyright || '') + '\n\n' + options.text;
+	}
+
 	if (options.website) {
 		aboutPanelOptions.website = options.website;
 	}
