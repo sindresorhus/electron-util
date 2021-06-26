@@ -233,10 +233,8 @@ exports.aboutMenuItem = (options = {}) => {
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
 
-	const appName = 'name' in api.app ? api.app.name : api.app.getName();
-
 	return {
-		label: `${options.title} ${appName}`,
+		label: `${options.title} ${api.app.getName()}`,
 		click() {
 			exports.showAboutWindow(options);
 		}
@@ -244,7 +242,7 @@ exports.aboutMenuItem = (options = {}) => {
 };
 
 exports.debugInfo = () => `
-${'name' in api.app ? api.app.name : api.app.getName()} ${api.app.getVersion()}
+${api.app.getName()} ${api.app.getVersion()}
 Electron ${exports.electronVersion}
 ${process.platform} ${os.release()}
 Locale: ${api.app.getLocale()}
@@ -255,10 +253,8 @@ exports.appMenu = (menuItems = []) => {
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
 
-	const appName = 'name' in api.app ? api.app.name : api.app.getName();
-
 	return {
-		label: appName,
+		label: api.app.getName(),
 		submenu: [
 			{
 				role: 'about'
