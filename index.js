@@ -195,6 +195,11 @@ exports.openUrlMenuItem = (options = {}) => {
 };
 
 exports.showAboutWindow = (options = {}) => {
+	// TODO: When https://github.com/electron/electron/issues/18918 is fixed,
+	// these defaults should not need to be set for Linux.
+	// TODO: The defaults are standardized here, instead of being set in
+	// Electron when https://github.com/electron/electron/issues/23851 is fixed.
+
 	const appName = api.app.getName();
 	const appVersion = api.app.getVersion();
 
