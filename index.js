@@ -5,9 +5,10 @@ const electron = require('electron');
 const newGithubIssueUrl = require('new-github-issue-url');
 const node = require('./node');
 
-const api = require('./source/api');
+const {api, remote, initializeRemote} = require('./source/api');
 
 exports.api = api;
+exports.initializeRemote = initializeRemote;
 
 const is = require('./source/is');
 
@@ -33,7 +34,7 @@ exports.platform = object => {
 
 const activeWindow = () => is.main ?
 	electron.BrowserWindow.getFocusedWindow() :
-	electron.remote.getCurrentWindow();
+	remote.getCurrentWindow();
 
 exports.activeWindow = activeWindow;
 

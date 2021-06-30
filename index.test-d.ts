@@ -1,7 +1,8 @@
-import {AllElectron, Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
+import {RemoteMainInterface, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
 import {expectType, expectError} from 'tsd';
 import {
 	api,
+	initializeRemote,
 	is,
 	electronVersion,
 	chromeVersion,
@@ -27,7 +28,8 @@ import {
 	openSystemPreferences
 } from '.';
 
-expectType<AllElectron | Remote>(api);
+expectType<RemoteMainInterface>(api);
+expectType<void>(initializeRemote());
 expectType<boolean>(api.app.isPackaged);
 expectType<boolean>(is.macos);
 expectType<string>(electronVersion);
