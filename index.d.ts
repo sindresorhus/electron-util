@@ -411,6 +411,11 @@ export interface ShowAboutWindowOptions {
 	readonly copyright?: string;
 
 	/**
+	Some additional text if needed. Shown below copyright info.
+	*/
+	readonly text?: string;
+
+	/**
 	The URL to the app's website.
 
 	Only used on Linux.
@@ -418,14 +423,7 @@ export interface ShowAboutWindowOptions {
 	readonly website?: string;
 
 	/**
-	Some additional text if needed.
-
-	Only used on Windows.
-	*/
-	readonly text?: string;
-
-	/**
-	Customizable for localization. Used in the menu item label and window title (Windows-only).
+	Customizable for localization. Used in the menu item label.
 
 	The app name is automatically appended at runtime.
 

@@ -366,10 +366,6 @@ Shows an 'About' window. On macOS and Linux, the native 'About' window is shown,
 
 On macOS, the `icon`, `text`, `title`, and `website` options are ignored. For `icon`, it already defaults to the app icon. For `title`, you don't need it as the native about window doesn't have a title.
 
-On Linux, the `text` option is ignored.
-
-*It will show `Electron` as the app name until you build your app for production.*
-
 <img src="media/screenshot-about-window-linux.png" width="405" height="289" alt="The about window on Ubuntu">
 
 ```js
@@ -398,24 +394,24 @@ Type: `string`
 
 The copyright text.
 
+##### text
+
+Type: `string`
+
+Some additional text if needed. Shown below copyright info.
+
 ##### website <sup>*Linux*</sup>
 
 Type: `string`
 
 The URL to the app's website.
 
-##### text <sup>*Windows*</sup>
-
-Type: `string`
-
-Some additional text if needed.
-
 ##### title <sup>*Linux*</sup> <sup>*Windows*</sup>
 
 Type: `string`\
 Default: `'About'`
 
-Customizable for localization. Used in the menu item label and window title (Windows-only).
+Customizable for localization. Used in the menu item label.
 
 The app name is automatically appended at runtime.
 
