@@ -2,4 +2,4 @@
 
 const isElectron = 'electron' in process.versions;
 
-module.exports = isElectron && process.mainModule && process.mainModule.filename.includes('app.asar');
+module.exports = isElectron && require.main && require.main.filename.includes('app.asar');
