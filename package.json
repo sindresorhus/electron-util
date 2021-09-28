@@ -12,8 +12,7 @@
 	},
 	"scripts": {
 		"start": "electron example.js",
-		"test": "xo && ava",
-		"//test": "xo && ava && tsd"
+		"test": "xo && ava && tsd"
 	},
 	"files": [
 		"source",
@@ -40,7 +39,7 @@
 		"ava": "^2.1.0",
 		"electron": "^8.0.1",
 		"mock-require": "^3.0.3",
-		"tsd": "^0.11.0",
+		"tsd": "^0.17.0",
 		"type-fest": "^0.10.0",
 		"xo": "^0.26.1"
 	},
