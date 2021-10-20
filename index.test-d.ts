@@ -1,4 +1,4 @@
-import {AllElectron, Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
+import { Remote, BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
 import {expectType, expectError} from 'tsd';
 import {
 	api,
@@ -27,7 +27,7 @@ import {
 	openSystemPreferences
 } from '.';
 
-expectType<AllElectron | Remote>(api);
+expectType<Remote>(api);
 expectType<boolean>(api.app.isPackaged);
 expectType<boolean>(is.macos);
 expectType<string>(electronVersion);
