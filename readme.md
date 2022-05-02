@@ -4,6 +4,8 @@
 
 You can use this module directly in both the [main and renderer process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
 
+[**This package is not compatible with Electron v12 and later.**](https://github.com/sindresorhus/electron-util/issues/45)
+
 ## Install
 
 ```
