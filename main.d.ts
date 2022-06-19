@@ -1,16 +1,5 @@
 /// <reference lib="dom"/>
-import {Remote, BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions} from 'electron';
-
-/**
-Access the Electron APIs in both the main and renderer process without having to care about which one you're in.
-
-@example
-```
-// In the renderer process
-api.app.quit(); // The `app` API is usually only available in the main process.
-```
-*/
-export const api: Remote;
+import {BrowserWindow, Size, Rectangle, Session, MenuItemConstructorOptions} from 'electron';
 
 /**
 Electron version.
