@@ -14,7 +14,7 @@ import {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
-	appMenu
+	appMenu,
 } from './main';
 
 /* Idk
@@ -25,24 +25,24 @@ expectType<string>(electronVersion);
 
 expectType<BrowserWindow>(activeWindow());
 expectType<string>(fixPathForAsarUnpack('/path'));
-// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+
 expectType<void>(enforceMacOSAppLocation());
 expectType<number>(menuBarHeight());
 expectType<Rectangle>(getWindowBoundsCentered());
 expectType<Rectangle>(getWindowBoundsCentered({useFullBounds: true}));
-// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+
 expectType<void>(centerWindow({}));
 expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
-// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+
 expectType<void>(setContentSecurityPolicy('default-src \'none\';'));
-// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+
 expectType<void>(showAboutWindow({title: 'App name'}));
 expectType<MenuItemConstructorOptions>(aboutMenuItem());
 expectType<string>(debugInfo());
 expectType<MenuItemConstructorOptions>(appMenu([
 	{
 		label: 'Preferences…',
-		accelerator: 'Command+,'
-	}
+		accelerator: 'Command+,',
+	},
 ]));

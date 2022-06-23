@@ -26,5 +26,5 @@ exports.darkMode = {
 		return () => {
 			nativeTheme.off(handler);
 		};
-	}
+	},
 };

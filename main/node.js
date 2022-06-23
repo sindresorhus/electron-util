@@ -1,5 +1,7 @@
 'use strict';
 
+const process = require('process');
+
 exports.isElectron = 'electron' in process.versions;
 
 exports.electronVersion = process.versions.electron || '0.0.0';

@@ -1,5 +1,7 @@
 'use strict';
 
+const process = require('process');
+
 exports.platform = object => {
 	let {platform} = process;
 

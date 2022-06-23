@@ -1,5 +1,7 @@
 'use strict';
 
+const process = require('process');
+
 const os = require('os');
 const {app} = require('electron');
 const {electronVersion} = require('./node');

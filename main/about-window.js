@@ -6,12 +6,12 @@ const is = require('../shared/is');
 exports.showAboutWindow = (options = {}) => {
 	if (!is.windows) {
 		if (
-			options.copyright ||
-			(is.linux && options.icon) ||
-			(is.linux && options.website)
+			options.copyright
+			|| (is.linux && options.icon)
+			|| (is.linux && options.website)
 		) {
 			const aboutPanelOptions = {
-				copyright: options.copyright
+				copyright: options.copyright,
 			};
 
 			if (is.linux && options.icon) {
@@ -29,7 +29,7 @@ exports.showAboutWindow = (options = {}) => {
 
 	options = {
 		title: 'About',
-		...options
+		...options,
 	};
 
 	// TODO: Make this just `app.name` when targeting Electron 7.
@@ -45,15 +45,15 @@ exports.showAboutWindow = (options = {}) => {
 
 		// This is needed for Linux, since at least Ubuntu does not show a close button
 		buttons: [
-			'OK'
-		]
+			'OK',
+		],
 	});
 };
 
 exports.aboutMenuItem = (options = {}) => {
 	options = {
 		title: 'About',
-		...options
+		...options,
 	};
 
 	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
@@ -66,6 +66,6 @@ exports.aboutMenuItem = (options = {}) => {
 		label: `${options.title} ${appName}`,
 		click() {
 			exports.showAboutWindow(options);
-		}
+		},
 	};
 };

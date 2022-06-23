@@ -20,6 +20,6 @@ exports.openUrlMenuItem = (options = {}) => {
 
 	return {
 		...options,
-		click
+		click,
 	};
 };

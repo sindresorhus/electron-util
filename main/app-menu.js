@@ -13,36 +13,36 @@ exports.appMenu = (menuItems = []) => {
 		label: appName,
 		submenu: [
 			{
-				role: 'about'
+				role: 'about',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			...menuItems,
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'services'
+				role: 'services',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'hide'
+				role: 'hide',
 			},
 			{
-				role: 'hideothers'
+				role: 'hideothers',
 			},
 			{
-				role: 'unhide'
+				role: 'unhide',
 			},
 			{
-				type: 'separator'
+				type: 'separator',
 			},
 			{
-				role: 'quit'
-			}
-		].filter(Boolean)
+				role: 'quit',
+			},
+		].filter(Boolean),
 	};
 };

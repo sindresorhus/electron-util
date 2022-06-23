@@ -13,15 +13,15 @@ exports.setContentSecurityPolicy = async (policy, options) => {
 
 	options = {
 		session: session.defaultSession,
-		...options
+		...options,
 	};
 
 	options.session.webRequest.onHeadersReceived((details, callback) => {
 		callback({
 			responseHeaders: {
 				...details.responseHeaders,
-				'Content-Security-Policy': [policy]
-			}
+				'Content-Security-Policy': [policy],
+			},
 		});
 	});
 };

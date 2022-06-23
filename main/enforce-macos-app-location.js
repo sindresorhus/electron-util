@@ -20,10 +20,10 @@ module.exports = () => {
 		detail: `${appName} must live in the Applications folder to be able to run correctly.`,
 		buttons: [
 			'Move to Applications folder',
-			`Quit ${appName}`
+			`Quit ${appName}`,
 		],
 		defaultId: 0,
-		cancelId: 1
+		cancelId: 1,
 	});
 
 	if (clickedButtonIndex === 1) {
@@ -32,20 +32,20 @@ module.exports = () => {
 	}
 
 	app.moveToApplicationsFolder({
-		conflictHandler: conflict => {
+		conflictHandler(conflict) {
 			if (conflict === 'existsAndRunning') { // Can't replace the active version of the app
 				dialog.showMessageBoxSync({
 					type: 'error',
 					message: `Another version of ${appName} is currently running. Quit it, then launch this version of the app again.`,
 					buttons: [
-						'OK'
-					]
+						'OK',
+					],
 				});
 
 				app.quit();
 			}
 
 			return true;
-		}
+		},
 	});
 };

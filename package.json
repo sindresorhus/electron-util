@@ -40,12 +40,12 @@
 		"new-github-issue-url": "^0.2.1"
 	},
 	"devDependencies": {
-		"ava": "^2.1.0",
+		"ava": "^4.3.0",
 		"electron": "^19.0.0",
 		"mock-require": "^3.0.3",
-		"tsd": "^0.17.0",
-		"type-fest": "^0.10.0",
-		"xo": "^0.39.1"
+		"tsd": "^0.21.0",
+		"type-fest": "^2.13.1",
+		"xo": "^0.50.0"
 	},
 	"xo": {
 		"envs": [
@@ -53,7 +53,15 @@
 			"browser"
 		],
 		"rules": {
-			"import/extensions": ["error", "never"]
+			"import/extensions": [
+				"error",
+				"never"
+			],
+			"n/file-extension-in-import": [
+				"error",
+				"never"
+			],
+			"unicorn/prefer-module": "off"
 		}
 	}
 }

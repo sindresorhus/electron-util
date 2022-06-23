@@ -6,13 +6,13 @@ const {
 	openNewGitHubIssue,
 	openUrlMenuItem,
 	openSystemPreferences,
-	runJS
+	runJS,
 } = require('./shared');
 const {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
-	appMenu
+	appMenu,
 } = require('./main');
 
 const createMenu = () => {
@@ -23,22 +23,22 @@ const createMenu = () => {
 				openNewGitHubIssue({
 					user: 'sindresorhus',
 					repo: 'playground',
-					body: 'Test 🦄'
+					body: 'Test 🦄',
 				});
-			}
+			},
 		},
 		{
 			label: 'openSystemPreferences() test',
 			click() {
 				openSystemPreferences();
-			}
+			},
 		},
 		openUrlMenuItem({
 			label: 'openUrlMenuItem() test',
 			url: 'https://sindresorhus.com',
 			onClick() {
 				console.log('Executed before opening the URL');
-			}
+			},
 		}),
 		{
 			label: 'showAboutWindow() test',
@@ -46,34 +46,34 @@ const createMenu = () => {
 				showAboutWindow({
 					icon: path.join(__dirname, 'fixtures/Icon.png'),
 					copyright: 'Copyright © Sindre Sorhus',
-					text: 'Some more info.'
+					text: 'Some more info.',
 				});
-			}
+			},
 		},
 		aboutMenuItem({
 			icon: path.join(__dirname, 'fixtures/Icon.png'),
 			copyright: 'Copyright © Sindre Sorhus',
-			text: 'Some more info.'
+			text: 'Some more info.',
 		}),
 		{
 			label: 'debugInfo() test',
 			click() {
 				dialog.showErrorBox('', debugInfo());
-			}
-		}
+			},
+		},
 	];
 
 	const menu = Menu.buildFromTemplate([
 		appMenu([
 			{
 				label: 'Extra item',
-				enabled: false
-			}
+				enabled: false,
+			},
 		]),
 		{
 			label: 'Test',
-			submenu: items
-		}
+			submenu: items,
+		},
 	]);
 
 	Menu.setApplicationMenu(menu);

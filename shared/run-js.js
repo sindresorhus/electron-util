@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {webFrame} = require('electron');
 const {activeWindow} = require('../main/active-window');
 

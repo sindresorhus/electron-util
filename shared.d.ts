@@ -1,4 +1,3 @@
-/// <reference lib="dom"/>
 import {BrowserWindow, MenuItemConstructorOptions} from 'electron';
 import {Options as NewGithubIssueUrlOptions} from 'new-github-issue-url';
 import {RequireAtLeastOne} from 'type-fest';
@@ -64,6 +63,7 @@ Chrome version in Electron.
 */
 export const chromeVersion: string;
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 interface _Choices<Macos, Windows, Linux, Default> {
 	readonly macos?: Macos | (() => Macos);
 	readonly windows?: Windows | (() => Windows);
@@ -99,6 +99,7 @@ Run some JavaScript in the active or given window.
 @param window - Default: Current window
 @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
 */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export function runJS(code: string, window?: BrowserWindow): Promise<unknown>;
 
 /**

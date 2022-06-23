@@ -1,4 +1,5 @@
 'use strict';
+const process = require('process');
 const isDev = require('electron-is-dev');
 const isUsingAsar = require('../main/is-using-asar');
 
@@ -12,5 +13,5 @@ module.exports = {
 	usingAsar: isUsingAsar,
 	development: isDev,
 	macAppStore: process.mas === true,
-	windowsStore: process.windowsStore === true
+	windowsStore: process.windowsStore === true,
 };
