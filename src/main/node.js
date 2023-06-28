@@ -1,0 +1,39 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fixPathForAsarUnpack = exports.electronVersion = exports.isElectron = void 0;
+var process_1 = __importDefault(require("process"));
+var isElectron = 'electron' in process_1.default.versions;
+exports.isElectron = isElectron;
+/**
+Electron version.
+
+@example
+```
+'1.7.9'
+```
+*/
+var electronVersion = process_1.default.versions.electron || '0.0.0';
+exports.electronVersion = electronVersion;
+/**
+ASAR is great, but it has [limitations when it comes to executing binaries](https://electronjs.org/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive).
+For example, [`child_process.spawn()` is not automatically handled](https://github.com/electron/electron/issues/9459).
+So you would have to unpack the binary, for example, with the [`asarUnpack`](https://www.electron.build/configuration/configuration#configuration-asarUnpack) option in `electron-builder`.
+This creates a problem as the path to the binary changes, but your `path.join(__dirname, 'binary')` is not changed.
+To make it work you need to fix the path. That's the purpose of this method.
+
+Before:
+/Users/sindresorhus/Kap.app/Contents/Resources/app.asar/node_modules/foo/binary
+
+After:
+/Users/sindresorhus/Kap.app/Contents/Resources/app.asar.unpacked/node_modules/foo/binary
+
+@param path - A path in your app.
+@returns The fixed path.
+*/
+var fixPathForAsarUnpack = function (path) {
+    return exports.isUsingAsar ? path.replace('app.asar', 'app.asar.unpacked') : path;
+};
+exports.fixPathForAsarUnpack = fixPathForAsarUnpack;

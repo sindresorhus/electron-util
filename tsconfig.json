@@ -1,0 +1,11 @@
+{
+  "extends": "@sindresorhus/tsconfig",
+  "compilerOptions": {
+    "lib": ["ES2021", "DOM"],
+    "module": "CommonJS",
+    "target": "ES2021",
+    "outDir": "dist",
+    "declaration": true,
+  },
+  "include": ["src/**/index.ts"],
+}

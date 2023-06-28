@@ -7,13 +7,8 @@ const {
 	openUrlMenuItem,
 	openSystemPreferences,
 	runJS,
-} = require('./shared');
-const {
-	showAboutWindow,
-	aboutMenuItem,
-	debugInfo,
-	appMenu,
-} = require('./main');
+} = require('./dist/shared');
+const {showAboutWindow, aboutMenuItem, debugInfo, appMenu} = require('./dist/main');
 
 const createMenu = () => {
 	const items = [
@@ -36,7 +31,7 @@ const createMenu = () => {
 		openUrlMenuItem({
 			label: 'openUrlMenuItem() test',
 			url: 'https://sindresorhus.com',
-			onClick() {
+			click() {
 				console.log('Executed before opening the URL');
 			},
 		}),
