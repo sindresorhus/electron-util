@@ -2,3 +2,9 @@ node_modules
 yarn.lock
 dist/
 .devcontainer/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/

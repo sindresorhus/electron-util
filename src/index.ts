@@ -1,4 +1,2 @@
-import * as main from './main';
-import * as shared from './shared';
-
-export {main, shared};
+export * as main from './main';
+export * as shared from './shared';
