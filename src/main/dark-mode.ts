@@ -1,5 +1,5 @@
 import {nativeTheme} from 'electron';
-const {is} = require('../shared/is');
+import {is} from '../shared/is';
 
 type DarkMode = {
 	/**
@@ -41,6 +41,7 @@ const darkMode: DarkMode = {
 
 	onChange(callback) {
 		if (!is.macos) {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			return () => {};
 		}
 
@@ -56,4 +57,4 @@ const darkMode: DarkMode = {
 	},
 };
 
-export {darkMode, DarkMode};
+export {darkMode, type DarkMode};

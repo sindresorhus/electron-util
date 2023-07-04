@@ -6,6 +6,7 @@
     "target": "ES2021",
     "outDir": "dist",
     "declaration": true,
+    "esModuleInterop": true,
   },
   "include": ["src/**/index.ts"],
 }

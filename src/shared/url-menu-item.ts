@@ -41,7 +41,7 @@ const openUrlMenuItem = (
 			options?.click(...args);
 		}
 
-		shell.openExternal(url);
+		void shell.openExternal(url);
 	};
 
 	return {
@@ -50,4 +50,4 @@ const openUrlMenuItem = (
 	};
 };
 
-export {OpenUrlMenuItemOptions, openUrlMenuItem};
+export {type OpenUrlMenuItemOptions, openUrlMenuItem};

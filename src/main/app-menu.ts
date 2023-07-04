@@ -1,4 +1,4 @@
-import {app, MenuItemConstructorOptions} from 'electron';
+import {app, type MenuItemConstructorOptions} from 'electron';
 
 // TODO: See what the return type is here
 /**
@@ -28,12 +28,11 @@ Menu.setApplicationMenu(menu);
 */
 const appMenu = (
 	menuItems?: readonly MenuItemConstructorOptions[],
-): MenuItemConstructorOptions => {
+): MenuItemConstructorOptions =>
 	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
-
-	return {
+	({
 		label: app.name,
 		submenu: [
 			{
@@ -68,7 +67,5 @@ const appMenu = (
 				role: 'quit',
 			},
 		],
-	};
-};
-
+	});
 export {appMenu};

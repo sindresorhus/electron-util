@@ -21,7 +21,7 @@ openNewGitHubIssue({
 */
 const openNewGitHubIssue = (options: OpenNewGitHubIssueOptions) => {
 	const url = newGithubIssueUrl(options);
-	shell.openExternal(url);
+	void shell.openExternal(url);
 };
 
 export {openNewGitHubIssue};

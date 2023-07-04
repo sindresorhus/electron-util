@@ -1,6 +1,6 @@
-import process from 'process';
+import process from 'node:process';
 import isDev from 'electron-is-dev';
-import {isUsingAsar} from '../main/is-using-asar';
+import {isUsingAsar} from '../main/node';
 
 /*
 Check for various things.
@@ -59,10 +59,10 @@ const is: Is = {
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
 	// TODO: This runs in main
-	usingAsar: isUsingAsar,
+	usingAsar: isUsingAsar!,
 	development: isDev,
-	macAppStore: process.mas === true,
-	windowsStore: process.windowsStore === true,
+	macAppStore: process.mas,
+	windowsStore: process.windowsStore,
 };
 
 export {is};

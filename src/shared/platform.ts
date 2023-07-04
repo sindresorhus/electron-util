@@ -1,6 +1,7 @@
-import process from 'process';
-import {RequireAtLeastOne, ValueOf} from 'type-fest';
+import process from 'node:process';
+import {type RequireAtLeastOne, type ValueOf} from 'type-fest';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type _Choices<Macos, Windows, Linux, Default> = {
 	readonly macos?: Macos | (() => Macos);
 	readonly windows?: Windows | (() => Windows);
@@ -9,10 +10,11 @@ type _Choices<Macos, Windows, Linux, Default> = {
 };
 
 type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<
-	_Choices<Macos, Windows, Linux, Default>,
-	'macos' | 'windows' | 'linux'
+_Choices<Macos, Windows, Linux, Default>,
+'macos' | 'windows' | 'linux'
 >;
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 type _Platform = 'macos' | 'windows' | 'linux' | 'default';
 
 /**
@@ -39,29 +41,36 @@ const platform = <
 >(
 	choices: Choices<Macos, Windows, Linux, Default>,
 ) => {
-	let {platform: _platform} = process;
+	const {platform: _platform} = process;
 
 	let platform: _Platform;
 
 	switch (_platform) {
-		case 'darwin':
+		case 'darwin': {
 			platform = 'macos';
 			break;
-		case 'win32':
+		}
+
+		case 'win32': {
 			platform = 'windows';
 			break;
-		case 'linux':
+		}
+
+		case 'linux': {
 			platform = 'linux';
 			break;
-		default:
+		}
+
+		default: {
 			platform = 'default';
+		}
 	}
 
 	// TODO: This can't return undefined, but TypeScript doesn't know that
-	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>> =
-		platform in choices ? choices[platform] : choices.default;
+	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>>
+		= platform in choices ? choices[platform] : choices.default;
 
 	return fn instanceof Function ? fn() : fn;
 };
 
-export {Choices, platform};
+export {type Choices, platform};

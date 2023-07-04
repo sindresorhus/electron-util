@@ -1,10 +1,10 @@
 import {
 	app,
 	dialog,
-	AboutPanelOptionsOptions,
-	MenuItemConstructorOptions,
+	type AboutPanelOptionsOptions,
+	type MenuItemConstructorOptions,
 } from 'electron';
-const is = require('../shared/is');
+import {is} from '../shared';
 
 type ShowAboutWindowOptions = {
 	/**
@@ -69,9 +69,11 @@ showAboutWindow({
 const showAboutWindow = (options: ShowAboutWindowOptions) => {
 	if (!is.windows) {
 		if (
-			options.copyright ||
-			(is.linux && options.icon) ||
+			/* eslint-disable operator-linebreak */
+			options.copyright ??
+			(is.linux && options.icon) ??
 			(is.linux && options.website)
+			/* eslint-enable operator-linebreak */
 		) {
 			const aboutPanelOptions: AboutPanelOptionsOptions = {
 				copyright: options.copyright,
@@ -98,10 +100,11 @@ const showAboutWindow = (options: ShowAboutWindowOptions) => {
 		? `${options.copyright ? '\n\n' : ''}${options.text}`
 		: '';
 
-	dialog.showMessageBox({
+	void dialog.showMessageBox({
+		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		title: `${options.title} ${app.name}`,
 		message: `Version ${app.getVersion()}`,
-		detail: (options.copyright || '') + text,
+		detail: (options.copyright ?? '') + text,
 		icon: options.icon,
 
 		// This is needed for Linux, since at least Ubuntu does not show a close button
@@ -147,9 +150,10 @@ const aboutMenuItem = (
 	// when used in a cross-platform app
 
 	return {
+		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		label: `${options.title} ${app.name}`,
 		click() {
-			exports.showAboutWindow(options);
+			showAboutWindow(options ?? {});
 		},
 	};
 };
@@ -157,6 +161,6 @@ const aboutMenuItem = (
 export {
 	showAboutWindow,
 	aboutMenuItem,
-	AboutMenuItemOptions,
-	ShowAboutWindowOptions,
+	type AboutMenuItemOptions,
+	type ShowAboutWindowOptions,
 };

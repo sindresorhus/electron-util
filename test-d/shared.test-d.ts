@@ -1,4 +1,4 @@
-import {MenuItemConstructorOptions} from 'electron';
+import {type MenuItemConstructorOptions} from 'electron';
 import {expectType, expectError} from 'tsd';
 import {
 	is,

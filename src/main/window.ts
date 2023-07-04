@@ -1,5 +1,5 @@
-import {BrowserWindow, Rectangle, Size, screen} from 'electron';
-const {is} = require('../shared/is');
+import {type BrowserWindow, type Rectangle, type Size, screen} from 'electron';
+import {is} from '../shared';
 import {activeWindow} from './active-window';
 
 type GetWindowBoundsCenteredOptions = {
@@ -93,9 +93,11 @@ const getWindowBoundsCentered = (
 		screen.getCursorScreenPoint(),
 	).workArea;
 	const x = Math.floor(
+		// eslint-disable-next-line no-mixed-operators
 		screenSize.x + (screenSize.width / 2 - (windowSize.width ?? 0) / 2),
 	);
 	const y = Math.floor(
+		// eslint-disable-next-line no-mixed-operators
 		(screenSize.height + screenSize.y) / 2 - (windowSize.height ?? 0) / 2,
 	);
 
@@ -117,7 +119,7 @@ const centerWindow = (options?: CenterWindowOptions) => {
 		...options,
 	};
 
-	const bounds = exports.getWindowBoundsCentered(options);
+	const bounds = getWindowBoundsCentered(options);
 	// TODO: Check for undefined
 	options.window!.setBounds(bounds, options.animated);
 };
@@ -126,6 +128,6 @@ export {
 	menuBarHeight,
 	getWindowBoundsCentered,
 	centerWindow,
-	CenterWindowOptions,
-	GetWindowBoundsCenteredOptions,
+	type CenterWindowOptions,
+	type GetWindowBoundsCenteredOptions,
 };

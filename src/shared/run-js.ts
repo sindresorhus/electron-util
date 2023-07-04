@@ -11,6 +11,7 @@ Run some JavaScript in the active or given window.
 @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
 */
 // TODO: Handle if undefined
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const runJS = (
 	code: string,
 	web = is.main ? activeWindow()?.webContents : webFrame,

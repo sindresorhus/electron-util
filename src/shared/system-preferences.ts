@@ -1,6 +1,7 @@
 import {shell} from 'electron';
 import {is} from './is';
 
+/* eslint-disable @typescript-eslint/indent */
 type SystemPreferencesPanes = {
 	universalaccess:
 		| 'Captioning'
@@ -50,6 +51,7 @@ type SystemPreferencesPanes = {
 		| 'Services_RemoteLogin'
 		| 'Services_ScreenSharing';
 };
+/* eslint-enable @typescript-eslint/indent */
 
 /**
 Open the System Preferences on macOS.
@@ -74,8 +76,8 @@ openSystemPreferences('security', 'Firewall');
 @returns A Promise that resolves when the preferences window is opened.
 */
 const openSystemPreferences = async <T extends keyof SystemPreferencesPanes>(
-	pane?: T,
-	section?: SystemPreferencesPanes[T],
+	pane: T,
+	section: SystemPreferencesPanes[T],
 ) => {
 	if (is.macos) {
 		await shell.openExternal(
@@ -94,4 +96,4 @@ const openSystemPreferences = async <T extends keyof SystemPreferencesPanes>(
 	);
 };
 
-export {SystemPreferencesPanes, openSystemPreferences};
+export {type SystemPreferencesPanes, openSystemPreferences};

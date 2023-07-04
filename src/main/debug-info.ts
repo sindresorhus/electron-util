@@ -1,6 +1,5 @@
-import process from 'process';
-
-import os from 'os';
+import process from 'node:process';
+import os from 'node:os';
 import {app} from 'electron';
 import {electronVersion} from './node';
 

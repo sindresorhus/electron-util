@@ -1,6 +1,6 @@
 import {webFrame} from 'electron';
-import {is} from './is';
 import {activeWindow} from '../main/active-window';
+import {is} from './is';
 
 /**
 265,276d167

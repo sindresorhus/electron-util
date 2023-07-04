@@ -1,6 +1,13 @@
-import process from 'process';
+import process from 'node:process';
 
 const isElectron = 'electron' in process.versions;
+
+/* eslint-disable operator-linebreak */
+const isUsingAsar =
+	isElectron &&
+	process.argv.length > 1 &&
+	process.argv[1]?.includes('app.asar');
+/* eslint-enable operator-linebreak */
 
 /**
 Electron version.
@@ -29,6 +36,6 @@ After:
 @returns The fixed path.
 */
 const fixPathForAsarUnpack = (path: string): string =>
-	exports.isUsingAsar ? path.replace('app.asar', 'app.asar.unpacked') : path;
+	isUsingAsar ? path.replace('app.asar', 'app.asar.unpacked') : path;
 
-export {isElectron, electronVersion, fixPathForAsarUnpack};
+export {isElectron, isUsingAsar, electronVersion, fixPathForAsarUnpack};

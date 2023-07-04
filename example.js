@@ -1,6 +1,7 @@
+/* eslint-disable unicorn/prefer-module */
 'use strict';
-const path = require('path');
-const assert = require('assert');
+const path = require('node:path');
+const assert = require('node:assert');
 const {app, BrowserWindow, Menu, dialog} = require('electron');
 const {
 	openNewGitHubIssue,
@@ -74,17 +75,13 @@ const createMenu = () => {
 	Menu.setApplicationMenu(menu);
 };
 
-let mainWindow;
+await app.whenReady();
 
-(async () => {
-	await app.whenReady();
+createMenu();
 
-	createMenu();
+const mainWindow = new BrowserWindow();
+await mainWindow.loadURL('about:blank');
 
-	mainWindow = new BrowserWindow();
-	await mainWindow.loadURL('about:blank');
+mainWindow.webContents.openDevTools('undocked');
 
-	mainWindow.webContents.openDevTools('undocked');
-
-	assert.strictEqual(await runJS('2 + 2'), 4);
-})();
+assert.strictEqual(await runJS('2 + 2'), 4);

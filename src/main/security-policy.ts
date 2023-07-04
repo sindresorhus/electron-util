@@ -1,4 +1,4 @@
-import {Session, app, session} from 'electron';
+import {type Session, app, session} from 'electron';
 
 type SetContentSecurityPolicyOptions = {
 	/**
@@ -63,4 +63,4 @@ const setContentSecurityPolicy = async (
 	});
 };
 
-export {SetContentSecurityPolicyOptions, setContentSecurityPolicy};
+export {type SetContentSecurityPolicyOptions, setContentSecurityPolicy};

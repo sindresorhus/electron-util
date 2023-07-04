@@ -1,5 +1,5 @@
 import {app, dialog} from 'electron';
-const is = require('../shared/is');
+import {is} from '../shared';
 
 /**
 On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issues/56), if an app is launched outside the Applications folder, it will run in a read-only disk image, which could cause subtle problems for your app.
@@ -11,6 +11,7 @@ It will be a no-op during development and on other systems than macOS.
 
 It will offer to automatically move the app for the user.
 */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const enforceMacOSAppLocation = () => {
 	if (is.development || !is.macos) {
 		return;

@@ -1,4 +1,4 @@
-import {BrowserWindow, Rectangle, MenuItemConstructorOptions} from 'electron';
+import {type BrowserWindow, type Rectangle, type MenuItemConstructorOptions} from 'electron';
 import {expectType} from 'tsd';
 import {
 	electronVersion,
@@ -23,7 +23,7 @@ expectType<boolean>(api.app.isPackaged);
 */
 expectType<string>(electronVersion);
 
-expectType<BrowserWindow | null>(activeWindow());
+expectType<BrowserWindow | undefined>(activeWindow());
 expectType<string>(fixPathForAsarUnpack('/path'));
 
 expectType<void>(enforceMacOSAppLocation());
@@ -35,7 +35,7 @@ expectType<void>(centerWindow({}));
 expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
 
-expectType<Promise<void>>(setContentSecurityPolicy("default-src 'none';"));
+expectType<Promise<void>>(setContentSecurityPolicy('default-src \'none\';'));
 
 expectType<void>(showAboutWindow({title: 'App name'}));
 expectType<MenuItemConstructorOptions>(aboutMenuItem());
