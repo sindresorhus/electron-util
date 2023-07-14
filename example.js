@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-module */
 'use strict';
 const path = require('node:path');
 const assert = require('node:assert');
@@ -7,13 +8,8 @@ const {
 	openUrlMenuItem,
 	openSystemPreferences,
 	runJS,
-} = require('../dist/shared');
-const {
-	showAboutWindow,
-	aboutMenuItem,
-	debugInfo,
-	appMenu,
-} = require('../dist/main');
+} = require('./dist/shared');
+const {showAboutWindow, aboutMenuItem, debugInfo, appMenu} = require('./dist/main');
 
 const createMenu = () => {
 	const items = [
@@ -79,16 +75,13 @@ const createMenu = () => {
 	Menu.setApplicationMenu(menu);
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
-(async () => {
-	await app.whenReady();
+await app.whenReady();
 
-	createMenu();
+createMenu();
 
-	const mainWindow = new BrowserWindow();
-	await mainWindow.loadURL('about:blank');
+const mainWindow = new BrowserWindow();
+await mainWindow.loadURL('about:blank');
 
-	mainWindow.webContents.openDevTools('undocked');
+mainWindow.webContents.openDevTools('undocked');
 
-	assert.strictEqual(await runJS('2 + 2'), 4);
-})();
+assert.strictEqual(await runJS('2 + 2'), 4);

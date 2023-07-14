@@ -11,9 +11,9 @@
 		"url": "https://sindresorhus.com"
 	},
 	"scripts": {
-		"start": "electron test/example.js",
+		"start": "electron example.js",
 		"build": "tsc",
-		"test": "xo && playwright test && tsd"
+		"test": "xo && ava && tsd"
 	},
 	"types": "dist/index.d.ts",
 	"files": [
@@ -35,12 +35,10 @@
 		"new-github-issue-url": "^0.2.1"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.35.1",
 		"@sindresorhus/tsconfig": "^3.0.1",
 		"ava": "^5.3.1",
 		"electron": "^22.0.0",
 		"mock-require": "^3.0.3",
-		"playwright": "^1.35.1",
 		"prettier": "^2.8.8",
 		"prettier-config-xo": "^2.0.0",
 		"tsd": "^0.21.0",
@@ -52,16 +50,6 @@
 		"envs": [
 			"node",
 			"browser"
-		],
-		"rules": {
-			"import/extensions": [
-				"warn",
-				"never"
-			],
-			"n/file-extension-in-import": [
-				"warn",
-				"never"
-			]
-		}
+		]
 	}
 }
