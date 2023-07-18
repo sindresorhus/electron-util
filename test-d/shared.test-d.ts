@@ -34,7 +34,7 @@ expectType<void>(
 	openNewGitHubIssue({user: 'sindresorhus', repo: 'electron-util'}),
 );
 expectType<MenuItemConstructorOptions>(
-	openUrlMenuItem('https://sindresorhus.com'),
+	openUrlMenuItem({url: 'https://sindresorhus.com'}),
 );
 
 expectType<Promise<void>>(openSystemPreferences());
