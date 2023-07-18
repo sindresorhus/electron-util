@@ -1,4 +1,8 @@
-import {type BrowserWindow, type Rectangle, type MenuItemConstructorOptions} from 'electron';
+import {
+	type BrowserWindow,
+	type Rectangle,
+	type MenuItemConstructorOptions,
+} from 'electron';
 import {expectType} from 'tsd';
 import {
 	electronVersion,

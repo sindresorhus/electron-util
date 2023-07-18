@@ -37,8 +37,10 @@ expectType<MenuItemConstructorOptions>(
 	openUrlMenuItem({url: 'https://sindresorhus.com'}),
 );
 
-expectType<Promise<void>>(openSystemPreferences());
+expectError(openSystemPreferences());
 expectType<Promise<void>>(
 	openSystemPreferences('security', 'Privacy_Microphone'),
 );
 expectError(openSystemPreferences('security', 'Bad_Section'));
+expectType<Promise<void>>(openSystemPreferences('windowsupdate'));
+expectError(openSystemPreferences('windowsupdate', 'Non_Existent_Section'));
