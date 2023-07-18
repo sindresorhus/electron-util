@@ -11,9 +11,9 @@
 		"url": "https://sindresorhus.com"
 	},
 	"scripts": {
-		"start": "electron example.js",
+		"start": "electron test/example.cjs",
 		"build": "tsc",
-		"test": "xo && ava && tsd"
+		"test": "xo && tsd"
 	},
 	"types": "dist/index.d.ts",
 	"files": [
@@ -36,9 +36,7 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^3.0.1",
-		"ava": "^5.3.1",
 		"electron": "^22.0.0",
-		"mock-require": "^3.0.3",
 		"prettier": "^2.8.8",
 		"prettier-config-xo": "^2.0.0",
 		"tsd": "^0.21.0",
