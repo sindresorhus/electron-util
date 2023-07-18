@@ -35,7 +35,8 @@ expectType<void>(centerWindow({}));
 expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
 
-expectType<Promise<void>>(setContentSecurityPolicy('default-src \'none\';'));
+// eslint-disable-next-line @typescript-eslint/quotes
+expectType<Promise<void>>(setContentSecurityPolicy("default-src 'none';"));
 
 expectType<void>(showAboutWindow({title: 'App name'}));
 expectType<MenuItemConstructorOptions>(aboutMenuItem());
