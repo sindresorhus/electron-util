@@ -33,19 +33,20 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 */
 const openUrlMenuItem = (
-	url: string,
-	options?: Readonly<MenuItemConstructorOptions>,
+	options: Readonly<OpenUrlMenuItemOptions>,
 ): MenuItemConstructorOptions => {
+	const {url, ...optionsWithoutUrl} = options;
+
 	const click: MenuItemConstructorOptions['click'] = (...args) => {
-		if (options?.click) {
-			options?.click(...args);
+		if (optionsWithoutUrl.click) {
+			optionsWithoutUrl.click(...args);
 		}
 
 		void shell.openExternal(url);
 	};
 
 	return {
-		...options,
+		...optionsWithoutUrl,
 		click,
 	};
 };
