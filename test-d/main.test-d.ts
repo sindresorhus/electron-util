@@ -23,7 +23,8 @@ expectType<boolean>(api.app.isPackaged);
 */
 expectType<string>(electronVersion);
 
-expectType<BrowserWindow | undefined>(activeWindow());
+// eslint-disable-next-line @typescript-eslint/ban-types
+expectType<BrowserWindow | null>(activeWindow());
 expectType<string>(fixPathForAsarUnpack('/path'));
 
 expectType<void>(enforceMacOSAppLocation());
