@@ -1,6 +1,5 @@
 import {app, type MenuItemConstructorOptions} from 'electron';
 
-// TODO: See what the return type is here
 /**
 Creating the [app menu](https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-bar-menus/) (the first menu) on macOS requires [a lot of boilerplate](https://github.com/sindresorhus/caprine/blob/5361289d1058b9463946f274cbfef587e6ad24a3/menu.js#L381-L431).
 This method includes the default boilerplate and lets you add additional menu items in the correct place.

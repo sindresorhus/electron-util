@@ -11,13 +11,15 @@ Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Wi
 const disableZoom = (
 	web = is.main ? activeWindow()?.webContents : webFrame,
 ) => {
+	if (!web) {
+		throw new Error('No active window');
+	}
+
 	const run = () => {
-		// TODO: Check if undefined
-		web?.setZoomFactor(1);
+		web.setZoomFactor(1);
 	};
 
-	// TODO: Check if undefined
-	web?.on('did-finish-load', run);
+	web.on('did-finish-load', run);
 	run();
 };
 

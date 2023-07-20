@@ -25,7 +25,7 @@ expectType<number | string | undefined>(
 expectError(platform({}));
 expectError(platform({default: 1}));
 
-expectType<Promise<unknown> | undefined>(runJS('a=1'));
+expectType<Promise<void>>(runJS('a=1'));
 
 expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);

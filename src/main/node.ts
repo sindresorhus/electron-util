@@ -17,7 +17,7 @@ Electron version.
 '1.7.9'
 ```
 */
-const electronVersion = process.versions.electron || '0.0.0';
+const electronVersion = process.versions.electron ?? '0.0.0';
 
 /**
 ASAR is great, but it has [limitations when it comes to executing binaries](https://electronjs.org/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive).

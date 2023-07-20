@@ -81,31 +81,30 @@ Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of
 const getWindowBoundsCentered = (
 	options?: GetWindowBoundsCenteredOptions,
 ): Rectangle => {
-	options = {
-		window: activeWindow() ?? undefined,
-		...options,
-	};
+	const window = activeWindow();
+	if (!window) {
+		throw new Error('No active window');
+	}
 
-	// TODO: Check for undefined
-	const [width, height] = options.window!.getSize();
-	const windowSize = options.size ?? {width, height};
+	// TODO: Cast to number array because Electron type is weird
+	const [width, height] = window.getSize() as [number, number];
+	const windowSize = options?.size ?? {width, height};
 	const screenSize = screen.getDisplayNearestPoint(
 		screen.getCursorScreenPoint(),
 	).workArea;
 	const x = Math.floor(
 		// eslint-disable-next-line no-mixed-operators
-		screenSize.x + (screenSize.width / 2 - (windowSize.width ?? 0) / 2),
+		screenSize.x + (screenSize.width / 2 - windowSize.width / 2),
 	);
 	const y = Math.floor(
 		// eslint-disable-next-line no-mixed-operators
-		(screenSize.height + screenSize.y) / 2 - (windowSize.height ?? 0) / 2,
+		(screenSize.height + screenSize.y) / 2 - windowSize.height / 2,
 	);
 
 	return {
 		x,
 		y,
-		width: windowSize.width ?? 0,
-		height: windowSize.height ?? 0,
+		...windowSize,
 	};
 };
 
@@ -113,15 +112,18 @@ const getWindowBoundsCentered = (
 Center a window on the screen.
 */
 const centerWindow = (options?: CenterWindowOptions) => {
+	const window = activeWindow();
+	if (!window) {
+		throw new Error('No active window');
+	}
+
 	options = {
-		window: activeWindow() ?? undefined,
 		animated: false,
 		...options,
 	};
 
 	const bounds = getWindowBoundsCentered(options);
-	// TODO: Check for undefined
-	options.window!.setBounds(bounds, options.animated);
+	window.setBounds(bounds, options.animated);
 };
 
 export {
