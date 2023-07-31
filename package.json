@@ -13,6 +13,7 @@
 	"scripts": {
 		"start": "electron test/example.cjs",
 		"build": "tsc",
+		"prepare": "npm run build",
 		"test": "xo && tsd"
 	},
 	"types": "dist/index.d.ts",
