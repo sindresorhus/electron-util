@@ -1,3 +1,1 @@
-const appLaunchTimestamp = Date.now();
-
-export {appLaunchTimestamp};
+export const appLaunchTimestamp = Date.now();

@@ -11,15 +11,7 @@ Run some JavaScript in the active or given window.
 @returns A promise for the result of the executed code or a rejected promise if the result is a rejected promise.
 */
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const runJS = async (
+export const runJS = (
 	code: string,
 	web = is.main ? activeWindow()?.webContents : webFrame,
-): Promise<void> => {
-	if (!web) {
-		throw new Error('No active window');
-	}
-
-	await web.executeJavaScript(code);
-};
-
-export {runJS};
+): Promise<unknown> | undefined => web?.executeJavaScript(code);

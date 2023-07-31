@@ -16,12 +16,10 @@ console.log(debugInfo());
 //=> 'AppName 2.21.0\nElectron 3.0.6\ndarwin 18.2.0\nLocale: en-US'
 ```
 */
-const debugInfo = () =>
+export const debugInfo = () =>
 	`
 ${app.name} ${app.getVersion()}
 Electron ${electronVersion}
 ${process.platform} ${os.release()}
 Locale: ${app.getLocale()}
 `.trim();
-
-export {debugInfo};

@@ -7,7 +7,7 @@ Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Wi
 
 @param window - Default: webContents from current window.
 */
-const disableZoom = (
+export const disableZoom = (
 	web = is.main ? activeWindow()?.webContents : webFrame,
 ) => {
 	if (!web) {
@@ -21,5 +21,3 @@ const disableZoom = (
 	web.on('did-finish-load', run);
 	run();
 };
-
-export {disableZoom};

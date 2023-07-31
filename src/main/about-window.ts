@@ -6,7 +6,7 @@ import {
 } from 'electron';
 import {is} from '../shared';
 
-type ShowAboutWindowOptions = {
+export type ShowAboutWindowOptions = {
 	/**
 	An absolute path to the app icon.
 
@@ -45,7 +45,7 @@ type ShowAboutWindowOptions = {
 	readonly title?: string;
 };
 
-type AboutMenuItemOptions = ShowAboutWindowOptions;
+export type AboutMenuItemOptions = ShowAboutWindowOptions;
 
 /**
 Shows an 'About' window. On macOS and Linux, the native 'About' window is shown, and on Windows, a simple custom dialog is shown.
@@ -66,14 +66,12 @@ showAboutWindow({
 });
 ```
 */
-const showAboutWindow = (options: ShowAboutWindowOptions) => {
+export const showAboutWindow = (options: ShowAboutWindowOptions) => {
 	if (!is.windows) {
 		if (
-			/* eslint-disable operator-linebreak */
 			options.copyright ??
 			(is.linux && options.icon) ??
 			(is.linux && options.website)
-			/* eslint-enable operator-linebreak */
 		) {
 			const aboutPanelOptions: AboutPanelOptionsOptions = {
 				copyright: options.copyright,
@@ -137,7 +135,7 @@ const menu = Menu.buildFromTemplate([
 
 Menu.setApplicationMenu(menu);
 */
-const aboutMenuItem = (
+export const aboutMenuItem = (
 	options?: AboutMenuItemOptions,
 ): MenuItemConstructorOptions => {
 	options = {
@@ -156,11 +154,4 @@ const aboutMenuItem = (
 			showAboutWindow(options ?? {});
 		},
 	};
-};
-
-export {
-	showAboutWindow,
-	aboutMenuItem,
-	type AboutMenuItemOptions,
-	type ShowAboutWindowOptions,
 };

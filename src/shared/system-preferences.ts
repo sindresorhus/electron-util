@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/indent */
 import {shell} from 'electron';
 import {is} from './is';
 
-type SystemPreferencesMacOsPanes = {
+export type SystemPreferencesMacOsPanes = {
 	universalaccess:
 		| 'Captioning'
 		| 'Hearing'
@@ -52,7 +51,7 @@ type SystemPreferencesMacOsPanes = {
 		| 'Services_ScreenSharing';
 };
 
-type SystemPreferencesWindowsPanes =
+export type SystemPreferencesWindowsPanes =
 	/**
 	System
 	*/
@@ -214,8 +213,6 @@ type SystemPreferencesWindowsPanes =
 	| 'developers'
 	| 'windowsinsider';
 
-/* eslint-enable @typescript-eslint/indent */
-
 /**
 Open the System Preferences on macOS.
 
@@ -238,7 +235,7 @@ openSystemPreferences('security', 'Firewall');
 @param section - The section within that pane.
 @returns A Promise that resolves when the preferences window is opened.
 */
-const openSystemPreferences = async <
+export const openSystemPreferences = async <
 	T extends keyof SystemPreferencesMacOsPanes | SystemPreferencesWindowsPanes,
 >(
 	...args: T extends keyof SystemPreferencesMacOsPanes
@@ -256,10 +253,4 @@ const openSystemPreferences = async <
 	} else if (is.windows) {
 		await shell.openExternal(`ms-settings:${pane}`);
 	}
-};
-
-export {
-	type SystemPreferencesMacOsPanes,
-	type SystemPreferencesWindowsPanes,
-	openSystemPreferences,
 };

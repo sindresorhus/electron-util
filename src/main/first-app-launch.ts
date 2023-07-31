@@ -12,7 +12,7 @@ That means it will return true the first time you add this check to your app.
 
 @returns A `boolean` of whether it's the first time your app is launched.
 */
-const isFirstAppLaunch = (): boolean => {
+export const isFirstAppLaunch = (): boolean => {
 	const checkFile = path.join(
 		app.getPath('userData'),
 		'.electron-util--has-app-launched',
@@ -37,5 +37,3 @@ const isFirstAppLaunch = (): boolean => {
 
 	return true;
 };
-
-export {isFirstAppLaunch};

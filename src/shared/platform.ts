@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
 import process from 'node:process';
 import {type RequireAtLeastOne, type ValueOf} from 'type-fest';
 
@@ -10,7 +9,7 @@ type _Choices<Macos, Windows, Linux, Default> = {
 	readonly default?: Default | (() => Default);
 };
 
-type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<
+export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<
 	_Choices<Macos, Windows, Linux, Default>,
 	'macos' | 'windows' | 'linux'
 >;
@@ -34,7 +33,7 @@ init({
 });
 ```
 */
-const platform = <
+export const platform = <
 	Macos = never,
 	Windows = never,
 	Linux = never,
@@ -67,11 +66,9 @@ const platform = <
 		}
 	}
 
-	// eslint-disable-next-line operator-linebreak
+	// TODO: This can't return undefined, but TypeScript doesn't know that
 	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>> =
 		platform in choices ? choices[platform] : choices.default;
 
 	return fn instanceof Function ? fn() : fn;
 };
-
-export {type Choices, platform};

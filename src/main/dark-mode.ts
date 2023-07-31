@@ -1,7 +1,7 @@
 import {nativeTheme} from 'electron';
 import {is} from '../shared/is';
 
-type DarkMode = {
+export type DarkMode = {
 	/**
 	Whether the macOS dark mode is enabled.
 	On Windows and Linux, it's `false`.
@@ -30,7 +30,7 @@ darkMode.onChange(() => {
 });
 ```
 */
-const darkMode: DarkMode = {
+export const darkMode: DarkMode = {
 	get isEnabled() {
 		if (!is.macos) {
 			return false;
@@ -56,5 +56,3 @@ const darkMode: DarkMode = {
 		};
 	},
 };
-
-export {darkMode, type DarkMode};

@@ -25,7 +25,7 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 ```
 */
-const appMenu = (
+export const appMenu = (
 	menuItems?: readonly MenuItemConstructorOptions[],
 ): MenuItemConstructorOptions =>
 	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
@@ -67,4 +67,3 @@ const appMenu = (
 			},
 		],
 	});
-export {appMenu};

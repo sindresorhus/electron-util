@@ -1,6 +1,6 @@
 import {type Session, app, session} from 'electron';
 
-type SetContentSecurityPolicyOptions = {
+export type SetContentSecurityPolicyOptions = {
 	/**
 	The session to apply the policy to.
 
@@ -31,7 +31,7 @@ setContentSecurityPolicy(`
 	frame-ancestors 'none';
 `);
 */
-const setContentSecurityPolicy = async (
+export const setContentSecurityPolicy = async (
 	policy: string,
 	options?: SetContentSecurityPolicyOptions,
 ) => {
@@ -62,5 +62,3 @@ const setContentSecurityPolicy = async (
 		});
 	});
 };
-
-export {type SetContentSecurityPolicyOptions, setContentSecurityPolicy};

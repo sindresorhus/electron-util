@@ -2,7 +2,7 @@ import {type BrowserWindow, type Rectangle, type Size, screen} from 'electron';
 import {is} from '../shared';
 import {activeWindow} from './active-window';
 
-type GetWindowBoundsCenteredOptions = {
+export type GetWindowBoundsCenteredOptions = {
 	/**
 	The window to get the bounds of.
 
@@ -31,7 +31,7 @@ type GetWindowBoundsCenteredOptions = {
 	readonly useFullBounds?: boolean;
 };
 
-type CenterWindowOptions = {
+export type CenterWindowOptions = {
 	/**
 	The window to center.
 
@@ -70,7 +70,7 @@ type CenterWindowOptions = {
 /**
 @returns The height of the menu bar on macOS, or `0` if not macOS.
 */
-const menuBarHeight = () =>
+export const menuBarHeight = () =>
 	is.macos ? screen.getPrimaryDisplay().workArea.y : 0;
 
 /**
@@ -78,7 +78,7 @@ Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of
 
 @returns Bounds of a window.
 */
-const getWindowBoundsCentered = (
+export const getWindowBoundsCentered = (
 	options?: GetWindowBoundsCenteredOptions,
 ): Rectangle => {
 	const window = activeWindow();
@@ -93,12 +93,10 @@ const getWindowBoundsCentered = (
 		screen.getCursorScreenPoint(),
 	).workArea;
 	const x = Math.floor(
-		// eslint-disable-next-line no-mixed-operators
-		screenSize.x + (screenSize.width / 2 - windowSize.width / 2),
+		screenSize.x + (screenSize.width / 2 - (windowSize.width ?? 0) / 2),
 	);
 	const y = Math.floor(
-		// eslint-disable-next-line no-mixed-operators
-		(screenSize.height + screenSize.y) / 2 - windowSize.height / 2,
+		(screenSize.height + screenSize.y) / 2 - (windowSize.height ?? 0) / 2,
 	);
 
 	return {
@@ -111,7 +109,7 @@ const getWindowBoundsCentered = (
 /**
 Center a window on the screen.
 */
-const centerWindow = (options?: CenterWindowOptions) => {
+export const centerWindow = (options?: CenterWindowOptions) => {
 	const window = activeWindow();
 	if (!window) {
 		throw new Error('No active window');
@@ -124,12 +122,4 @@ const centerWindow = (options?: CenterWindowOptions) => {
 
 	const bounds = getWindowBoundsCentered(options);
 	window.setBounds(bounds, options.animated);
-};
-
-export {
-	menuBarHeight,
-	getWindowBoundsCentered,
-	centerWindow,
-	type CenterWindowOptions,
-	type GetWindowBoundsCenteredOptions,
 };

@@ -1,13 +1,11 @@
 import process from 'node:process';
 
-const isElectron = 'electron' in process.versions;
+export const isElectron = 'electron' in process.versions;
 
-/* eslint-disable operator-linebreak */
-const isUsingAsar =
+export const isUsingAsar =
 	isElectron &&
 	process.argv.length > 1 &&
 	process.argv[1]?.includes('app.asar');
-/* eslint-enable operator-linebreak */
 
 /**
 Electron version.
@@ -17,7 +15,7 @@ Electron version.
 '1.7.9'
 ```
 */
-const electronVersion = process.versions.electron ?? '0.0.0';
+export const electronVersion = process.versions.electron ?? '0.0.0';
 
 /**
 ASAR is great, but it has [limitations when it comes to executing binaries](https://electronjs.org/docs/tutorial/application-packaging/#executing-binaries-inside-asar-archive).
@@ -35,7 +33,5 @@ After:
 @param path - A path in your app.
 @returns The fixed path.
 */
-const fixPathForAsarUnpack = (path: string): string =>
+export const fixPathForAsarUnpack = (path: string): string =>
 	isUsingAsar ? path.replace('app.asar', 'app.asar.unpacked') : path;
-
-export {isElectron, isUsingAsar, electronVersion, fixPathForAsarUnpack};

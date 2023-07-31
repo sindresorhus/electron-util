@@ -52,7 +52,7 @@ type Is = {
 	readonly windowsStore: boolean;
 };
 
-const is: Is = {
+export const is: Is = {
 	macos: process.platform === 'darwin',
 	linux: process.platform === 'linux',
 	windows: process.platform === 'win32',
@@ -64,5 +64,3 @@ const is: Is = {
 	macAppStore: process.mas,
 	windowsStore: process.windowsStore,
 };
-
-export {is};

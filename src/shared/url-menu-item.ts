@@ -1,6 +1,6 @@
 import {type MenuItemConstructorOptions, shell} from 'electron';
 
-type OpenUrlMenuItemOptions = {
+export type OpenUrlMenuItemOptions = {
 	/**
 	URL to be opened when the menu item is clicked.
 	*/
@@ -32,7 +32,7 @@ const menu = Menu.buildFromTemplate([
 
 Menu.setApplicationMenu(menu);
 */
-const openUrlMenuItem = (
+export const openUrlMenuItem = (
 	options: Readonly<OpenUrlMenuItemOptions>,
 ): MenuItemConstructorOptions => {
 	const {url, ...optionsWithoutUrl} = options;
@@ -50,5 +50,3 @@ const openUrlMenuItem = (
 		click,
 	};
 };
-
-export {type OpenUrlMenuItemOptions, openUrlMenuItem};

@@ -1,5 +1,3 @@
 import {BrowserWindow} from 'electron';
 
-const activeWindow = () => BrowserWindow.getFocusedWindow();
-
-export {activeWindow};
+export const activeWindow = () => BrowserWindow.getFocusedWindow();

@@ -1,5 +1,3 @@
 import process from 'node:process';
 
-const chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
-
-export {chromeVersion};
+export const chromeVersion = process.versions.chrome.replace(/\.\d+$/, '');
