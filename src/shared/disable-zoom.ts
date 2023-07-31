@@ -3,7 +3,6 @@ import {activeWindow} from '../main/active-window';
 import {is} from './is';
 
 /**
-265,276d167
 Disable zooming, usually caused by pinching the trackpad on macOS or Ctrl+ on Windows.
 
 @param window - Default: webContents from current window.
