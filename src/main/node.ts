@@ -2,6 +2,11 @@ import process from 'node:process';
 
 export const isElectron = 'electron' in process.versions;
 
+/**
+Check the app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
+```
+
+*/
 export const isUsingAsar =
 	isElectron &&
 	process.argv.length > 1 &&

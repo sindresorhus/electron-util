@@ -1,6 +1,5 @@
 import process from 'node:process';
 import isDev from 'electron-is-dev';
-import {isUsingAsar} from '../main/node';
 
 /*
 Check for various things.
@@ -32,11 +31,6 @@ type Is = {
 	readonly renderer: boolean;
 
 	/**
-	The app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
-	*/
-	readonly usingAsar: boolean;
-
-	/**
 	Running in development, not in production.
 	*/
 	readonly development: boolean;
@@ -58,8 +52,6 @@ export const is: Is = {
 	windows: process.platform === 'win32',
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
-	// TODO: This runs in main
-	usingAsar: isUsingAsar!,
 	development: isDev,
 	macAppStore: process.mas,
 	windowsStore: process.windowsStore,
