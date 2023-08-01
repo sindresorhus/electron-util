@@ -81,14 +81,15 @@ Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of
 export const getWindowBoundsCentered = (
 	options?: GetWindowBoundsCenteredOptions,
 ): Rectangle => {
-	const window = activeWindow();
+	const window = options?.window ?? activeWindow();
 	if (!window) {
 		throw new Error('No active window');
 	}
 
-	// TODO: Cast to number array because Electron type is weird
-	const [width, height] = window.getSize() as [number, number];
-	const windowSize = options?.size ?? {width, height};
+	const [width, height] = window.getSize();
+	// TODO: Why are width and height undefined?
+	// This is just a workaround
+	const windowSize = (options?.size ?? {width, height}) as Size;
 	const screenSize = screen.getDisplayNearestPoint(
 		screen.getCursorScreenPoint(),
 	).workArea;
@@ -110,12 +111,13 @@ export const getWindowBoundsCentered = (
 Center a window on the screen.
 */
 export const centerWindow = (options?: CenterWindowOptions) => {
-	const window = activeWindow();
+	const window = options?.window ?? activeWindow();
 	if (!window) {
 		throw new Error('No active window');
 	}
 
 	options = {
+		window,
 		animated: false,
 		...options,
 	};
