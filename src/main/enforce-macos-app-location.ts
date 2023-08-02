@@ -1,5 +1,6 @@
 import {app, dialog} from 'electron';
 import {is} from '../shared';
+import {isDev} from './dev';
 
 /**
 On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issues/56), if an app is launched outside the Applications folder, it will run in a read-only disk image, which could cause subtle problems for your app.
@@ -13,7 +14,7 @@ It will offer to automatically move the app for the user.
 */
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const enforceMacOSAppLocation = () => {
-	if (is.development || !is.macos) {
+	if (isDev || !is.macos) {
 		return;
 	}
 
