@@ -1,5 +1,4 @@
 import process from 'node:process';
-import isDev from 'electron-is-dev';
 
 /*
 Check for various things.
@@ -31,11 +30,6 @@ type Is = {
 	readonly renderer: boolean;
 
 	/**
-	Running in development, not in production.
-	*/
-	readonly development: boolean;
-
-	/**
 	The app is an Mac App Store build.
 	*/
 	readonly macAppStore: boolean;
@@ -52,7 +46,6 @@ export const is: Is = {
 	windows: process.platform === 'win32',
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
-	development: isDev,
 	macAppStore: process.mas,
 	windowsStore: process.windowsStore,
 };

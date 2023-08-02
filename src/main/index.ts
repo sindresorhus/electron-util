@@ -20,6 +20,7 @@ export {
 	isUsingAsar,
 	fixPathForAsarUnpack,
 } from './node';
+export {isDev} from './dev';
 
 export {setContentSecurityPolicy} from './security-policy';
 export {
