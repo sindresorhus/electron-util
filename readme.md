@@ -39,7 +39,9 @@ console.log(isDev);
 
 ## API
 
-[Documentation](https://tsdocs.dev/docs/electron-util)
+~~[Documentation](https://tsdocs.dev/docs/electron-util)~~ (The service is broken)
+
+Look at the [types](source) for now.
 
 ## Related
 
