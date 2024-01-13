@@ -10,7 +10,7 @@ import {
 	openNewGitHubIssue,
 	openUrlMenuItem,
 	openSystemPreferences,
-} from '../src/shared';
+} from '../source/shared/index.js';
 
 expectType<boolean>(is.macos);
 expectType<string>(chromeVersion);

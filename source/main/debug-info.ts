@@ -1,7 +1,7 @@
 import process from 'node:process';
 import os from 'node:os';
 import {app} from 'electron';
-import {electronVersion} from './node';
+import {electronVersion} from '../node/index.js';
 
 /**
 For example, use this in the `body` option of the `.openNewGitHubIssue()` method.

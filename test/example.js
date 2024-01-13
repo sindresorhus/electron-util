@@ -1,20 +1,22 @@
-'use strict';
-const path = require('node:path');
-const assert = require('node:assert');
-const {app, BrowserWindow, Menu, dialog} = require('electron');
-const {
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import assert from 'node:assert';
+import {app, BrowserWindow, Menu, dialog} from 'electron';
+import {
 	openNewGitHubIssue,
 	openUrlMenuItem,
 	openSystemPreferences,
 	runJS,
 	platform,
-} = require('../dist/shared');
-const {
+} from '../distribution/shared/index.js';
+import {
 	showAboutWindow,
 	aboutMenuItem,
 	debugInfo,
 	appMenu,
-} = require('../dist/main');
+} from '../distribution/main/index.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const createMenu = () => {
 	const items = [
@@ -82,7 +84,7 @@ const createMenu = () => {
 	Menu.setApplicationMenu(menu);
 };
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
+// eslint-disable-next-line unicorn/prefer-top-level-await -- whenReady is broken in top-level await.
 (async () => {
 	await app.whenReady();
 

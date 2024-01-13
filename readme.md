@@ -2,29 +2,33 @@
 
 > Useful utilities for Electron apps and modules
 
-You can use this module directly in both the [main and renderer process](https://electronjs.org/docs/tutorial/quick-start/#main-process).
+You can use this package directly in both the [main and renderer process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#main-process).
 
-There are two parts of the module, `main` and `shared`. The main part only works in the [main process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#run-the-main-process) of Electron. The shared part can work either in the main or the [rendered process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process).
+There are three parts of this package, “shared”, “main”, and “node”. The “shared” part works in both the main or [rendered process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process). The “main” part works only in the [main process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#run-the-main-process). The “node” part is for Node.js-only APIs (not Electron).
 
-To use features from the main part, you'll need to set up [IPC channels](https://www.electronjs.org/docs/latest/tutorial/ipc) to use it from the rendered process.
+To use features from the “main” part in the renderer process, you will need to set up [IPC channels](https://www.electronjs.org/docs/latest/tutorial/ipc).
 
 ## Install
 
-```
-$ npm install electron-util
+```sh
+npm install electron-util
 ```
 
 > [!NOTE]
-> Requires Electron 12 or later.
+> Requires Electron 28 or later.
 
 ## Usage
 
+The “shared” API you can access directly:
+
 ```ts
-import {is} from 'electron-util/shared';
+import {is} from 'electron-util';
 
 console.log(is.macos && is.main);
 //=> true
 ```
+
+For the “main” API, use the `/main` sub-export:
 
 ```ts
 import {isDev} from 'electron-util/main';
@@ -35,7 +39,7 @@ console.log(isDev);
 
 ## API
 
-For the API documentation, check the [TSDocs](https://tsdocs.dev/docs/electron-util) page.
+[Documentation](https://tsdocs.dev/docs/electron-util)
 
 ## Related
 

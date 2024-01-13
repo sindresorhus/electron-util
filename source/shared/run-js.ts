@@ -1,6 +1,6 @@
-import {webFrame} from 'electron';
-import {activeWindow} from '../main/active-window';
-import {is} from './is';
+import electron from 'electron';
+import {activeWindow} from '../main/active-window.js';
+import {is} from './is.js';
 
 /**
 122,130d33
@@ -13,7 +13,7 @@ Run some JavaScript in the active or given window.
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const runJS = async (
 	code: string,
-	web = is.main ? activeWindow()?.webContents : webFrame,
+	web = is.main ? activeWindow()?.webContents : electron.webFrame,
 ): Promise<void> => {
 	if (!web) {
 		throw new Error('No active window');

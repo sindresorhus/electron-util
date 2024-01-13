@@ -1,5 +1,5 @@
 import {nativeTheme} from 'electron';
-import {is} from '../shared/is';
+import {is} from '../shared/is.js';
 
 export type DarkMode = {
 	/**

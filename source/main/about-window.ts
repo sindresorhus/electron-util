@@ -4,7 +4,7 @@ import {
 	type AboutPanelOptionsOptions,
 	type MenuItemConstructorOptions,
 } from 'electron';
-import {is} from '../shared';
+import {is} from '../shared/index.js';
 
 export type ShowAboutWindowOptions = {
 	/**
@@ -69,9 +69,9 @@ showAboutWindow({
 export const showAboutWindow = (options: ShowAboutWindowOptions) => {
 	if (!is.windows) {
 		if (
-			options.copyright ??
-			(is.linux && options.icon) ??
-			(is.linux && options.website)
+			options.copyright
+			?? (is.linux && options.icon)
+			?? (is.linux && options.website)
 		) {
 			const aboutPanelOptions: AboutPanelOptionsOptions = {
 				copyright: options.copyright,
@@ -99,7 +99,7 @@ export const showAboutWindow = (options: ShowAboutWindowOptions) => {
 		: '';
 
 	void dialog.showMessageBox({
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+
 		title: `${options.title} ${app.name}`,
 		message: `Version ${app.getVersion()}`,
 		detail: (options.copyright ?? '') + text,
@@ -148,7 +148,7 @@ export const aboutMenuItem = (
 	// when used in a cross-platform app
 
 	return {
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+
 		label: `${options.title} ${app.name}`,
 		click() {
 			showAboutWindow(options ?? {});

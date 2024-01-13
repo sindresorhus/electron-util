@@ -1,54 +1,54 @@
 import {shell} from 'electron';
-import {is} from './is';
+import {is} from './is.js';
 
 export type SystemPreferencesMacOsPanes = {
 	universalaccess:
-		| 'Captioning'
-		| 'Hearing'
-		| 'Keyboard'
-		| 'Media_Descriptions'
-		| 'Mouse'
-		| 'Seeing_Display'
-		| 'Seeing_VoiceOver'
-		| 'Seeing_Zoom'
-		| 'SpeakableItems'
-		| 'Switch';
+	| 'Captioning'
+	| 'Hearing'
+	| 'Keyboard'
+	| 'Media_Descriptions'
+	| 'Mouse'
+	| 'Seeing_Display'
+	| 'Seeing_VoiceOver'
+	| 'Seeing_Zoom'
+	| 'SpeakableItems'
+	| 'Switch';
 	security:
-		| 'Advanced'
-		| 'FDE'
-		| 'Firewall'
-		| 'General'
-		| 'Privacy'
-		| 'Privacy_Accessibility'
-		| 'Privacy_Advertising'
-		/**
+	| 'Advanced'
+	| 'FDE'
+	| 'Firewall'
+	| 'General'
+	| 'Privacy'
+	| 'Privacy_Accessibility'
+	| 'Privacy_Advertising'
+	/**
 		Full Disk Access.
 		*/
-		| 'Privacy_AllFiles'
-		| 'Privacy_Assistive'
-		| 'Privacy_Automation'
-		| 'Privacy_Calendars'
-		| 'Privacy_Camera'
-		| 'Privacy_Contacts'
-		| 'Privacy_DesktopFolder'
-		| 'Privacy_Diagnostics'
-		| 'Privacy_DocumentsFolder'
-		| 'Privacy_DownloadsFolder'
-		| 'Privacy_LocationServices'
-		| 'Privacy_Microphone'
-		| 'Privacy_Photos'
-		| 'Privacy_Reminders'
-		| 'Privacy_ScreenCapture';
+	| 'Privacy_AllFiles'
+	| 'Privacy_Assistive'
+	| 'Privacy_Automation'
+	| 'Privacy_Calendars'
+	| 'Privacy_Camera'
+	| 'Privacy_Contacts'
+	| 'Privacy_DesktopFolder'
+	| 'Privacy_Diagnostics'
+	| 'Privacy_DocumentsFolder'
+	| 'Privacy_DownloadsFolder'
+	| 'Privacy_LocationServices'
+	| 'Privacy_Microphone'
+	| 'Privacy_Photos'
+	| 'Privacy_Reminders'
+	| 'Privacy_ScreenCapture';
 	speech: 'Dictation' | 'TTS';
 	sharing:
-		| 'Internet'
-		| 'Services_ARDService'
-		| 'Services_BluetoothSharing'
-		| 'Services_PersonalFileSharing'
-		| 'Services_PrinterSharing'
-		| 'Services_RemoteAppleEvent'
-		| 'Services_RemoteLogin'
-		| 'Services_ScreenSharing';
+	| 'Internet'
+	| 'Services_ARDService'
+	| 'Services_BluetoothSharing'
+	| 'Services_PersonalFileSharing'
+	| 'Services_PrinterSharing'
+	| 'Services_RemoteAppleEvent'
+	| 'Services_RemoteLogin'
+	| 'Services_ScreenSharing';
 };
 
 export type SystemPreferencesWindowsPanes =

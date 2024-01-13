@@ -46,7 +46,7 @@ export const setContentSecurityPolicy = async (
 		throw new Error('Each line must end in a semicolon');
 	}
 
-	policy = policy.replace(/[\t\n]/g, '').trim();
+	policy = policy.replaceAll(/[\t\n]/g, '').trim();
 
 	options = {
 		session: session.defaultSession,

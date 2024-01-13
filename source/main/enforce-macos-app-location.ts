@@ -1,6 +1,6 @@
 import {app, dialog} from 'electron';
-import {is} from '../shared';
-import {isDev} from './dev';
+import {is} from '../shared/index.js';
+import {isDev} from './dev.js';
 
 /**
 On macOS, for [security reasons](https://github.com/potionfactory/LetsMove/issues/56), if an app is launched outside the Applications folder, it will run in a read-only disk image, which could cause subtle problems for your app.

@@ -37,9 +37,9 @@ export const openUrlMenuItem = (
 ): MenuItemConstructorOptions => {
 	const {url, ...optionsWithoutUrl} = options;
 
-	const click: MenuItemConstructorOptions['click'] = (...args) => {
+	const click: MenuItemConstructorOptions['click'] = (...arguments_) => {
 		if (optionsWithoutUrl.click) {
-			optionsWithoutUrl.click(...args);
+			optionsWithoutUrl.click(...arguments_);
 		}
 
 		void shell.openExternal(url);

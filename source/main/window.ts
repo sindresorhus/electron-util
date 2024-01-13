@@ -1,6 +1,6 @@
 import {type BrowserWindow, type Rectangle, type Size, screen} from 'electron';
-import {is} from '../shared';
-import {activeWindow} from './active-window';
+import {is} from '../shared/index.js';
+import {activeWindow} from './active-window.js';
 
 export type GetWindowBoundsCenteredOptions = {
 	/**
@@ -94,10 +94,10 @@ export const getWindowBoundsCentered = (
 		screen.getCursorScreenPoint(),
 	).workArea;
 	const x = Math.floor(
-		screenSize.x + (screenSize.width / 2 - (windowSize.width ?? 0) / 2),
+		(screenSize.x + (screenSize.width / 2) - ((windowSize.width ?? 0) / 2)),
 	);
 	const y = Math.floor(
-		(screenSize.height + screenSize.y) / 2 - (windowSize.height ?? 0) / 2,
+		((screenSize.height + screenSize.y) / 2) - ((windowSize.height ?? 0) / 2),
 	);
 
 	return {

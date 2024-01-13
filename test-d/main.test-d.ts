@@ -19,7 +19,7 @@ import {
 	aboutMenuItem,
 	debugInfo,
 	appMenu,
-} from '../src/main';
+} from '../source/main/index.js';
 
 /* Idk
 expectType<AllElectron | Remote>(api);
@@ -40,7 +40,7 @@ expectType<void>(centerWindow({}));
 expectType<boolean>(isFirstAppLaunch());
 expectType<boolean>(darkMode.isEnabled);
 
-expectType<Promise<void>>(setContentSecurityPolicy("default-src 'none';"));
+expectType<Promise<void>>(setContentSecurityPolicy('default-src \'none\';'));
 
 expectType<void>(showAboutWindow({title: 'App name'}));
 expectType<MenuItemConstructorOptions>(aboutMenuItem());

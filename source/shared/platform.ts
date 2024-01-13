@@ -10,8 +10,8 @@ type _Choices<Macos, Windows, Linux, Default> = {
 };
 
 export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<
-	_Choices<Macos, Windows, Linux, Default>,
-	'macos' | 'windows' | 'linux'
+_Choices<Macos, Windows, Linux, Default>,
+'macos' | 'windows' | 'linux'
 >;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -67,8 +67,8 @@ export const platform = <
 	}
 
 	// TODO: This can't return undefined, but TypeScript doesn't know that
-	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>> =
-		platform in choices ? choices[platform] : choices.default;
+	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>>
+		= platform in choices ? choices[platform] : choices.default;
 
 	return fn instanceof Function ? fn() : fn;
 };
