@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Example</title>
+	<style>
+		.success {
+			background-color: green;
+			color: white;
+		}
+
+		.error {
+			background-color: red;
+			color: white;
+		}
+	</style>
+	<script src="renderer.cjs" defer></script>
+</head>
+<body>
+	<main>
+		<div id="test-platform-basic">
+			<pre>
+platform({
+	linux: 1,
+	macos: 2,
+	default: 3,
+});
+			</pre>
+			<pre class="result">
+			</pre>
+		</div>
+		<div id="test-platform-function">
+			<pre>
+platform({
+	linux: 1,
+	macos: () => 2,
+	default: 3,
+});
+			</pre>
+			<pre class="result">
+			</pre>
+		</div>
+		<div id="test-platform-default">
+			<pre>
+platform({
+	linux: 1,
+	default: 3,
+});
+			</pre>
+			<pre class="result">
+			</pre>
+		</div>
+		<div id="test-platform-undefined">
+			<pre>
+platform({
+	linux: 1,
+});
+			</pre>
+			<pre class="result">
+			</pre>
+		</div>
+	</main>
+</body>
+</html>
