@@ -16,11 +16,11 @@
 			"types": "./distribution/shared/index.d.ts",
 			"default": "./distribution/shared/index.js"
 		},
-		"main": {
+		"./main": {
 			"types": "./distribution/main/index.d.ts",
 			"default": "./distribution/main/index.js"
 		},
-		"node": {
+		"./node": {
 			"types": "./distribution/node/index.d.ts",
 			"default": "./distribution/node/index.js"
 		}
