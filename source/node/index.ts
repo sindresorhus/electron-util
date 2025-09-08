@@ -5,9 +5,7 @@ export const isElectron = 'electron' in process.versions;
 /**
 Check the app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
 */
-export const isUsingAsar = isElectron
-	&& process.argv.length > 1
-	&& process.argv[1]?.includes('app.asar');
+export const isUsingAsar = isElectron && process.argv.some(argument => argument?.includes('app.asar'));
 
 /**
 Electron version.
@@ -36,4 +34,4 @@ After:
 @returns The fixed path.
 */
 export const fixPathForAsarUnpack = (path: string): string =>
-	isUsingAsar ? path.replace('app.asar', 'app.asar.unpacked') : path;
+	isUsingAsar ? path.replaceAll('app.asar', 'app.asar.unpacked') : path;
