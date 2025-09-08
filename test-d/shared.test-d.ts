@@ -5,7 +5,6 @@ import {
 	chromeVersion,
 	platform,
 	runJS,
-	disableZoom,
 	appLaunchTimestamp,
 	openNewGitHubIssue,
 	openUrlMenuItem,
@@ -27,7 +26,6 @@ expectError(platform({default: 1}));
 
 expectType<Promise<void>>(runJS('a=1'));
 
-expectType<void>(disableZoom());
 expectType<number>(appLaunchTimestamp);
 
 expectType<void>(

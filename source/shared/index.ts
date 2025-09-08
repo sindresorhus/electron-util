@@ -1,6 +1,5 @@
 export {appLaunchTimestamp} from './app-launch-timestamp.js';
 export {chromeVersion} from './chrome.js';
-export {disableZoom} from './disable-zoom.js';
 export {openNewGitHubIssue} from './github-issue.js';
 export {is} from './is.js';
 export {type Choices, platform} from './platform.js';
