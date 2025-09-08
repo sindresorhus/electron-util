@@ -1,9 +1,29 @@
 import process from 'node:process';
 
+/**
+Check if the code is running in an Electron environment.
+
+@example
+```
+import {isElectron} from 'electron-util/node';
+
+console.log(isElectron);
+//=> true when in Electron, false when in Node.js
+```
+*/
 export const isElectron = 'electron' in process.versions;
 
 /**
-Check the app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
+Check if the app is using [ASAR](https://electronjs.org/docs/tutorial/application-packaging/).
+
+@example
+```
+import {isUsingAsar} from 'electron-util/node';
+
+if (isUsingAsar) {
+	console.log('Running from an ASAR archive');
+}
+```
 */
 export const isUsingAsar = isElectron && process.argv.some(argument => argument?.includes('app.asar'));
 
@@ -32,6 +52,16 @@ After:
 
 @param path - A path in your app.
 @returns The fixed path.
+
+@example
+```
+import {fixPathForAsarUnpack} from 'electron-util/node';
+
+const binaryPath = path.join(__dirname, 'binary');
+const fixedPath = fixPathForAsarUnpack(binaryPath);
+//=> '/path/to/app.asar.unpacked/binary' when in ASAR
+//=> '/path/to/binary' otherwise
+```
 */
 export const fixPathForAsarUnpack = (path: string): string =>
 	isUsingAsar ? path.replaceAll('app.asar', 'app.asar.unpacked') : path;

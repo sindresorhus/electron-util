@@ -4,9 +4,13 @@
 
 You can use this package directly in both the [main and renderer process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#main-process).
 
-There are three parts of this package, “shared”, “main”, and “node”. The “shared” part works in both the main or [rendered process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process). The “main” part works only in the [main process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#run-the-main-process). The “node” part is for Node.js-only APIs (not Electron).
+This package is organized into three parts:
 
-To use features from the “main” part in the renderer process, you will need to set up [IPC channels](https://www.electronjs.org/docs/latest/tutorial/ipc).
+- **`shared`** - APIs that work in both the main and [renderer process](https://www.electronjs.org/docs/latest/tutorial/process-model#the-renderer-process)
+- **`main`** - APIs that only work in the [main process](https://www.electronjs.org/docs/latest/tutorial/quick-start/#run-the-main-process) (requires Electron APIs)
+- **`node`** - APIs that work in any Node.js environment, even outside Electron (pure Node.js utilities for detecting Electron environment, ASAR usage, etc.)
+
+To use features from the "main" part in the renderer process, you will need to set up [IPC channels](https://www.electronjs.org/docs/latest/tutorial/ipc).
 
 ## Install
 
@@ -28,13 +32,25 @@ console.log(is.macos && is.main);
 //=> true
 ```
 
-For the “main” API, use the `/main` sub-export:
+For the "main" API, use the `/main` sub-export:
 
 ```ts
 import {isDev} from 'electron-util/main';
 
 console.log(isDev);
 //=> false
+```
+
+For the "node" API, use the `/node` sub-export:
+
+```ts
+import {isElectron, fixPathForAsarUnpack} from 'electron-util/node';
+
+console.log(isElectron);
+//=> true when running in Electron, false in plain Node.js
+
+const fixedPath = fixPathForAsarUnpack('/path/app.asar/binary');
+//=> '/path/app.asar.unpacked/binary' when in ASAR, or unchanged otherwise
 ```
 
 ## API
