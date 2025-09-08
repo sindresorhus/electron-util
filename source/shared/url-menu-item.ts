@@ -32,9 +32,7 @@ const menu = Menu.buildFromTemplate([
 
 Menu.setApplicationMenu(menu);
 */
-export const openUrlMenuItem = (
-	options: Readonly<OpenUrlMenuItemOptions>,
-): MenuItemConstructorOptions => {
+export const openUrlMenuItem = (options: Readonly<OpenUrlMenuItemOptions>): MenuItemConstructorOptions => {
 	const {url, ...optionsWithoutUrl} = options;
 
 	const click: MenuItemConstructorOptions['click'] = (...arguments_) => {

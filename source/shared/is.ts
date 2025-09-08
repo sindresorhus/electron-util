@@ -46,6 +46,6 @@ export const is: Is = {
 	windows: process.platform === 'win32',
 	main: process.type === 'browser',
 	renderer: process.type === 'renderer',
-	macAppStore: process.mas,
-	windowsStore: process.windowsStore,
+	macAppStore: Boolean(process.mas),
+	windowsStore: Boolean(process.windowsStore),
 };

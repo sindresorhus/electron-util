@@ -25,9 +25,7 @@ const menu = Menu.buildFromTemplate([
 Menu.setApplicationMenu(menu);
 ```
 */
-export const appMenu = (
-	menuItems?: readonly MenuItemConstructorOptions[],
-): MenuItemConstructorOptions =>
+export const appMenu = (menuItems?: readonly MenuItemConstructorOptions[]): MenuItemConstructorOptions =>
 	// TODO: When https://github.com/electron/electron/issues/15589 is fixed,
 	// handle the macOS case here, so the user doesn't need a conditional
 	// when used in a cross-platform app
@@ -40,7 +38,7 @@ export const appMenu = (
 			{
 				type: 'separator',
 			},
-			...(menuItems ?? []),
+			...(menuItems ?? [] as MenuItemConstructorOptions[]),
 			{
 				type: 'separator',
 			},

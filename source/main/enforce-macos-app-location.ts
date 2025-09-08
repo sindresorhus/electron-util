@@ -13,8 +13,8 @@ It will be a no-op during development and on other systems than macOS.
 It will offer to automatically move the app for the user.
 */
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const enforceMacOSAppLocation = () => {
-	if (isDev || !is.macos) {
+export const enforceMacOSAppLocation = (): void => {
+	if (isDev ?? !is.macos) {
 		return;
 	}
 

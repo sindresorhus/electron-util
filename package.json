@@ -27,7 +27,7 @@
 	},
 	"sideEffects": false,
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"scripts": {
 		"start": "npm run build && electron test/example.js",
@@ -52,23 +52,26 @@
 	],
 	"dependencies": {
 		"electron-is-dev": "^3.0.1",
-		"new-github-issue-url": "^1.0.0"
+		"new-github-issue-url": "^1.1.0"
 	},
 	"devDependencies": {
-		"@sindresorhus/tsconfig": "^5.0.0",
-		"electron": "^28.1.3",
-		"tsd": "^0.30.3",
-		"type-fest": "^4.9.0",
-		"typescript": "^5.3.3",
-		"xo": "^0.56.0"
+		"@sindresorhus/tsconfig": "^8.0.1",
+		"electron": "^38.0.0",
+		"tsd": "^0.33.0",
+		"type-fest": "^4.41.0",
+		"typescript": "^5.9.2",
+		"xo": "^1.2.2"
 	},
 	"xo": {
-		"envs": [
-			"node",
-			"browser"
-		],
 		"ignores": [
 			"distribution"
-		]
+		],
+		"rules": {
+			"@typescript-eslint/no-unsafe-assignment": "off",
+			"@typescript-eslint/no-unsafe-call": "off",
+			"@typescript-eslint/no-unsafe-return": "off",
+			"@typescript-eslint/restrict-plus-operands": "off",
+			"no-warning-comments": "off"
+		}
 	}
 }

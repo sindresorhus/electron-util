@@ -170,9 +170,7 @@ const menu = Menu.buildFromTemplate([
 
 Menu.setApplicationMenu(menu);
 */
-export const aboutMenuItem = (
-	options?: AboutMenuItemOptions,
-): MenuItemConstructorOptions => {
+export const aboutMenuItem = (options?: AboutMenuItemOptions): MenuItemConstructorOptions => {
 	options = {
 		title: 'About',
 		...options,

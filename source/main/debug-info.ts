@@ -16,7 +16,7 @@ console.log(debugInfo());
 //=> 'AppName 2.21.0\nElectron 3.0.6\ndarwin 18.2.0\nLocale: en-US'
 ```
 */
-export const debugInfo = () =>
+export const debugInfo = (): string =>
 	`
 ${app.name} ${app.getVersion()}
 Electron ${electronVersion}

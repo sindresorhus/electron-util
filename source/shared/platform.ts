@@ -1,5 +1,5 @@
 import process from 'node:process';
-import {type RequireAtLeastOne, type ValueOf} from 'type-fest';
+import {type RequireAtLeastOne} from 'type-fest';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 type _Choices<Macos, Windows, Linux, Default> = {
@@ -10,7 +10,7 @@ type _Choices<Macos, Windows, Linux, Default> = {
 };
 
 export type Choices<Macos, Windows, Linux, Default> = RequireAtLeastOne<
-_Choices<Macos, Windows, Linux, Default>,
+	_Choices<Macos, Windows, Linux, Default>,
 'macos' | 'windows' | 'linux'
 >;
 
@@ -67,8 +67,7 @@ export const platform = <
 	}
 
 	// TODO: This can't return undefined, but TypeScript doesn't know that
-	const fn: ValueOf<Choices<Macos, Windows, Linux, Default>>
-		= platform in choices ? choices[platform] : choices.default;
+	const fn = platform in choices ? choices[platform as keyof typeof choices] : choices.default;
 
-	return fn instanceof Function ? fn() : fn;
+	return typeof fn === 'function' ? (fn as () => any)() : fn;
 };

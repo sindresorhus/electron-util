@@ -19,7 +19,7 @@ npm install electron-util
 ```
 
 > [!NOTE]
-> Requires Electron 28 or later.
+> Requires Electron 37 or later.
 
 ## Usage
 
@@ -32,7 +32,7 @@ console.log(is.macos && is.main);
 //=> true
 ```
 
-For the "main" API, use the `/main` sub-export:
+For the “main” API, use the `/main` sub-export:
 
 ```ts
 import {isDev} from 'electron-util/main';
@@ -41,7 +41,7 @@ console.log(isDev);
 //=> false
 ```
 
-For the "node" API, use the `/node` sub-export:
+For the “node” API, use the `/node` sub-export:
 
 ```ts
 import {isElectron, fixPathForAsarUnpack} from 'electron-util/node';

@@ -1,4 +1,9 @@
-import {type BrowserWindow, type Rectangle, type Size, screen} from 'electron';
+import {
+	type BrowserWindow,
+	type Rectangle,
+	type Size,
+	screen,
+} from 'electron';
 import {is} from '../shared/index.js';
 import {activeWindow} from './active-window.js';
 
@@ -70,35 +75,25 @@ export type CenterWindowOptions = {
 /**
 @returns The height of the menu bar on macOS, or `0` if not macOS.
 */
-export const menuBarHeight = () =>
-	is.macos ? screen.getPrimaryDisplay().workArea.y : 0;
+export const menuBarHeight = (): number =>
+	is.macos ? (screen.getPrimaryDisplay().workArea.y as number) : 0;
 
 /**
 Get the [bounds](https://electronjs.org/docs/api/browser-window#wingetbounds) of a window as if it was centered on the screen.
 
 @returns Bounds of a window.
 */
-export const getWindowBoundsCentered = (
-	options?: GetWindowBoundsCenteredOptions,
-): Rectangle => {
+export const getWindowBoundsCentered = (options?: GetWindowBoundsCenteredOptions): Rectangle => {
 	const window = options?.window ?? activeWindow();
 	if (!window) {
 		throw new Error('No active window');
 	}
 
-	const [width, height] = window.getSize();
-	// TODO: Why are width and height undefined?
-	// This is just a workaround
-	const windowSize = (options?.size ?? {width, height}) as Size;
-	const screenSize = screen.getDisplayNearestPoint(
-		screen.getCursorScreenPoint(),
-	).workArea;
-	const x = Math.floor(
-		(screenSize.x + (screenSize.width / 2) - ((windowSize.width ?? 0) / 2)),
-	);
-	const y = Math.floor(
-		((screenSize.height + screenSize.y) / 2) - ((windowSize.height ?? 0) / 2),
-	);
+	const [width, height] = (window as any).getSize() as [number, number];
+	const windowSize: Size = options?.size ?? {width: width ?? 0, height: height ?? 0};
+	const screenSize = (screen.getDisplayNearestPoint(screen.getCursorScreenPoint()) as any).workArea as Rectangle;
+	const x = Math.floor((screenSize.x as number) + ((screenSize.width as number) / 2) - (windowSize.width / 2));
+	const y = Math.floor((((screenSize.height as number) + (screenSize.y as number)) / 2) - (windowSize.height / 2));
 
 	return {
 		x,
@@ -110,18 +105,18 @@ export const getWindowBoundsCentered = (
 /**
 Center a window on the screen.
 */
-export const centerWindow = (options?: CenterWindowOptions) => {
+export const centerWindow = (options?: CenterWindowOptions): void => {
 	const window = options?.window ?? activeWindow();
 	if (!window) {
 		throw new Error('No active window');
 	}
 
-	options = {
+	const resolvedOptions: CenterWindowOptions & {window: BrowserWindow} = {
 		window,
 		animated: false,
 		...options,
 	};
 
-	const bounds = getWindowBoundsCentered(options);
-	window.setBounds(bounds, options.animated);
+	const bounds = getWindowBoundsCentered(resolvedOptions);
+	(window as any).setBounds(bounds, resolvedOptions.animated ?? false);
 };

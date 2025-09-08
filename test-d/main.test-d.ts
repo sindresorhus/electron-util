@@ -27,8 +27,7 @@ expectType<boolean>(api.app.isPackaged);
 */
 expectType<string>(electronVersion);
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-expectType<BrowserWindow | null>(activeWindow());
+expectType<BrowserWindow | undefined>(activeWindow());
 expectType<string>(fixPathForAsarUnpack('/path'));
 
 expectType<void>(enforceMacOSAppLocation());
@@ -45,11 +44,9 @@ expectType<Promise<void>>(setContentSecurityPolicy('default-src \'none\';'));
 expectType<void>(showAboutWindow({title: 'App name'}));
 expectType<MenuItemConstructorOptions>(aboutMenuItem());
 expectType<string>(debugInfo());
-expectType<MenuItemConstructorOptions>(
-	appMenu([
-		{
-			label: 'Preferences…',
-			accelerator: 'Command+,',
-		},
-	]),
-);
+expectType<MenuItemConstructorOptions>(appMenu([
+	{
+		label: 'Preferences…',
+		accelerator: 'Command+,',
+	},
+]));

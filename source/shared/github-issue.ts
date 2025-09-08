@@ -19,7 +19,7 @@ openNewGitHubIssue({
 	body: 'Hello'
 });
 */
-export const openNewGitHubIssue = (options: OpenNewGitHubIssueOptions) => {
+export const openNewGitHubIssue = (options: OpenNewGitHubIssueOptions): void => {
 	const url = newGithubIssueUrl(options);
 	void shell.openExternal(url);
 };

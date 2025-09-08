@@ -1,7 +1,12 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert';
-import {app, BrowserWindow, Menu, dialog} from 'electron';
+import {
+	app,
+	BrowserWindow,
+	Menu,
+	dialog,
+} from 'electron';
 import {
 	openNewGitHubIssue,
 	openUrlMenuItem,
